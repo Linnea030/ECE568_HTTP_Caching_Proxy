@@ -1,5 +1,6 @@
 #include "proxy.h"
 #include "csbuild.h"
+#include "package.h"
 
 #define MAX_LEN 65536
 pthread_mutex_t lock;
@@ -24,12 +25,21 @@ void Proxy::init_Proxy() {
             pthread_mutex_unlock(&lock);
         	continue;
 		}
+
         //receive request from remote client
         char request_info[MAX_LEN] = {0};
         int flag_size = recv(fd_accept, &request_info, sizeof(request_info), MSG_WAITALL);
         //判断recv的size =0 就结束这个handlereq， 小于0就400    
-        
+        std::string request_info_s(request_info, flag_size);
 
+        //get an object of request package
+        PackRequest req_pack(request_info_s);
+        //test!!!
+        req_pack.print_request();
+        //connect to client as server
+        const char * hostname = req_pack.hostname.c_str();
+        const char * port = req_pack.port.c_str();
+        cs.init_client(hostname, port);
     }
 
     
