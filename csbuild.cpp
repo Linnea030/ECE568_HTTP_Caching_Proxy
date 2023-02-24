@@ -103,7 +103,7 @@ int Csbuild::accept_as_server(std::string & ip) {
         std::cerr << "Error: cannot accept connection on socket\n";
         return -1;
     } //if
-    socket_fd = fd_accept;
+    fd_accept = socket_fd;
     //used addr to get ip
     struct sockaddr_in * addr = (struct sockaddr_in *)&socket_addr;
     ip = inet_ntoa(addr->sin_addr);

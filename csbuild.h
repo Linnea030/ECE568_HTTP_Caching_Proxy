@@ -23,10 +23,15 @@ class Csbuild {
     Csbuild() : fd_server(-1), fd_accept(-1), fd_client(-1) {}
 
     //initialize as server
-    int init_server(const char * port) {}
+    int init_server(const char * port);
     //initialize as client and connect remote server
-    int init_client(const char * hostname, const char * port) {}
+    int init_client(const char * hostname, const char * port);
     //accept remote client as a server
-    int accept_as_server(std::string & ip) {}
+    int accept_as_server(std::string & ip);
+    void cs_print() {
+        std::cout<<"info of cs:\n";
+        std::cout<<"fd_server: "<<fd_server<<" fd_accept: "<<fd_accept<<" fd_client: "<<fd_client<<" ip_client： "<<ip_client<<"\n";
+        std::cout<<"\n";
+    }
     ~Csbuild() {}
 };

@@ -23,11 +23,11 @@ class PackRequest {
         parse();
     }
 
-    void parse() {}
-    void parse_line() {}
-    void parse_header() {}
-    void parse_body() {}
-    void print_request() {}
+    void parse();
+    void parse_line();
+    void parse_header();
+    void parse_body();
+    void print_request();
 
     ~PackRequest() {}
 };
@@ -49,8 +49,8 @@ class PackResponse {
         parse();
     }
 
-    void parse() {}
-    void parse_header() {}
+    void parse();
+    void parse_header();
     
     ~PackResponse() {}
 };

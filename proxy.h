@@ -14,8 +14,14 @@ class Proxy {
 
     Proxy(const char * port) : port(port) {}
 
-    void init_Proxy() {}
-    void connect_function(){}
+    void init_Proxy();
+    void connect_function();
+    void update_cs();
+    void proxy_print(){
+        std::cout<<"info of proxy:\n";
+        std::cout<<"fd_server: "<<fd_server<<" fd_accept: "<<fd_accept<<" fd_client: "<<fd_client<<" ip_client: "<<ip_client<<"\n";
+        std::cout<<"\n";
+    }
 
     ~Proxy() {
         close(fd_server);
