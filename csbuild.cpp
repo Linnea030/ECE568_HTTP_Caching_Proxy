@@ -48,7 +48,7 @@ int Csbuild::init_server(const char * port) {//this port is set in main.cpp
     } //if
 
     freeaddrinfo(host_info_list);
-    return fd_server;
+    return socket_fd;
 }
 
 //initialize as a client and connect to remote server
@@ -90,7 +90,7 @@ int Csbuild::init_client(const char * hostname, const char * port) {
     } //if
 
     freeaddrinfo(host_info_list);
-    return fd_client;
+    return socket_fd;
 }
 
 //accept remote client as a server
@@ -98,15 +98,15 @@ int Csbuild::accept_as_server(std::string & ip) {
     struct sockaddr_storage socket_addr;
     socklen_t socket_addr_len = sizeof(socket_addr);
 
-    fd_accept = accept(fd_server, (struct sockaddr *)&socket_addr, &socket_addr_len);
-    if (fd_accept == -1) {
+    int socket_fd= accept(fd_server, (struct sockaddr *)&socket_addr, &socket_addr_len);
+    if (socket_fd == -1) {
         std::cerr << "Error: cannot accept connection on socket\n";
         return -1;
     } //if
-
+    socket_fd = fd_accept;
     //used addr to get ip
     struct sockaddr_in * addr = (struct sockaddr_in *)&socket_addr;
     ip = inet_ntoa(addr->sin_addr);
     ip_client = ip;
-    return fd_accept;
+    return socket_fd;
 }

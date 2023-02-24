@@ -1,4 +1,6 @@
 #include <pthread.h>
+#include "csbuild.h"
+#include "package.h"
 
 class Proxy {
     public:
@@ -13,6 +15,11 @@ class Proxy {
     Proxy(const char * port) : port(port) {}
 
     void init_Proxy() {}
+    void connect_function(){}
 
-    ~Proxy() {}
+    ~Proxy() {
+        close(fd_server);
+        close(fd_accept);
+        close(fd_client);
+    }
 };
