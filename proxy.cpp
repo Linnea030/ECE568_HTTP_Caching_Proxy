@@ -58,7 +58,7 @@ void Proxy::process(void * thread1) {
         SocketInfo *thread_info = (SocketInfo *)thread1;
         Csbuild cs;
         //receive request from remote client
-        char request_info[65536] = {0};
+        char request_info[MAX_LEN] = {0};
         int flag_size = recv(thread_info->fd_client, request_info, sizeof(request_info), 0);
         //判断recv的size =0 就结束这个handlereq， 小于0就400
         if(flag_size == 0) return;
@@ -127,11 +127,11 @@ void Proxy::connect_function(int fd_client, int fd_server, int id){
     std::cout<<"in connect function\n";
     //print log ID: Requesting "REQUEST" from SERVER
     std::string con_info = "HTTP/1.1 200 OK\r\n\r\n";
-    //int con_info_len = con_info.size();
-    //char * con_info_c = con_info.c_str();
+    int con_info_len = con_info.size();
+    const char * con_info_c = con_info.c_str();
     //send 200OK to remote client
     int flag_size_s;
-    flag_size_s = send(fd_client, con_info.c_str(), con_info.size(), MSG_NOSIGNAL);
+    flag_size_s = send(fd_client, con_info_c, con_info_len, MSG_NOSIGNAL);
     std::cout<<"send 200OK to client with flag: "<<flag_size_s<<"\n";
 
     if (flag_size_s < 0) {

@@ -2,6 +2,9 @@
 #include <iostream>
 #include <sstream>
 #include <string>
+#include <sys/socket.h>
+#include <arpa/inet.h>
+#include <unistd.h>
 
 class SocketInfo {
     public:
@@ -19,7 +22,7 @@ class SocketInfo {
     SocketInfo(int fd_accept, int fd_client, int fd_server, int id, std::string ip_client) :
              fd_accept(fd_accept), fd_client(fd_client), fd_server(fd_server), id(id), ip_client(ip_client){}
     ~SocketInfo() {
-        close(this->fd_server);
-        close(this->fd_client);
+        close(fd_server);
+        close(fd_client);
     }
 };
