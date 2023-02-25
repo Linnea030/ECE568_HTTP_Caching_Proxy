@@ -42,26 +42,26 @@ void Proxy::init_Proxy() {
         std::cout<<"accept client in init_proxy\n";
 
 
-        //pthread_t new_thread;
+        pthread_t new_thread;
         pthread_mutex_lock(&lock);
         int fd_server = -1;
         SocketInfo * thread_info = new SocketInfo(fd_accept, fd_client, fd_server, thread_id, ip);
         thread_id++;
         pthread_mutex_unlock(&lock);
-        //pthread_create(&new_thread, NULL, Proxy::process, thread_info);
-        std::thread t(&Proxy::process, this, thread_info);
-        t.join();
+        pthread_create(&new_thread, NULL, process, thread_info);
+        //std::thread t(&Proxy::process, this, thread_info);
+        //t.join();
     }
 }
 
-void Proxy::process(void * thread1) {
+void * Proxy::process(void * thread1) {
         SocketInfo *thread_info = (SocketInfo *)thread1;
         Csbuild cs;
         //receive request from remote client
         char request_info[MAX_LEN] = {0};
         int flag_size = recv(thread_info->fd_client, request_info, sizeof(request_info), 0);
         //判断recv的size =0 就结束这个handlereq， 小于0就400
-        if(flag_size == 0) return;
+        if(flag_size == 0) return NULL;
 
         //test!!!
         std::cout << "received request is:\n" << request_info << std ::endl;
@@ -86,7 +86,7 @@ void Proxy::process(void * thread1) {
             //logFile<< "ERROR in connecting client\n";
             //pthread_mutex_unlock(&lock);
             std::cout<<"connect server failed\n";
-        	return;
+        	return NULL;
 		}
 
         //test!!!
@@ -118,6 +118,7 @@ void Proxy::process(void * thread1) {
         }
 
         delete thread_info;
+        return NULL;
 }
 
 void Proxy::connect_function(int fd_client, int fd_server, int id){

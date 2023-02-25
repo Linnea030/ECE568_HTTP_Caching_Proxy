@@ -16,9 +16,9 @@ class Proxy {
     //Proxy(const char * port) : port(port), fd_accept(-1), fd_client(-1), fd_server(-1), ip_client("") {}
     Proxy(const char * port) : port(port) {}
     void init_Proxy();
-    void connect_function(int fd_client, int fd_server, int id);
+    static void connect_function(int fd_client, int fd_server, int id);
     //void update_cs();
-    void process(void * thread1);
+    static void * process(void * thread1);
     // void proxy_print(){
     //     std::cout<<"info of proxy:\n";
     //     std::cout<<"fd_server: "<<fd_server<<" fd_accept: "<<fd_accept<<" fd_client: "<<fd_client<<" ip_client: "<<ip_client<<"\n";
