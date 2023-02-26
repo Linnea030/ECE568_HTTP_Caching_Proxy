@@ -29,25 +29,41 @@ void PackRequest::parse_header() {
         //判断！！！
         return;
     }
-	request_header = request.substr(pos_line + 2, pos_header);
-    //get hostname and port
-    size_t pos_h = request_header.find("Host") + 6;
-    //std::cout<<request_header<<"\n\n";
-    size_t pos_h_end = request_header.find("\r\n");
-	std::string line_hp = request_header.substr(pos_h, pos_h_end -pos_h);
-    //std::cout<<line_hp<<"\n\n";
-    //get port
-	size_t pos_p = line_hp.find(":");
-    //std::cout<<pos_p;
-	if(pos_p == std::string::npos){
-        std::cout<<"   port is 80\n";
-        port = "80";
-		hostname = line_hp;
+	request_header = request.substr(pos_line + strlen("\r\n"), pos_header);
+    size_t pos_host = request.find("Host");
+	std::string mid_host = request.substr(pos_host+6);
+	size_t end = mid_host.find("\r\n");
+	std::string host_port = mid_host.substr(0,end);
+	size_t port_pos = host_port.find(":");
+	//std::cout << port_pos <<std::endl;
+	if(port_pos!= std::string::npos){
+		hostname = host_port.substr(0,port_pos);
+		port = host_port.substr(port_pos+1);
 	} else{
-        std::cout<<"port is not 80\n";
-		port = line_hp.substr(pos_p + 1);
-        hostname = line_hp.substr(0, pos_p);
+		hostname = host_port;
+		port="80";
 	}
+    // //get hostname and port
+    // size_t pos_h = request_header.find("Host") + 6;
+    // //std::cout<<request_header<<"\n\n";
+    // size_t pos_h_end = request_header.find("\r\n\r\n");
+    // std::cout<<"pos_h_end: "<<pos_h_end<<"\n";
+	// std::string line_hp = request_header.substr(pos_h, pos_h_end - pos_h);
+    // //std::cout<<line_hp<<"\n\n";
+    // //get port
+	// size_t pos_p = line_hp.find(":");
+    // //std::cout<<"!!!!!!!!!"<<line_hp<<"\n";
+	// if(pos_p == std::string::npos){
+    //     std::cout<<"port is 80\n";
+    //     port = "80";
+	// 	hostname = line_hp;
+	// } else{
+    //     std::cout<<"port is not 80\n";
+	// 	port = line_hp.substr(pos_p + 1);
+    //     //std::cout<<"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!\n";
+    //     //std::cout<<port.size()<<"\n";
+    //     hostname = line_hp.substr(0, pos_p);
+	// }
 }
 
 void PackRequest::parse_body() {
@@ -122,4 +138,12 @@ bool PackResponse::is_chunked(){
     return (response.find("chunked") != std::string::npos) ? true : false;
 }
 
-
+int PackResponse::get_length(){
+    std::string name = "Content-Length";
+    size_t pos = response.find(name);
+    //if not found?
+    size_t pos_end = response.find("\r\n", pos + 1);
+    std::string len_s = response.substr(pos + 2 + name.size(), pos_end - pos - name.size() - 2);
+    std::cout<<"in get_length, len_s: "<<len_s<<"\n";
+    return stoi(len_s);
+}

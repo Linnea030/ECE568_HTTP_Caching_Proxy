@@ -68,6 +68,7 @@ class PackResponse {
     void parse_header();
     void parse_status();
     bool is_chunked();
+    int get_length();
     
     ~PackResponse() {}
 };

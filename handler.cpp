@@ -21,6 +21,7 @@ using namespace std;
  * @return null
  */
 void Handler::GETHandler(PackRequest req, int fd_client, int fd_server, Cache & cache, int thread_id){
+    std::cout<<"int get handler\n";
     //string hostname = req.hostname;
     //string portnum = req.port;
     string uri = req.URI; //判断cache
@@ -33,6 +34,7 @@ void Handler::GETHandler(PackRequest req, int fd_client, int fd_server, Cache & 
     if(in_cache){}
     // If not in cache
     else{
+        std::cout<<"not in cache\n";
         //待补充：写入log: not in cache
         //读取client的request，send给remote server
         //待补充：写入log：request from server
@@ -41,7 +43,10 @@ void Handler::GETHandler(PackRequest req, int fd_client, int fd_server, Cache & 
         //send回client
 
         //send request to remote server
-        send(fd_server, req.request.data(), req.request.size(), MSG_NOSIGNAL);
+        int flag_s;
+        std::cout<<"req.request.data():\n"<<req.request.data()<<"\n";
+        flag_s = send(fd_server, req.request.data(), req.request.size(), MSG_NOSIGNAL);
+        std::cout<<"send request to remote server with flag: "<<flag_s<<"\n";
 
         //receive response
         vector<char> msg;
@@ -52,6 +57,8 @@ void Handler::GETHandler(PackRequest req, int fd_client, int fd_server, Cache & 
             perror("Response msg recv error");
             return;
         }
+        std::cout<<"recv response from remote server with flag: "<<msg_len<<"\n";
+
         int index = msg_len;
         // 待补充：把第一个包存入response中
         //string response_info_s(msg);
@@ -64,6 +71,7 @@ void Handler::GETHandler(PackRequest req, int fd_client, int fd_server, Cache & 
 
         // 待补充：if res.is_chunked()
         if(res.is_chunked()){
+            std::cout<<"in is chunked: \n";
             string tmp;
             //tmp.insert(tmp.begin(), msg.begin(), msg.end());
             tmp.assign(msg.begin(), msg.end());
@@ -81,9 +89,10 @@ void Handler::GETHandler(PackRequest req, int fd_client, int fd_server, Cache & 
         }
         // If not chunked
         else{
+            std::cout<<"in is not chunked: \n";
             int len;
             // 待补充：len = res.getLen();
-
+            len = res.get_length();
             // Receive until index = len
             while(len > index){
                 msg.resize(index + RESPONSE_MSG_MAX);
@@ -106,6 +115,9 @@ void Handler::GETHandler(PackRequest req, int fd_client, int fd_server, Cache & 
         //Send response to remote client
         string response_whole;
         response_whole = string(msg.begin(), msg.end());
-        send(fd_client, response_whole.data(), response_whole.size(), MSG_NOSIGNAL);
+        std::cout<<"response size"<<response_whole.size()<<"\n";
+        flag_s = send(fd_client, response_whole.data(), response_whole.size(), MSG_NOSIGNAL);
+        std::cout<<"response_whole : \n"<<response_whole.data()<<"\n";
+        std::cout<<"send request to remote client with flag: "<<flag_s<<"\n";
     }
 }

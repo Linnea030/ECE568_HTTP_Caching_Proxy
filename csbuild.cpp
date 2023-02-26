@@ -65,7 +65,7 @@ int Csbuild::init_client(const char * hostname, const char * port) {
     status = getaddrinfo(hostname, port, &host_info, &host_info_list);
     if (status != 0) {
         std::cerr << "Error: cannot get address info for host in init_client\n";
-        std::cerr << "  (" << hostname<< "," << port<< ")'n";
+        std::cerr << "  (" << hostname<< "," << port<< ")\n";
         return -1;
     } //if
 
