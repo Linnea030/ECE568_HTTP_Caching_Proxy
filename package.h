@@ -8,15 +8,20 @@
 
 class PackRequest {
     public:
+    std::string whole;
     std::string request;
     std::string request_line;
     std::string request_header;
     std::string request_body;
-    std::string info;
+    //std::string info;
     std::string method;
-    std::string URI;
+    //std::string URI;
     std::string hostname;
     std::string port;
+    std::string len_info;
+
+    int content_len_remain;
+    int flag_nocache;
 
     PackRequest(std::string request_info_s) {
         request = request_info_s;
@@ -26,9 +31,10 @@ class PackRequest {
     void parse();
     void parse_line();
     void parse_header();
+    void parse_cache();
     void parse_body();
     void print_request();
-
+    
     ~PackRequest() {}
 };
 
@@ -41,16 +47,15 @@ class PackResponse {
     std::string method;
     std::string hostname;
     std::string port;
-    std::string uri;
     std::string info;
 
     PackResponse(std::string response_info_s) {
         response = response_info_s;
-        parse();
+        //parse();
     }
 
-    void parse();
-    void parse_header();
+    //void parse();
+    //void parse_header();
     
     ~PackResponse() {}
 };

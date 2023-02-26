@@ -18,6 +18,8 @@ class Proxy {
     void init_Proxy();
     static void connect_function(int fd_client, int fd_server, int id);
     //void update_cs();
+    static void post_function(int fd_client, int fd_server, int id, PackRequest & request_info);
+    static void function400(int fd_client, int id);
     static void * process(void * thread1);
     // void proxy_print(){
     //     std::cout<<"info of proxy:\n";

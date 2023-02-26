@@ -97,8 +97,12 @@ void * Proxy::process(void * thread1) {
             //get function
         }
         else if(req_pack.method == "POST") {
+            //test!!!
+            std::cout<<"here method is post\n";
             //post function
-            
+            post_function(thread_info->fd_client, 
+                            thread_info->fd_server, thread_info->id, req_pack);
+            std::cout<<"after post function\n";
         }
         else if(req_pack.method == "CONNECT"){
             //test!!!
@@ -115,6 +119,7 @@ void * Proxy::process(void * thread1) {
         }
         else{
             //400 function
+            function400(thread_info->fd_client, thread_info->id);
         }
 
         delete thread_info;
@@ -140,54 +145,6 @@ void Proxy::connect_function(int fd_client, int fd_server, int id){
         perror("recv error: ");
         return;
     }
-
-    // char buffer[65536] = {0};
-    // int flag_recv = recv(fd_client, buffer, sizeof(buffer),0);
-    // std::cout << "flag_recv "<<flag_recv<<std::endl;
-    // std::cout << "buffer is: "<<buffer<<std::endl;
-
-    //print log ID: Responding "RESPONSE"
-    //while(1);
-    
-    // while(1){
-    //     fd_set readfds;
-    //     int max_fd = std::max(fd_client, fd_server);
-    //     FD_ZERO(&readfds);
-    //     FD_SET(fd_server, &readfds);
-    //     FD_SET(fd_client, &readfds);
-    //     select(max_fd + 1,&readfds, NULL, NULL, NULL);
-    //     std::vector<int> fd_set_cs{fd_client, fd_server};
-
-    //     int len_recv;
-    //     int len_send;
-    //     //int i = 0;
-    //     for(int i = 0 ; i < 2 ; i ++){
-    //         //vector<char> msg2(65536,0);
-    //         char msg2[65536] = {0};
-    //         if(FD_ISSET(fd_set_cs[i], &readfds)){
-    //             //len_recv = Proxy::recv_message(fd_set_cs[i], &msg2, false);
-    //             len_recv = recv(fd_set_cs[i], msg2, sizeof(msg2), MSG_NOSIGNAL);
-    //             std::cout<<"recv info from client with flag: "<<len_recv<<"\n";
-    //             if(len_recv <= 0){
-    //                 perror("recv error: ");
-    //                 return;
-    //             }
-    //             //string temp(msg2.begin(), msg2.end());
-    //             // Check the len_send and len_recv
-    //             //len_send = send(fd_set_cs[1-i], temp.c_str(), len_recv, 0);
-    //             len_send = send(fd_set_cs[1-i], msg2, len_recv, MSG_NOSIGNAL);
-    //             std::cout<<"send info to server with flag: "<<len_recv<<"\n";
-    //             // If all of the message is done.
-    //             if(len_send <= 0){
-    //                 perror("send error: ");
-    //                 return;
-    //             }
-    //         }
-    //         //i++;
-    //     } 
-    // }
-    
-
     
     //select and send message
     while(1) {
@@ -256,122 +213,80 @@ void Proxy::connect_function(int fd_client, int fd_server, int id){
     }
 }
 
-///////////////////////////////
-/*void Proxy::connect_function(){
-    cs.cs_print();
-    proxy_print();
-    std::string msg = "HTTP/1.1 200 OK\r\n\r\n";
-    send(fd_accept, msg.c_str() , msg.size(), 0);
+void Proxy::post_function(int fd_client, int fd_server, int id, PackRequest & request_info) {
+    //test!!!
+    std::cout<<"in post function\n";
+    if (request_info.content_len_remain != -1) {
+        int flag_size_s;
+        const char * res_info_c = request_info.request.c_str();
+        flag_size_s = send(fd_server, res_info_c, request_info.request.size(), MSG_NOSIGNAL);//0 in xy
+        std::cout<<"send request to server with flag: "<<flag_size_s<<"\n";
 
-
-    fd_set fds;
-    int nfds = std::max(fd_accept, fd_client) ;
-
-    bool flag = true;
-    while(flag){
-        FD_ZERO(&fds);
-        FD_SET(fd_client, &fds);
-        FD_SET(fd_accept, &fds);
-        select(nfds + 1,&fds, NULL, NULL, NULL);
-        std::vector<int> fd_set_cs{fd_accept, fd_client};
-
-        int len_recv;
-        int len_send;
-        //int i = 0;
-        for(int i = 0 ; i < 2 ; i ++){
-            //vector<char> msg2(65536,0);
-            char msg2[65536] = {0};
-            if(FD_ISSET(fd_set_cs[i], &fds)){
-                //len_recv = Proxy::recv_message(fd_set_cs[i], &msg2, false);
-                len_recv = recv(fd_set_cs[i], msg2, sizeof(msg2), MSG_WAITALL);
-                std::cout<<"recv info from client with flag: "<<len_recv<<"\n";
-                if(len_recv <= 0){
-                    return;
-                }
-                //string temp(msg2.begin(), msg2.end());
-                // Check the len_send and len_recv
-                //len_send = send(fd_set_cs[1-i], temp.c_str(), len_recv, 0);
-                len_send = send(fd_set_cs[1-i], msg2, len_recv, MSG_WAITALL);
-                std::cout<<"send info to server with flag: "<<len_recv<<"\n";
-                // If all of the message is done.
-                if(len_send <=0){
-                    return;
-                }
-            }
-            //i++;
-        } 
-    }
-}
-*/
-
-// void Proxy::update_cs() {
-//     fd_server = cs.fd_server;//used to accept remote client
-//     fd_accept = cs.fd_accept;//used to send and recv from remote client
-//     fd_client = cs.fd_client;//used to connect remote server
-//     ip_client = cs.ip_client;//ip for remote client used to print in log file
-// }
-
-/*void * Proxy::processCONNECT(){
-    // step2: send an http response of "200 ok" back to the browser
-    int byte_count = send(fd_accept, "HTTP/1.1 200 OK\r\n\r\n", 19, 0);
-    if (byte_count <= 0) {
-        return NULL;
-    }
-    // step3: use IO multiplexing (select())
-    struct timeval tv;
-    fd_set readfds;
-    int maxfd = 0;
-    int rv = 0;
-    int client_socket = fd_accept;
-    int server_socket = fd_client;
-
-    char buf[MAX_LEN] = {0};
-    while (true) {
-        int byte_count;
-        tv.tv_sec = 2; 
-        tv.tv_usec = 0; 
-        // clear sets and add our descriptors
-        FD_ZERO(&readfds);
-        FD_SET(client_socket, &readfds); // socket one
-        FD_SET(server_socket, &readfds); // socket two
-        maxfd = client_socket > server_socket ? client_socket : server_socket;
-        rv = select(maxfd + 1, &readfds, NULL, NULL, &tv);
-        if (rv == -1) {
-            perror("select"); // error occurred in select()
-        } else if (rv == 0) {
-            printf("Timeout occurred! No data after 10.5 seconds.\n");
-        } else {
-            // one or both of the descriptors have data
-            if (FD_ISSET(client_socket, &readfds)) {
-                byte_count = recv(client_socket, buf, sizeof(buf), 0);
-                std::cout << "connect recv1" << std::endl;
-                if(byte_count <= 0){
-                    perror("recv error");
-                    return NULL;
-                }
-                byte_count = send(server_socket, buf, byte_count, 0);
-                std::cout << "connect send1" << std::endl;
-                if (byte_count <= 0){
-                    perror("send error");
-                    return NULL;
-                }
-
-            }
-            if (FD_ISSET(server_socket, &readfds)) {
-                byte_count = recv(server_socket, buf, sizeof(buf), 0);
-                std::cout << "connect recv2" << std::endl;
-                if(byte_count <= 0){
-                    perror("recv error");
-                    return NULL;
-                }
-                byte_count = send(client_socket, buf, byte_count, 0);
-                std::cout << "connect recv2" << std::endl;
-                if (byte_count <= 0){
-                    perror("send error");
-                    return NULL;
-                }
-            }
+        char response[65536] = {0};
+        int response_len = recv(fd_server,response,sizeof(response),MSG_WAITALL);
+        if (response_len != 0) {
+            PackResponse res(response);
+            //string log_msg = generateLogMsg(thread_id,"Received \""+res.getFirstLine()
+            //                        +"\" from "+request.getHostname());
+            //writeToLog(log_msg);
+            //cout << "received response: " << response << endl;
+            send(fd_client, response, response_len, 0);
+            //string log_msg2 = generateLogMsg(thread_id,"Responding \""+res.getFirstLine()+"\"");
+            //writeToLog(log_msg2);
+            std::cout << "post successfully\n";
+        }
+        else{
+            std::cout<<"Server closed connection\n";
         }
     }
-};
-*/
+    else {
+            std::cout << "failed to post\n";
+    }
+
+}
+
+void Proxy::function400(int fd_client, int id) {
+        const char * msg = "HTTP/1.1 400 Bad Request";
+        send(fd_client, msg, sizeof(msg), MSG_NOSIGNAL);
+        //pthread_mutex_lock(&mutex);
+        //logFile << id << ": Responding \"HTTP/1.1 400 Bad Request\"" << std::endl;
+        //pthread_mutex_unlock(&mutex);
+}
+
+
+/////////////test!!!
+void posthandle(int fd_client, int fd_server, int thread_id, PackRequest * request_info) {
+    std::cout<<send(fd_server, request_info->request.c_str(), request_info->request.size(), MSG_NOSIGNAL)<<std::endl;
+
+    //h.recv_message(fd_server, &response, true);
+    char response[65536] = {0};
+    int response_len = recv(fd_server, response, sizeof(response), MSG_WAITALL);
+    std::string response_info_s(response);
+
+    std::cout<<"The Length is "<<response_len<<std::endl;
+    //string response_str(response.begin(), response.end());
+    if(response_len > 1){
+        // Which parameter trans in.
+        // response res;
+        // res.parseResponse();
+        //response_len = h.recv_message(server_fd, &response, false);
+        std::cout<<response_len<<std::endl;
+        std::string temp(response_info_s.begin(), response_info_s.begin() + response_len);
+        std::cout<<temp<<std::endl;
+        PackResponse res(temp); 
+        //res.parseResponse();
+
+        // How to get the first line in the response?
+        //pthread_mutex_lock(&mutex);
+        //logFile << thread_id << ": Received \"" << res.firstLine << "\" from " << request->uri << endl;
+        //pthread_mutex_unlock(&mutex);
+        send(fd_client, temp.c_str(), response_len, MSG_NOSIGNAL);
+
+        //pthread_mutex_lock(&mutex);
+        //logFile << thread_id << ": Responding \""<<res.firstLine<<endl;
+        //pthread_mutex_unlock(&mutex);
+    }
+    else{
+        std::cout<<"Server Socket Closed\n";
+    }
+}
