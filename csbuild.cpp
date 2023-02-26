@@ -20,7 +20,7 @@ int Csbuild::init_server(const char * port) {//this port is set in main.cpp
 
     status = getaddrinfo(hostname, port, &host_info, &host_info_list);
     if (status != 0) {
-        std::cerr << "Error: cannot get address info for host\n";
+        std::cerr << "Error: cannot get address info for host in init_server\n";
         return -1;
     } //if
 
@@ -28,7 +28,7 @@ int Csbuild::init_server(const char * port) {//this port is set in main.cpp
                 host_info_list->ai_socktype, 
                 host_info_list->ai_protocol);
     if (socket_fd == -1) {
-        std::cerr << "Error: cannot create socket\n";
+        std::cerr << "Error: cannot create socket in init_server\n";
         return -1;
     } //if
 
@@ -36,13 +36,13 @@ int Csbuild::init_server(const char * port) {//this port is set in main.cpp
     status = setsockopt(socket_fd, SOL_SOCKET, SO_REUSEADDR, &yes, sizeof(int));
     status = bind(socket_fd, host_info_list->ai_addr, host_info_list->ai_addrlen);
     if (status == -1) {
-        std::cerr << "Error: cannot bind socket\n";
+        std::cerr << "Error: cannot bind socket in init_server\n";
         return -1;
     } //if
 
     status = listen(socket_fd, 100);
     if (status == -1) {
-        std::cerr << "Error: cannot listen on socket\n"; 
+        std::cerr << "Error: cannot listen on socket in init_server\n"; 
         return -1;
     } //if
     
@@ -64,7 +64,7 @@ int Csbuild::init_client(const char * hostname, const char * port) {
 
     status = getaddrinfo(hostname, port, &host_info, &host_info_list);
     if (status != 0) {
-        std::cerr << "Error: cannot get address info for host\n";
+        std::cerr << "Error: cannot get address info for host in init_client\n";
         std::cerr << "  (" << hostname<< "," << port<< ")'n";
         return -1;
     } //if
@@ -74,7 +74,7 @@ int Csbuild::init_client(const char * hostname, const char * port) {
                     host_info_list->ai_protocol);
 
     if (socket_fd == -1) {
-        std::cerr << "Error: cannot create socket\n";
+        std::cerr << "Error: cannot create socket in init_client\n";
         std::cerr << "  (" << hostname<< "," << port<< ")\n";
         return -1;
     } //if
@@ -82,7 +82,7 @@ int Csbuild::init_client(const char * hostname, const char * port) {
     //connect to remote server
     status = connect(socket_fd, host_info_list->ai_addr, host_info_list->ai_addrlen);
     if (status == -1) {
-        std::cerr << "Error: cannot connect to socket\n";
+        std::cerr << "Error: cannot connect to socket in init_client\n";
         std::cerr << "  (" << hostname<< "," << port<< ")\n";
         return -1;
     } //if
@@ -101,7 +101,7 @@ int Csbuild::accept_as_server(int fd_accept, std::string & ip) {
     struct sockaddr_in * addr = (struct sockaddr_in *)&socket_addr;
 
     if (socket_fd == -1) {
-        std::cerr << "Error: cannot accept connection on socket\n";
+        std::cerr << "Error: cannot accept connection on socke in accept_as_server\n";
         return -1;
     } //if
 

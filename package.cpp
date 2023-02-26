@@ -21,6 +21,7 @@ void PackRequest::parse_line() {
 
 void PackRequest::parse_header() {
     //get request header
+    size_t pos_line = request.find("\r\n");
     size_t pos_header = request.find("\r\n\r\n");
     if(pos_header == std::string::npos) {
         port = "";
@@ -28,17 +29,22 @@ void PackRequest::parse_header() {
         //判断！！！
         return;
     }
-	request_header = request.substr(0, pos_header);
+	request_header = request.substr(pos_line + 2, pos_header);
     //get hostname and port
     size_t pos_h = request_header.find("Host") + 6;
+    //std::cout<<request_header<<"\n\n";
     size_t pos_h_end = request_header.find("\r\n");
 	std::string line_hp = request_header.substr(pos_h, pos_h_end -pos_h);
+    //std::cout<<line_hp<<"\n\n";
     //get port
 	size_t pos_p = line_hp.find(":");
+    //std::cout<<pos_p;
 	if(pos_p == std::string::npos){
-        port="80";
+        std::cout<<"   port is 80\n";
+        port = "80";
 		hostname = line_hp;
 	} else{
+        std::cout<<"port is not 80\n";
 		port = line_hp.substr(pos_p + 1);
         hostname = line_hp.substr(0, pos_p);
 	}

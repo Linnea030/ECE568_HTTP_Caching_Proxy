@@ -53,6 +53,7 @@ void Proxy::init_Proxy() {
         pthread_create(&new_thread, NULL, process, thread_info);
         //std::thread t(&Proxy::process, this, thread_info);
         //t.join();
+        std::cout<<"\n";
     }
 }
 
@@ -87,7 +88,7 @@ void * Proxy::process(void * thread1) {
             //pthread_mutex_lock(&lock);
             //logFile<< "ERROR in connecting client\n";
             //pthread_mutex_unlock(&lock);
-            std::cout<<"connect server failed\n";
+            std::cout<<"connect server failed in process\n";
         	return NULL;
 		}
 
