@@ -6,6 +6,8 @@
 #include <pthread.h>
 #include <thread>
 #include "socket_info.h"
+#include "handler.h"
+
 
 #define MAX_LEN 65536
 pthread_mutex_t lock = PTHREAD_MUTEX_INITIALIZER;
@@ -95,6 +97,9 @@ void * Proxy::process(void * thread1) {
         //update_cs();
         if(req_pack.method == "GET"){
             //get function
+            Handler h;
+            Cache cache;
+            h.GETHandler(req_pack, thread_info->fd_client, thread_info->fd_server, cache, thread_info->id);
         }
         else if(req_pack.method == "POST") {
             //test!!!

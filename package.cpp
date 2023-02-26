@@ -1,6 +1,6 @@
 #include "package.h"
 
-void PackRequest::parse() {
+void PackRequest::parse_req() {
     this->parse_line();
     this->parse_header();
     //this->parse_body();
@@ -15,8 +15,8 @@ void PackRequest::parse_line() {
     size_t pos_m = request_line.find(" ");
 	method = request_line.substr(0, pos_m);
     //get URI in line
-	//size_t pos_u = request_line.find(" ", pos_m + 1);
-	//URI = request_line.substr(pos_m + 1, pos_u - pos_m);
+	size_t pos_u = request_line.find(" ", pos_m + 1);
+	URI = request_line.substr(pos_m + 1, pos_u - pos_m);
 }
 
 void PackRequest::parse_header() {
@@ -86,3 +86,34 @@ void PackRequest::print_request() {
     std::cout<<"len_info: " << len_info <<"\n";
     //std::cout<<"request_info: " << info <<"\n";
 }
+
+//========== Response ==========
+
+void PackResponse::parse_res() {
+    parse_header();
+    parse_status();
+}
+
+void PackResponse::parse_header(){
+    size_t pos_h_end = response.find("\r\n\r\n");
+    response_header = response.substr(0, pos_h_end);
+    response_body = response.substr(pos_h_end + 4);
+}
+
+void PackResponse::parse_status(){
+    size_t pos_st = response_header.find(" ");
+    size_t pos_code_end = response_header.find(" ");
+    size_t pos_st_end = response_header.find("\r\n");
+    status_code = response_header.substr(pos_st, pos_st_end);
+    code = response_header.substr(pos_st, pos_code_end);
+}
+
+bool PackResponse::is_chunked(){
+    //size_t pos = response.find("chunked");
+    // if(response.find("chunked") != std::string::npos){
+    //     return true;
+    // }
+    return (response.find("chunked") != std::string::npos) ? true : false;
+}
+
+

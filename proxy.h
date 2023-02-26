@@ -1,6 +1,9 @@
+#ifndef _PROXY_
+#define _PROXY_
 #include <pthread.h>
 #include "csbuild.h"
 #include "package.h"
+#include "handler.h"
 
 class Proxy {
     public:
@@ -35,3 +38,5 @@ class Proxy {
         // close(fd_client);
     }
 };
+
+#endif
