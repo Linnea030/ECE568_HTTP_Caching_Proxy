@@ -144,6 +144,6 @@ int PackResponse::get_length(){
     //if not found?
     size_t pos_end = response.find("\r\n", pos + 1);
     std::string len_s = response.substr(pos + 2 + name.size(), pos_end - pos - name.size() - 2);
-    std::cout<<"in get_length, len_s: "<<len_s<<"\n";
+    //std::cout<<"in get_length, len_s: "<<len_s<<"\n";
     return stoi(len_s);
 }
