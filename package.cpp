@@ -141,9 +141,13 @@ bool PackResponse::is_chunked(){
 int PackResponse::get_length(){
     std::string name = "Content-Length";
     size_t pos = response.find(name);
+    if(pos == std::string::npos) {
+        std::cout<<"no content-length\n";
+        return 0;
+    }
     //if not found?
     size_t pos_end = response.find("\r\n", pos + 1);
     std::string len_s = response.substr(pos + 2 + name.size(), pos_end - pos - name.size() - 2);
-    //std::cout<<"in get_length, len_s: "<<len_s<<"\n";
+    std::cout<<"in get_length, len_s: "<<len_s<<"\n";
     return stoi(len_s);
 }

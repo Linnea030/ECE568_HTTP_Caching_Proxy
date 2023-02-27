@@ -105,6 +105,7 @@ void * Proxy::process(void * thread1) {
             Handler h;
             Cache cache;
             h.GETHandler(req_pack, thread_info->fd_client, thread_info->fd_server, cache, thread_info->id);
+            std::cout<<"\n__________END GET__________\n";
         }
         else if(req_pack.method == "POST") {
             //test!!!
@@ -113,6 +114,7 @@ void * Proxy::process(void * thread1) {
             post_function(thread_info->fd_client, 
                             thread_info->fd_server, thread_info->id, req_pack);
             std::cout<<"after post function\n";
+            std::cout<<"\n__________END POST__________\n";
         }
         else if(req_pack.method == "CONNECT"){
             //test!!!
@@ -126,11 +128,13 @@ void * Proxy::process(void * thread1) {
             //pthread_mutex_lock(&lock);
             //print log thread_id << ": Tunnel closed"<<endl;
             //pthread_mutex_unlock(&lock);
+            std::cout<<"\n__________END CONNECT__________\n";
         }
         else{
             //400 function
             std::cout<<"__________here method is 400__________\n";
             function400(thread_info->fd_client, thread_info->id);
+            std::cout<<"\n__________END 400__________\n";
         }
         delete thread_info;
         std::cout<<"--------new process with id: "<<thread_info->id<<"is over------------\n";
