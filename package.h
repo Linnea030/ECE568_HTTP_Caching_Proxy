@@ -50,8 +50,8 @@ class PackResponse {
     std::string method;
     std::string hostname;
     std::string port;
-    std::string uri;
-    std::string info;
+    std::string URI;
+    //std::string info;
     std::string status_code; //Full code. eg. 200 OK
     std::string code; //Status number only. eg. 200
 

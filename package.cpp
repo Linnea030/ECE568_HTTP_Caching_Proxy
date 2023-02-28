@@ -117,6 +117,9 @@ void PackResponse::parse_res() {
 }
 
 void PackResponse::parse_header(){
+    size_t pos_line = response.find("\r\n");
+	response_line = response.substr(0, pos_line);
+    URI = response_line;
     size_t pos_h_end = response.find("\r\n\r\n");
     response_header = response.substr(0, pos_h_end);
     response_body = response.substr(pos_h_end + 4);

@@ -1,0 +1,332 @@
+0: "CONNECT www.youtube.com:443 HTTP/1.1" from 174.99.41.104 @ Tue Feb 28 06:20:39 2023
+0: Responding "HTTP/1.1 200 OK"
+1: "CONNECT incoming.telemetry.mozilla.org:443 HTTP/1.1" from 174.99.41.104 @ Tue Feb 28 06:20:46 2023
+1: Responding "HTTP/1.1 200 OK"
+2: "CONNECT contile-images.services.mozilla.com:443 HTTP/1.1" from 174.99.41.104 @ Tue Feb 28 06:20:46 2023
+2: Responding "HTTP/1.1 200 OK"
+3: "CONNECT incoming.telemetry.mozilla.org:443 HTTP/1.1" from 174.99.41.104 @ Tue Feb 28 06:20:47 2023
+3: Responding "HTTP/1.1 200 OK"
+4: "CONNECT i.ytimg.com:443 HTTP/1.1" from 174.99.41.104 @ Tue Feb 28 06:20:47 2023
+4: Responding "HTTP/1.1 200 OK"
+8: "CONNECT googleads.g.doubleclick.net:443 HTTP/1.1" from 174.99.41.104 @ Tue Feb 28 06:20:48 2023
+8: Responding "HTTP/1.1 200 OK"
+9: "CONNECT www.google.com:443 HTTP/1.1" from 174.99.41.104 @ Tue Feb 28 06:20:48 2023
+9: Responding "HTTP/1.1 200 OK"
+10: "CONNECT yt3.ggpht.com:443 HTTP/1.1" from 174.99.41.104 @ Tue Feb 28 06:20:48 2023
+10: Responding "HTTP/1.1 200 OK"
+11: "CONNECT static.doubleclick.net:443 HTTP/1.1" from 174.99.41.104 @ Tue Feb 28 06:20:49 2023
+12: "CONNECT jnn-pa.googleapis.com:443 HTTP/1.1" from 174.99.41.104 @ Tue Feb 28 06:20:49 2023
+11: Responding "HTTP/1.1 200 OK"
+12: Responding "HTTP/1.1 200 OK"
+13: "CONNECT www.expedia.com:443 HTTP/1.1" from 174.99.41.104 @ Tue Feb 28 06:20:50 2023
+13: Responding "HTTP/1.1 200 OK"
+16: "CONNECT c.travel-assets.com:443 HTTP/1.1" from 174.99.41.104 @ Tue Feb 28 06:20:53 2023
+16: Responding "HTTP/1.1 200 OK"
+17: "CONNECT www.uciservice.com:443 HTTP/1.1" from 174.99.41.104 @ Tue Feb 28 06:20:53 2023
+18: "CONNECT www.uciservice.com:443 HTTP/1.1" from 174.99.41.104 @ Tue Feb 28 06:20:53 2023
+19: "CONNECT c.travel-assets.com:443 HTTP/1.1" from 174.99.41.104 @ Tue Feb 28 06:20:53 2023
+19: Responding "HTTP/1.1 200 OK"
+20: "CONNECT rr4---sn-hjoj-gq0l.googlevideo.com:443 HTTP/1.1" from 174.99.41.104 @ Tue Feb 28 06:20:53 2023
+20: Responding "HTTP/1.1 200 OK"
+21: "POST http://ocsp.pki.goog/gts1c3 HTTP/1.1" from 174.99.41.104 @ Tue Feb 28 06:20:53 2023
+23: "CONNECT rr4---sn-hjoj-gq0l.googlevideo.com:443 HTTP/1.1" from 174.99.41.104 @ Tue Feb 28 06:20:54 2023
+23: Responding "HTTP/1.1 200 OK"
+22: "CONNECT rr4---sn-hjoj-gq0l.googlevideo.com:443 HTTP/1.1" from 174.99.41.104 @ Tue Feb 28 06:20:54 2023
+22: Responding "HTTP/1.1 200 OK"
+25: "CONNECT rr4---sn-hjoj-gq0l.googlevideo.com:443 HTTP/1.1" from 174.99.41.104 @ Tue Feb 28 06:20:54 2023
+24: "CONNECT rr4---sn-hjoj-gq0l.googlevideo.com:443 HTTP/1.1" from 174.99.41.104 @ Tue Feb 28 06:20:54 2023
+24: Responding "HTTP/1.1 200 OK"
+25: Responding "HTTP/1.1 200 OK"
+17: Responding "HTTP/1.1 200 OK"
+18: Responding "HTTP/1.1 200 OK"
+27: "POST http://ocsp.pki.goog/gts1c3 HTTP/1.1" from 174.99.41.104 @ Tue Feb 28 06:20:54 2023
+29: "POST http://ocsp.pki.goog/gts1c3 HTTP/1.1" from 174.99.41.104 @ Tue Feb 28 06:20:54 2023
+31: "CONNECT lh5.googleusercontent.com:443 HTTP/1.1" from 174.99.41.104 @ Tue Feb 28 06:20:54 2023
+31: Responding "HTTP/1.1 200 OK"
+30: "CONNECT pagead2.googlesyndication.com:443 HTTP/1.1" from 174.99.41.104 @ Tue Feb 28 06:20:54 2023
+32: "CONNECT tpc.googlesyndication.com:443 HTTP/1.1" from 174.99.41.104 @ Tue Feb 28 06:20:54 2023
+32: Responding "HTTP/1.1 200 OK"
+30: Responding "HTTP/1.1 200 OK"
+26: "POST http://ocsp.pki.goog/gts1c3 HTTP/1.1" from 174.99.41.104 @ Tue Feb 28 06:20:54 2023
+33: "POST http://ocsp.pki.goog/gts1c3 HTTP/1.1" from 174.99.41.104 @ Tue Feb 28 06:20:54 2023
+35: "CONNECT a.travel-assets.com:443 HTTP/1.1" from 174.99.41.104 @ Tue Feb 28 06:20:54 2023
+39: "CONNECT oms.expedia.com:443 HTTP/1.1" from 174.99.41.104 @ Tue Feb 28 06:20:54 2023
+38: "CONNECT b.travel-assets.com:443 HTTP/1.1" from 174.99.41.104 @ Tue Feb 28 06:20:54 2023
+35: Responding "HTTP/1.1 200 OK"
+38: Responding "HTTP/1.1 200 OK"
+39: Responding "HTTP/1.1 200 OK"
+41: "CONNECT vacadapter.vap.expedia.com:443 HTTP/1.1" from 174.99.41.104 @ Tue Feb 28 06:20:54 2023
+42: "CONNECT www.googletagmanager.com:443 HTTP/1.1" from 174.99.41.104 @ Tue Feb 28 06:20:54 2023
+44: "CONNECT pixel.mtrcs.samba.tv:443 HTTP/1.1" from 174.99.41.104 @ Tue Feb 28 06:20:54 2023
+46: "CONNECT www.uqd.io:443 HTTP/1.1" from 174.99.41.104 @ Tue Feb 28 06:20:54 2023
+43: "CONNECT www.tamgrt.com:443 HTTP/1.1" from 174.99.41.104 @ Tue Feb 28 06:20:54 2023
+45: "CONNECT bat.bing.com:443 HTTP/1.1" from 174.99.41.104 @ Tue Feb 28 06:20:54 2023
+41: Responding "HTTP/1.1 200 OK"
+42: Responding "HTTP/1.1 200 OK"
+44: Responding "HTTP/1.1 200 OK"
+45: Responding "HTTP/1.1 200 OK"
+43: Responding "HTTP/1.1 200 OK"
+48: "CONNECT www.trvl-px.com:443 HTTP/1.1" from 174.99.41.104 @ Tue Feb 28 06:20:55 2023
+46: Responding "HTTP/1.1 200 OK"
+48: Responding "HTTP/1.1 200 OK"
+49: "CONNECT vap.expedia.com:443 HTTP/1.1" from 174.99.41.104 @ Tue Feb 28 06:20:55 2023
+49: Responding "HTTP/1.1 200 OK"
+51: "CONNECT safebrowsing.googleapis.com:443 HTTP/1.1" from 174.99.41.104 @ Tue Feb 28 06:20:55 2023
+51: Responding "HTTP/1.1 200 OK"
+47: "CONNECT www.trvl-px.com:443 HTTP/1.1" from 174.99.41.104 @ Tue Feb 28 06:20:55 2023
+47: Responding "HTTP/1.1 200 OK"
+52: "POST http://ocsp.pki.goog/gts1c3 HTTP/1.1" from 174.99.41.104 @ Tue Feb 28 06:20:55 2023
+53: "CONNECT 9224405.fls.doubleclick.net:443 HTTP/1.1" from 174.99.41.104 @ Tue Feb 28 06:20:55 2023
+53: Responding "HTTP/1.1 200 OK"
+54: "CONNECT vap.expedia.com:443 HTTP/1.1" from 174.99.41.104 @ Tue Feb 28 06:20:55 2023
+54: Responding "HTTP/1.1 200 OK"
+55: "CONNECT adservice.google.com:443 HTTP/1.1" from 174.99.41.104 @ Tue Feb 28 06:20:55 2023
+55: Responding "HTTP/1.1 200 OK"
+56: "CONNECT www.google-analytics.com:443 HTTP/1.1" from 174.99.41.104 @ Tue Feb 28 06:20:56 2023
+56: Responding "HTTP/1.1 200 OK"
+57: "POST http://ocsp.digicert.com/ HTTP/1.1" from 174.99.41.104 @ Tue Feb 28 06:20:56 2023
+58: "POST http://ocsp.r2m01.amazontrust.com/ HTTP/1.1" from 174.99.41.104 @ Tue Feb 28 06:20:56 2023
+50: "CONNECT vac.vap.expedia.com:443 HTTP/1.1" from 174.99.41.104 @ Tue Feb 28 06:20:56 2023
+50: Responding "HTTP/1.1 200 OK"
+61: "CONNECT tr.snapchat.com:443 HTTP/1.1" from 174.99.41.104 @ Tue Feb 28 06:20:56 2023
+63: "CONNECT tr.snapchat.com:443 HTTP/1.1" from 174.99.41.104 @ Tue Feb 28 06:20:56 2023
+62: "CONNECT insight.adsrvr.org:443 HTTP/1.1" from 174.99.41.104 @ Tue Feb 28 06:20:56 2023
+64: "CONNECT connect.facebook.net:443 HTTP/1.1" from 174.99.41.104 @ Tue Feb 28 06:20:56 2023
+60: "CONNECT securepubads.g.doubleclick.net:443 HTTP/1.1" from 174.99.41.104 @ Tue Feb 28 06:20:56 2023
+62: Responding "HTTP/1.1 200 OK"
+60: Responding "HTTP/1.1 200 OK"
+61: Responding "HTTP/1.1 200 OK"
+63: Responding "HTTP/1.1 200 OK"
+64: Responding "HTTP/1.1 200 OK"
+65: "CONNECT stats.g.doubleclick.net:443 HTTP/1.1" from 174.99.41.104 @ Tue Feb 28 06:20:56 2023
+65: Responding "HTTP/1.1 200 OK"
+66: "POST http://ocsp.globalsign.com/gsgccr3dvtlsca2020 HTTP/1.1" from 174.99.41.104 @ Tue Feb 28 06:20:56 2023
+67: "POST http://ocsp.digicert.com/ HTTP/1.1" from 174.99.41.104 @ Tue Feb 28 06:20:56 2023
+68: "CONNECT securepubads.g.doubleclick.net:443 HTTP/1.1" from 174.99.41.104 @ Tue Feb 28 06:20:57 2023
+68: Responding "HTTP/1.1 200 OK"
+70: "CONNECT fbae062eccb5179b3aa17ad5b062224c.safeframe.googlesyndication.com:443 HTTP/1.1" from 174.99.41.104 @ Tue Feb 28 06:20:57 2023
+71: "CONNECT firefox.dns.nextdns.io:443 HTTP/1.1" from 174.99.41.104 @ Tue Feb 28 06:20:57 2023
+70: Responding "HTTP/1.1 200 OK"
+72: "POST http://ocsp.digicert.com/ HTTP/1.1" from 174.99.41.104 @ Tue Feb 28 06:20:57 2023
+71: Responding "HTTP/1.1 200 OK"
+73: "POST http://ocsp.digicert.com/ HTTP/1.1" from 174.99.41.104 @ Tue Feb 28 06:20:58 2023
+75: "CONNECT www.googletagservices.com:443 HTTP/1.1" from 174.99.41.104 @ Tue Feb 28 06:20:58 2023
+74: "CONNECT tpc.googlesyndication.com:443 HTTP/1.1" from 174.99.41.104 @ Tue Feb 28 06:20:58 2023
+74: Responding "HTTP/1.1 200 OK"
+75: Responding "HTTP/1.1 200 OK"
+76: "POST http://ocsp.pki.goog/gts1c3 HTTP/1.1" from 174.99.41.104 @ Tue Feb 28 06:20:58 2023
+77: "CONNECT pixel.rubiconproject.com:443 HTTP/1.1" from 174.99.41.104 @ Tue Feb 28 06:20:59 2023
+77: Responding "HTTP/1.1 200 OK"
+78: "CONNECT pixel.tapad.com:443 HTTP/1.1" from 174.99.41.104 @ Tue Feb 28 06:20:59 2023
+78: Responding "HTTP/1.1 200 OK"
+80: "POST http://ocsp.digicert.com/ HTTP/1.1" from 174.99.41.104 @ Tue Feb 28 06:20:59 2023
+79: "POST http://ocsp.digicert.com/ HTTP/1.1" from 174.99.41.104 @ Tue Feb 28 06:20:59 2023
+81: "CONNECT c.travel-assets.com:443 HTTP/1.1" from 174.99.41.104 @ Tue Feb 28 06:21:00 2023
+81: Responding "HTTP/1.1 200 OK"
+82: "CONNECT images.trvl-media.com:443 HTTP/1.1" from 174.99.41.104 @ Tue Feb 28 06:21:01 2023
+83: "CONNECT images.trvl-media.com:443 HTTP/1.1" from 174.99.41.104 @ Tue Feb 28 06:21:01 2023
+82: Responding "HTTP/1.1 200 OK"
+83: Responding "HTTP/1.1 200 OK"
+84: "CONNECT maps.googleapis.com:443 HTTP/1.1" from 174.99.41.104 @ Tue Feb 28 06:21:01 2023
+84: Responding "HTTP/1.1 200 OK"
+86: "CONNECT safebrowsing.googleapis.com:443 HTTP/1.1" from 174.99.41.104 @ Tue Feb 28 06:21:02 2023
+86: Responding "HTTP/1.1 200 OK"
+87: "CONNECT connect.facebook.net:443 HTTP/1.1" from 174.99.41.104 @ Tue Feb 28 06:21:02 2023
+87: Responding "HTTP/1.1 200 OK"
+88: "CONNECT ups.analytics.yahoo.com:443 HTTP/1.1" from 174.99.41.104 @ Tue Feb 28 06:21:02 2023
+88: Responding "HTTP/1.1 200 OK"
+89: "CONNECT pixel.tapad.com:443 HTTP/1.1" from 174.99.41.104 @ Tue Feb 28 06:21:02 2023
+89: Responding "HTTP/1.1 200 OK"
+91: "POST http://ocsp.digicert.com/ HTTP/1.1" from 174.99.41.104 @ Tue Feb 28 06:21:02 2023
+90: "POST http://ocsp.digicert.com/ HTTP/1.1" from 174.99.41.104 @ Tue Feb 28 06:21:02 2023
+92: "CONNECT www.facebook.com:443 HTTP/1.1" from 174.99.41.104 @ Tue Feb 28 06:21:05 2023
+92: Responding "HTTP/1.1 200 OK"
+93: "POST http://ocsp.digicert.com/ HTTP/1.1" from 174.99.41.104 @ Tue Feb 28 06:21:05 2023
+96: "CONNECT ib.adnxs.com:443 HTTP/1.1" from 174.99.41.104 @ Tue Feb 28 06:21:11 2023
+96: Responding "HTTP/1.1 200 OK"
+(no-id): NOTE:  The connection between proxy and server is closed
+98: "POST http://ocsp.globalsign.com/gsgccr3dvtlsca2020 HTTP/1.1" from 174.99.41.104 @ Tue Feb 28 06:21:12 2023
+99: "CONNECT match.adsrvr.org:443 HTTP/1.1" from 174.99.41.104 @ Tue Feb 28 06:21:12 2023
+99: Responding "HTTP/1.1 200 OK"
+100: "POST http://ocsp.globalsign.com/gsgccr3dvtlsca2020 HTTP/1.1" from 174.99.41.104 @ Tue Feb 28 06:21:12 2023
+101: "CONNECT people.duke.edu:443 HTTP/1.1" from 174.99.41.104 @ Tue Feb 28 06:21:15 2023
+101: Responding "HTTP/1.1 200 OK"
+102: "POST http://ocsp.usertrust.com/ HTTP/1.1" from 174.99.41.104 @ Tue Feb 28 06:21:15 2023
+103: "GET http://www.httpwatch.com/httpgallery/methods/ HTTP/1.1" from 174.99.41.104 @ Tue Feb 28 06:21:24 2023
+105: "GET http://www.httpwatch.com/assets/images/page-head-bg.gif HTTP/1.1" from 174.99.41.104 @ Tue Feb 28 06:21:24 2023
+106: "CONNECT www.httpwatch.com:443 HTTP/1.1" from 174.99.41.104 @ Tue Feb 28 06:21:24 2023
+109: "GET http://www.httpwatch.com/httpgallery/methods/retry.png HTTP/1.1" from 174.99.41.104 @ Tue Feb 28 06:21:24 2023
+106: Responding "HTTP/1.1 200 OK"
+(no-id): NOTE:  The connection between proxy and server is closed
+111: "CONNECT firefox.dns.nextdns.io:443 HTTP/1.1" from 174.99.41.104 @ Tue Feb 28 06:21:27 2023
+111: Responding "HTTP/1.1 200 OK"
+112: "GET http://www.httpwatch.com/httpgallery/methods/ HTTP/1.1" from 174.99.41.104 @ Tue Feb 28 06:21:27 2023
+(no-id): NOTE:  The connection between proxy and server is closed
+113: "POST http://ocsp.globalsign.com/gsgccr3dvtlsca2020 HTTP/1.1" from 174.99.41.104 @ Tue Feb 28 06:21:27 2023
+114: "GET http://www.httpwatch.com/assets/images/logo2.png HTTP/1.1" from 174.99.41.104 @ Tue Feb 28 06:21:28 2023
+116: "GET http://www.httpwatch.com/assets/images/httpwatch_32x32.png HTTP/1.1" from 174.99.41.104 @ Tue Feb 28 06:21:28 2023
+115: "GET http://www.httpwatch.com/httpgallery/methods/retry.png HTTP/1.1" from 174.99.41.104 @ Tue Feb 28 06:21:28 2023
+118: "CONNECT fonts.gstatic.com:443 HTTP/1.1" from 174.99.41.104 @ Tue Feb 28 06:21:28 2023
+119: "GET http://www.httpwatch.com/assets/images/widget-li-bg@2x.png HTTP/1.1" from 174.99.41.104 @ Tue Feb 28 06:21:28 2023
+117: "GET http://www.httpwatch.com/assets/images/logo1.png HTTP/1.1" from 174.99.41.104 @ Tue Feb 28 06:21:28 2023
+118: Responding "HTTP/1.1 200 OK"
+120: "CONNECT www.httpwatch.com:443 HTTP/1.1" from 174.99.41.104 @ Tue Feb 28 06:21:28 2023
+120: Responding "HTTP/1.1 200 OK"
+122: "CONNECT www.google-analytics.com:443 HTTP/1.1" from 174.99.41.104 @ Tue Feb 28 06:21:28 2023
+122: Responding "HTTP/1.1 200 OK"
+123: "GET http://www.httpwatch.com/favicon.ico?v1 HTTP/1.1" from 174.99.41.104 @ Tue Feb 28 06:21:28 2023
+124: "CONNECT firefox.dns.nextdns.io:443 HTTP/1.1" from 174.99.41.104 @ Tue Feb 28 06:21:29 2023
+124: Responding "HTTP/1.1 200 OK"
+125: "GET http://www.httpwatch.com/httpgallery/methods/ HTTP/1.1" from 174.99.41.104 @ Tue Feb 28 06:21:29 2023
+127: "GET http://www.httpwatch.com/assets/images/logo2.png HTTP/1.1" from 174.99.41.104 @ Tue Feb 28 06:21:30 2023
+126: "CONNECT fonts.gstatic.com:443 HTTP/1.1" from 174.99.41.104 @ Tue Feb 28 06:21:30 2023
+129: "GET http://www.httpwatch.com/assets/images/httpwatch_32x32.png HTTP/1.1" from 174.99.41.104 @ Tue Feb 28 06:21:30 2023
+131: "GET http://www.httpwatch.com/assets/images/logo1.png HTTP/1.1" from 174.99.41.104 @ Tue Feb 28 06:21:30 2023
+128: "GET http://www.httpwatch.com/assets/images/page-head-bg.gif HTTP/1.1" from 174.99.41.104 @ Tue Feb 28 06:21:30 2023
+130: "GET http://www.httpwatch.com/assets/images/widget-li-bg@2x.png HTTP/1.1" from 174.99.41.104 @ Tue Feb 28 06:21:30 2023
+126: Responding "HTTP/1.1 200 OK"
+133: "CONNECT www.google-analytics.com:443 HTTP/1.1" from 174.99.41.104 @ Tue Feb 28 06:21:30 2023
+133: Responding "HTTP/1.1 200 OK"
+(no-id): NOTE:  The connection between proxy and server is closed
+134: "GET http://www.httpwatch.com/favicon.ico?v1 HTTP/1.1" from 174.99.41.104 @ Tue Feb 28 06:21:30 2023
+135: "POST http://ocsp.usertrust.com/ HTTP/1.1" from 174.99.41.104 @ Tue Feb 28 06:21:30 2023
+136: "CONNECT www.httpwatch.com:443 HTTP/1.1" from 174.99.41.104 @ Tue Feb 28 06:21:30 2023
+136: Responding "HTTP/1.1 200 OK"
+137: "CONNECT firefox.dns.nextdns.io:443 HTTP/1.1" from 174.99.41.104 @ Tue Feb 28 06:21:33 2023
+137: Responding "HTTP/1.1 200 OK"
+138: "GET http://www.httpwatch.com/httpgallery/methods/ HTTP/1.1" from 174.99.41.104 @ Tue Feb 28 06:21:33 2023
+139: "GET http://www.httpwatch.com/assets/images/logo1.png HTTP/1.1" from 174.99.41.104 @ Tue Feb 28 06:21:33 2023
+143: "GET http://www.httpwatch.com/assets/images/httpwatch_32x32.png HTTP/1.1" from 174.99.41.104 @ Tue Feb 28 06:21:33 2023
+142: "GET http://www.httpwatch.com/assets/images/widget-li-bg@2x.png HTTP/1.1" from 174.99.41.104 @ Tue Feb 28 06:21:33 2023
+144: "GET http://www.httpwatch.com/assets/images/logo2.png HTTP/1.1" from 174.99.41.104 @ Tue Feb 28 06:21:33 2023
+141: "GET http://www.httpwatch.com/assets/images/page-head-bg.gif HTTP/1.1" from 174.99.41.104 @ Tue Feb 28 06:21:33 2023
+140: "CONNECT fonts.gstatic.com:443 HTTP/1.1" from 174.99.41.104 @ Tue Feb 28 06:21:33 2023
+140: Responding "HTTP/1.1 200 OK"
+146: "CONNECT www.google-analytics.com:443 HTTP/1.1" from 174.99.41.104 @ Tue Feb 28 06:21:33 2023
+146: Responding "HTTP/1.1 200 OK"
+147: "GET http://www.httpwatch.com/favicon.ico?v1 HTTP/1.1" from 174.99.41.104 @ Tue Feb 28 06:21:34 2023
+148: "CONNECT www.httpwatch.com:443 HTTP/1.1" from 174.99.41.104 @ Tue Feb 28 06:21:34 2023
+148: Responding "HTTP/1.1 200 OK"
+149: "CONNECT firefox.dns.nextdns.io:443 HTTP/1.1" from 174.99.41.104 @ Tue Feb 28 06:21:38 2023
+149: Responding "HTTP/1.1 200 OK"
+150: "GET http://www.httpwatch.com/httpgallery/methods/ HTTP/1.1" from 174.99.41.104 @ Tue Feb 28 06:21:38 2023
+153: "GET http://www.httpwatch.com/assets/images/page-head-bg.gif HTTP/1.1" from 174.99.41.104 @ Tue Feb 28 06:21:38 2023
+152: "GET http://www.httpwatch.com/assets/images/widget-li-bg@2x.png HTTP/1.1" from 174.99.41.104 @ Tue Feb 28 06:21:38 2023
+151: "GET http://www.httpwatch.com/assets/images/logo2.png HTTP/1.1" from 174.99.41.104 @ Tue Feb 28 06:21:39 2023
+156: "GET http://www.httpwatch.com/assets/images/httpwatch_32x32.png HTTP/1.1" from 174.99.41.104 @ Tue Feb 28 06:21:39 2023
+155: "GET http://www.httpwatch.com/httpgallery/methods/retry.png HTTP/1.1" from 174.99.41.104 @ Tue Feb 28 06:21:39 2023
+154: "CONNECT fonts.gstatic.com:443 HTTP/1.1" from 174.99.41.104 @ Tue Feb 28 06:21:39 2023
+154: Responding "HTTP/1.1 200 OK"
+158: "CONNECT www.google-analytics.com:443 HTTP/1.1" from 174.99.41.104 @ Tue Feb 28 06:21:39 2023
+158: Responding "HTTP/1.1 200 OK"
+159: "GET http://www.httpwatch.com/favicon.ico?v1 HTTP/1.1" from 174.99.41.104 @ Tue Feb 28 06:21:39 2023
+160: "CONNECT www.httpwatch.com:443 HTTP/1.1" from 174.99.41.104 @ Tue Feb 28 06:21:39 2023
+160: Responding "HTTP/1.1 200 OK"
+161: "CONNECT firefox.dns.nextdns.io:443 HTTP/1.1" from 174.99.41.104 @ Tue Feb 28 06:21:40 2023
+161: Responding "HTTP/1.1 200 OK"
+162: "GET http://www.httpwatch.com/httpgallery/methods/ HTTP/1.1" from 174.99.41.104 @ Tue Feb 28 06:21:40 2023
+165: "GET http://www.httpwatch.com/httpgallery/methods/retry.png HTTP/1.1" from 174.99.41.104 @ Tue Feb 28 06:21:40 2023
+163: "GET http://www.httpwatch.com/assets/images/logo2.png HTTP/1.1" from 174.99.41.104 @ Tue Feb 28 06:21:40 2023
+168: "GET http://www.httpwatch.com/assets/images/httpwatch_32x32.png HTTP/1.1" from 174.99.41.104 @ Tue Feb 28 06:21:40 2023
+164: "CONNECT fonts.gstatic.com:443 HTTP/1.1" from 174.99.41.104 @ Tue Feb 28 06:21:40 2023
+169: "GET http://www.httpwatch.com/assets/images/page-head-bg.gif HTTP/1.1" from 174.99.41.104 @ Tue Feb 28 06:21:40 2023
+167: "GET http://www.httpwatch.com/assets/images/widget-li-bg@2x.png HTTP/1.1" from 174.99.41.104 @ Tue Feb 28 06:21:40 2023
+166: "GET http://www.httpwatch.com/assets/images/logo1.png HTTP/1.1" from 174.99.41.104 @ Tue Feb 28 06:21:40 2023
+164: Responding "HTTP/1.1 200 OK"
+171: "CONNECT www.google-analytics.com:443 HTTP/1.1" from 174.99.41.104 @ Tue Feb 28 06:21:41 2023
+171: Responding "HTTP/1.1 200 OK"
+172: "GET http://www.httpwatch.com/favicon.ico?v1 HTTP/1.1" from 174.99.41.104 @ Tue Feb 28 06:21:41 2023
+173: "CONNECT contile-images.services.mozilla.com:443 HTTP/1.1" from 174.99.41.104 @ Tue Feb 28 06:21:41 2023
+173: Responding "HTTP/1.1 200 OK"
+174: "CONNECT incoming.telemetry.mozilla.org:443 HTTP/1.1" from 174.99.41.104 @ Tue Feb 28 06:21:41 2023
+174: Responding "HTTP/1.1 200 OK"
+175: "CONNECT www.httpwatch.com:443 HTTP/1.1" from 174.99.41.104 @ Tue Feb 28 06:21:41 2023
+175: Responding "HTTP/1.1 200 OK"
+176: "CONNECT www.amazon.com:443 HTTP/1.1" from 174.99.41.104 @ Tue Feb 28 06:21:41 2023
+176: Responding "HTTP/1.1 200 OK"
+178: "CONNECT m.media-amazon.com:443 HTTP/1.1" from 174.99.41.104 @ Tue Feb 28 06:21:42 2023
+181: "CONNECT incoming.telemetry.mozilla.org:443 HTTP/1.1" from 174.99.41.104 @ Tue Feb 28 06:21:42 2023
+178: Responding "HTTP/1.1 200 OK"
+181: Responding "HTTP/1.1 200 OK"
+182: "CONNECT completion.amazon.com:443 HTTP/1.1" from 174.99.41.104 @ Tue Feb 28 06:21:42 2023
+182: Responding "HTTP/1.1 200 OK"
+183: "CONNECT safebrowsing.googleapis.com:443 HTTP/1.1" from 174.99.41.104 @ Tue Feb 28 06:21:42 2023
+184: "CONNECT safebrowsing.googleapis.com:443 HTTP/1.1" from 174.99.41.104 @ Tue Feb 28 06:21:42 2023
+183: Responding "HTTP/1.1 200 OK"
+184: Responding "HTTP/1.1 200 OK"
+186: "CONNECT aax-us-iad.amazon.com:443 HTTP/1.1" from 174.99.41.104 @ Tue Feb 28 06:21:42 2023
+185: "CONNECT aax-us-iad.amazon.com:443 HTTP/1.1" from 174.99.41.104 @ Tue Feb 28 06:21:42 2023
+185: Responding "HTTP/1.1 200 OK"
+186: Responding "HTTP/1.1 200 OK"
+177: "CONNECT images-na.ssl-images-amazon.com:443 HTTP/1.1" from 174.99.41.104 @ Tue Feb 28 06:21:42 2023
+177: Responding "HTTP/1.1 200 OK"
+188: "CONNECT aax-us-east-retail-direct.amazon.com:443 HTTP/1.1" from 174.99.41.104 @ Tue Feb 28 06:21:42 2023
+189: "CONNECT aax-us-east-retail-direct.amazon.com:443 HTTP/1.1" from 174.99.41.104 @ Tue Feb 28 06:21:42 2023
+188: Responding "HTTP/1.1 200 OK"
+(no-id): NOTE:  The connection between proxy and server is closed
+189: Responding "HTTP/1.1 200 OK"
+190: "CONNECT unagi-na.amazon.com:443 HTTP/1.1" from 174.99.41.104 @ Tue Feb 28 06:21:43 2023
+193: "CONNECT metrics.media-amazon.com:443 HTTP/1.1" from 174.99.41.104 @ Tue Feb 28 06:21:43 2023
+192: "CONNECT p3epspumangb5dvijf52er7wdi.appsync-api.us-east-1.amazonaws.com:443 HTTP/1.1" from 174.99.41.104 @ Tue Feb 28 06:21:43 2023
+194: "CONNECT unagi-na.amazon.com:443 HTTP/1.1" from 174.99.41.104 @ Tue Feb 28 06:21:43 2023
+195: "CONNECT d23tl967axkois.cloudfront.net:443 HTTP/1.1" from 174.99.41.104 @ Tue Feb 28 06:21:43 2023
+190: Responding "HTTP/1.1 200 OK"
+192: Responding "HTTP/1.1 200 OK"
+194: Responding "HTTP/1.1 200 OK"
+197: "CONNECT d2in0p32vp1pij.cloudfront.net:443 HTTP/1.1" from 174.99.41.104 @ Tue Feb 28 06:21:43 2023
+195: Responding "HTTP/1.1 200 OK"
+197: Responding "HTTP/1.1 200 OK"
+193: Responding "HTTP/1.1 200 OK"
+200: "CONNECT player.stats.live-video.net:443 HTTP/1.1" from 174.99.41.104 @ Tue Feb 28 06:21:43 2023
+198: "CONNECT unagi-na.amazon.com:443 HTTP/1.1" from 174.99.41.104 @ Tue Feb 28 06:21:43 2023
+199: "CONNECT 4b64d6fa612f.us-east-1.playback.live-video.net:443 HTTP/1.1" from 174.99.41.104 @ Tue Feb 28 06:21:43 2023
+198: Responding "HTTP/1.1 200 OK"
+199: Responding "HTTP/1.1 200 OK"
+179: "CONNECT images-na.ssl-images-amazon.com:443 HTTP/1.1" from 174.99.41.104 @ Tue Feb 28 06:21:43 2023
+201: "CONNECT fls-na.amazon.com:443 HTTP/1.1" from 174.99.41.104 @ Tue Feb 28 06:21:43 2023
+179: Responding "HTTP/1.1 200 OK"
+202: "CONNECT unagi.amazon.com:443 HTTP/1.1" from 174.99.41.104 @ Tue Feb 28 06:21:43 2023
+201: Responding "HTTP/1.1 200 OK"
+202: Responding "HTTP/1.1 200 OK"
+200: Responding "HTTP/1.1 200 OK"
+203: "CONNECT unagi-na.amazon.com:443 HTTP/1.1" from 174.99.41.104 @ Tue Feb 28 06:21:43 2023
+203: Responding "HTTP/1.1 200 OK"
+204: "CONNECT unagi-na.amazon.com:443 HTTP/1.1" from 174.99.41.104 @ Tue Feb 28 06:21:43 2023
+205: "CONNECT video-weaver.jfk04.hls.live-video.net:443 HTTP/1.1" from 174.99.41.104 @ Tue Feb 28 06:21:43 2023
+204: Responding "HTTP/1.1 200 OK"
+207: "POST http://ocsp.r2m02.amazontrust.com/ HTTP/1.1" from 174.99.41.104 @ Tue Feb 28 06:21:43 2023
+206: "POST http://ocsp.r2m01.amazontrust.com/ HTTP/1.1" from 174.99.41.104 @ Tue Feb 28 06:21:43 2023
+208: "CONNECT s.amazon-adsystem.com:443 HTTP/1.1" from 174.99.41.104 @ Tue Feb 28 06:21:43 2023
+208: Responding "HTTP/1.1 200 OK"
+205: Responding "HTTP/1.1 200 OK"
+209: "POST http://ocsp.digicert.com/ HTTP/1.1" from 174.99.41.104 @ Tue Feb 28 06:21:44 2023
+210: "CONNECT usersync.samplicio.us:443 HTTP/1.1" from 174.99.41.104 @ Tue Feb 28 06:21:44 2023
+210: Responding "HTTP/1.1 200 OK"
+211: "CONNECT sync.search.spotxchange.com:443 HTTP/1.1" from 174.99.41.104 @ Tue Feb 28 06:21:44 2023
+217: "CONNECT x.bidswitch.net:443 HTTP/1.1" from 174.99.41.104 @ Tue Feb 28 06:21:44 2023
+212: "CONNECT c1.adform.net:443 HTTP/1.1" from 174.99.41.104 @ Tue Feb 28 06:21:44 2023
+213: "CONNECT dpm.demdex.net:443 HTTP/1.1" from 174.99.41.104 @ Tue Feb 28 06:21:44 2023
+215: "CONNECT loadus.exelator.com:443 HTTP/1.1" from 174.99.41.104 @ Tue Feb 28 06:21:44 2023
+221: "CONNECT ssum-sec.casalemedia.com:443 HTTP/1.1" from 174.99.41.104 @ Tue Feb 28 06:21:44 2023
+219: "CONNECT uipglob.semasio.net:443 HTTP/1.1" from 174.99.41.104 @ Tue Feb 28 06:21:44 2023
+216: "CONNECT image6.pubmatic.com:443 HTTP/1.1" from 174.99.41.104 @ Tue Feb 28 06:21:44 2023
+214: "CONNECT bs.serving-sys.com:443 HTTP/1.1" from 174.99.41.104 @ Tue Feb 28 06:21:44 2023
+220: "CONNECT match.360yield.com:443 HTTP/1.1" from 174.99.41.104 @ Tue Feb 28 06:21:44 2023
+218: "CONNECT cms.analytics.yahoo.com:443 HTTP/1.1" from 174.99.41.104 @ Tue Feb 28 06:21:44 2023
+211: Responding "HTTP/1.1 200 OK"
+213: Responding "HTTP/1.1 200 OK"
+216: Responding "HTTP/1.1 200 OK"
+217: Responding "HTTP/1.1 200 OK"
+212: Responding "HTTP/1.1 200 OK"
+218: Responding "HTTP/1.1 200 OK"
+221: Responding "HTTP/1.1 200 OK"
+215: Responding "HTTP/1.1 200 OK"
+214: Responding "HTTP/1.1 200 OK"
+220: Responding "HTTP/1.1 200 OK"
+223: "POST http://ocsp.digicert.com/ HTTP/1.1" from 174.99.41.104 @ Tue Feb 28 06:21:44 2023
+222: "POST http://ocsp.r2m01.amazontrust.com/ HTTP/1.1" from 174.99.41.104 @ Tue Feb 28 06:21:44 2023
+219: Responding "HTTP/1.1 200 OK"
+(no-id): NOTE:  The connection between proxy and server is closed
+224: "POST http://ocsp.digicert.com/ HTTP/1.1" from 174.99.41.104 @ Tue Feb 28 06:21:45 2023
+225: "POST http://ocsp.digicert.com/ HTTP/1.1" from 174.99.41.104 @ Tue Feb 28 06:21:45 2023
+226: "POST http://ocsp.sectigo.com/ HTTP/1.1" from 

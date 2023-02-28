@@ -66,6 +66,7 @@ void Handler::GETHandler(PackRequest req, int fd_client, int fd_server, Cache & 
 
         //处理code 304？
         if(res.code == "304"){
+            std::cout<<"get 304 !!!\n";
             return;
         }
 
@@ -94,15 +95,18 @@ void Handler::GETHandler(PackRequest req, int fd_client, int fd_server, Cache & 
             // 待补充：len = res.getLen();
             len = res.get_length();
             // Receive until index = len
+            std::cout<<"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!\n";
             while(len > index){
                 msg.resize(index + RESPONSE_MSG_MAX);
                 // recv size应为65536还是msg.size()?
                 msg_len = recv(fd_server, &msg.data()[index], RESPONSE_MSG_MAX, 0);
+                std::cout<<msg.data();
                 if(msg_len <= 0){
                     break;
                 }
                 index = index + msg_len;
             }
+            std::cout<<"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!\n";
         }
 
         // 待补充：把结果存入response中

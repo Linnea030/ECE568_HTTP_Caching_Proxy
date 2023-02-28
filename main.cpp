@@ -3,6 +3,7 @@
 #include <pthread.h>
 
 int main() {
+    //file.open("proxy.log", std::ofstream::out);
     const char * port = "12345";
     std::cout<<"in main\n";
     Proxy my_proxy(port);

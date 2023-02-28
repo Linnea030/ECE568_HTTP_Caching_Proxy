@@ -3,6 +3,7 @@
 #include <unistd.h>
 #include <arpa/inet.h>
 #include "proxy.h"
+#include "log.h"
 #include <pthread.h>
 #include <thread>
 #include "socket_info.h"
@@ -11,10 +12,13 @@
 
 #define MAX_LEN 65536
 pthread_mutex_t lock = PTHREAD_MUTEX_INITIALIZER;
-//std::ofstream logFile("/var/log/erss/proxy.log")
+//pthread_mutex_t lock;
+//static Log log;
+std::ofstream file("proxy.log");
 
 void Proxy::init_Proxy() {
     Csbuild cs;
+    //Log log;
     //test!!!
     std::cout<<"in init_proxy\n";
     //build as server
@@ -22,9 +26,11 @@ void Proxy::init_Proxy() {
     //test!!!
     std::cout<<"after build server\n";
     if(fd_accept == -1) {
-        //pthread_mutex_lock(&lock);
-        //logFile << "(no-id): ERROR in creating socket for proxy to accept\n";
-        //pthread_mutex_unlock(&lock);
+        //ID: ERROR MESSAGE
+        pthread_mutex_lock(&lock);
+        std::string error = "Cannot initialize as a server";
+        logError(error, file);
+        pthread_mutex_unlock(&lock);
     }
     int thread_id = 0;
 
@@ -33,9 +39,11 @@ void Proxy::init_Proxy() {
         std::string ip;
         int fd_client = cs.accept_as_server(fd_accept, ip);
         if(fd_client == -1){
-            //pthread_mutex_lock(&lock);
-            //logFile<< "ERROR in connecting client\n";
-            //pthread_mutex_unlock(&lock);
+            //ID: ERROR MESSAGE
+            pthread_mutex_lock(&lock);
+            std::string error = "Cannot accept remote client";
+            logError(error, file, thread_id);
+            pthread_mutex_unlock(&lock);
             std::cout<<"accept client failed\n";
         	continue;
 		}
@@ -43,21 +51,19 @@ void Proxy::init_Proxy() {
         //test!!!
         std::cout<<"accept client in init_proxy\n";
 
-
         pthread_t new_thread;
         pthread_mutex_lock(&lock);
-        int fd_server = -1;
-        SocketInfo * thread_info = new SocketInfo(fd_accept, fd_client, fd_server, thread_id, ip);
+        int fd = -1;
+        SocketInfo * thread_info = new SocketInfo(fd_accept, fd_client, fd, thread_id, ip);
         thread_id++;
         pthread_mutex_unlock(&lock);
         pthread_create(&new_thread, NULL, process, thread_info);
-        //std::thread t(&Proxy::process, this, thread_info);
-        //t.join();
         std::cout<<"\n";
     }
 }
 
 void * Proxy::process(void * thread1) {
+        //Log log;
         SocketInfo *thread_info = (SocketInfo *)thread1;
         //test!!!
         std::cout<<"--------start a new process with id: "<<thread_info->id<<"------------\n";
@@ -75,6 +81,14 @@ void * Proxy::process(void * thread1) {
 
         //get an object of request package
         PackRequest req_pack(request_info_s);
+
+        //ID: "REQUEST*" from *IPFROM* @ *TIME
+        pthread_mutex_lock(&lock);
+        logReq(thread_info->id , req_pack.request_line, thread_info->ip_client, file);
+        std::string time = getTime();
+        //file << thread_info->id << ": \"" << req_pack.request_line << "\" from "<< thread_info->ip_client << " @ " << time <<"\n";
+        pthread_mutex_unlock(&lock);
+
         //test!!!
         std::cout << "\nparse request info is!!!:\n";
         req_pack.print_request();
@@ -88,9 +102,10 @@ void * Proxy::process(void * thread1) {
 
         thread_info->fd_server = cs.init_client(h, p);
         if(thread_info->fd_server == -1){
-            //pthread_mutex_lock(&lock);
-            //logFile<< "ERROR in connecting client\n";
-            //pthread_mutex_unlock(&lock);
+            pthread_mutex_lock(&lock);
+            std::string error = "ERROR in connecting client";
+            logError(error, file, thread_info->id);
+            pthread_mutex_unlock(&lock);
             std::cout<<"connect server failed in process\n";
         	return NULL;
 		}
@@ -112,28 +127,31 @@ void * Proxy::process(void * thread1) {
             std::cout<<"\n__________here method is POST__________\n";
             //post function
             post_function(thread_info->fd_client, 
-                            thread_info->fd_server, thread_info->id, req_pack);
+                            thread_info->fd_server, thread_info->id, req_pack, thread_info);
             std::cout<<"after post function\n";
             std::cout<<"\n__________END POST__________\n";
         }
         else if(req_pack.method == "CONNECT"){
             //test!!!
             std::cout<<"\n__________here method is CONNECT__________\n";
-
             //connect function
             connect_function(thread_info->fd_client, 
-                            thread_info->fd_server, thread_info->id);
-            //processCONNECT();
+                            thread_info->fd_server, thread_info->id, thread_info);
             std::cout<<"after connect function\n";
-            //pthread_mutex_lock(&lock);
-            //print log thread_id << ": Tunnel closed"<<endl;
-            //pthread_mutex_unlock(&lock);
+            //ID: Tunnel closed
+            pthread_mutex_lock(&lock);
+            //logTunnel(thread_info->id, file);
+            pthread_mutex_unlock(&lock);
             std::cout<<"\n__________END CONNECT__________\n";
         }
         else{
             //400 function
             std::cout<<"__________here method is 400__________\n";
             function400(thread_info->fd_client, thread_info->id);
+            //ID: Responding "RESPONSE"
+            pthread_mutex_lock(&lock);
+            logRes(thread_info->id, "HTTP/1.1 400 Bad Request", file);
+            pthread_mutex_unlock(&lock);
             std::cout<<"\n__________END 400__________\n";
         }
         delete thread_info;
@@ -141,7 +159,8 @@ void * Proxy::process(void * thread1) {
         return NULL;
 }
 
-void Proxy::connect_function(int fd_client, int fd_server, int id){
+void Proxy::connect_function(int fd_client, int fd_server, int id, SocketInfo * thread_info){
+    //Log log;
     //cs.cs_print();
     //proxy_print();
     //test!!!
@@ -155,9 +174,15 @@ void Proxy::connect_function(int fd_client, int fd_server, int id){
     flag_size_s = send(fd_client, con_info_c, con_info_len, MSG_NOSIGNAL);
     //std::cout<<"send 200OK to client with flag: "<<flag_size_s<<"\n";
 
+    //ID: Responding "RESPONSE"
+    std::string response_line = "HTTP/1.1 200 OK";
+    pthread_mutex_lock(&lock);
+    logRes(id ,response_line, file);
+    pthread_mutex_unlock(&lock);
+
     if (flag_size_s < 0) {
         //print Log(id, ": ERROR respond connect fails");
-        perror("recv error: ");
+        perror("error of send");
         return;
     }
     
@@ -170,65 +195,62 @@ void Proxy::connect_function(int fd_client, int fd_server, int id){
         FD_SET(fd_client, &readfds);
         //std::cout<<"before select\n";
         select(max_fd + 1, &readfds, NULL, NULL, NULL);
-        //test!!!
-        //std::cout<<"in while and receive sth\n";
 
-        //for(int i = 0; i < 2; i++) {
-            char buf[MAX_LEN] = {0};
-            int flag_r;
-            int flag_s;
-            if(FD_ISSET(fd_client, &readfds)) {
-                //test!!!
-                //std::cout<<"recv info from client with flag: ";
-                //get info from remote client
-                flag_r = recv(fd_client, &buf, sizeof(buf), MSG_NOSIGNAL);
-                //std::cout<<buf;
-                //test!!!
-                //std::cout<<flag_r<<"\n";
-                if(flag_r <= 0) {
-                    perror("recv error");
-                    return;
-                }
-
-                //test!!!
-                //std::cout<<"send info to server with flag: ";
-                //send to remote server
-                flag_s = send(fd_server, buf, flag_r, MSG_NOSIGNAL);
-                //test!!!
-                //std::cout<<flag_s<<"\n";
-                if(flag_s <= 0) {
-                    perror("send error");
-                    return;
-                }
+        char buf[MAX_LEN] = {0};
+        int flag_r;
+        int flag_s;
+        if(FD_ISSET(fd_client, &readfds)) {
+            //test!!!
+            //std::cout<<"recv info from client with flag: ";
+            //get info from remote client
+            flag_r = recv(fd_client, &buf, sizeof(buf), MSG_NOSIGNAL);
+            //std::cout<<buf;
+            //test!!!
+            //std::cout<<flag_r<<"\n";
+            if(flag_r <= 0) {
+                perror("error of recv");
+                return;
             }
-            if(FD_ISSET(fd_server, &readfds)) {
-                //test!!!
-                //std::cout<<"recv info from server with flag: ";
-                //get info from remote server
-                flag_r = recv(fd_server, &buf, sizeof(buf), MSG_NOSIGNAL);
-                //test!!!
-                //std::cout<<flag_r<<"\n";
-                if(flag_r <= 0) {
-                    perror("recv error");
-                    return;
-                }
 
-                //test!!!
-                //std::cout<<"send info to client with flag: ";
-                //send to remote client
-                flag_s = send(fd_client, buf, flag_r, MSG_NOSIGNAL);
-                //test!!!
-                //std::cout<<flag_s<<"\n";
-                if(flag_s <= 0) {
-                    perror("send error");
-                    return;
-                }
+            //test!!!
+            //std::cout<<"send info to server with flag: ";
+            //send to remote server
+            flag_s = send(fd_server, buf, flag_r, MSG_NOSIGNAL);
+            //test!!!
+            //std::cout<<flag_s<<"\n";
+            if(flag_s <= 0) {
+                perror("error of send");
+                return;
             }
-        //}
+        }
+        if(FD_ISSET(fd_server, &readfds)) {
+            //test!!!
+            //std::cout<<"recv info from server with flag: ";
+            //get info from remote server
+            flag_r = recv(fd_server, &buf, sizeof(buf), MSG_NOSIGNAL);
+            //test!!!
+            //std::cout<<flag_r<<"\n";
+            if(flag_r <= 0) {
+                perror("error of recv");
+                return;
+            }
+
+            //test!!!
+            //std::cout<<"send info to client with flag: ";
+            //send to remote client
+            flag_s = send(fd_client, buf, flag_r, MSG_NOSIGNAL);
+            //test!!!
+            //std::cout<<flag_s<<"\n";
+            if(flag_s <= 0) {
+                perror("error of send");
+                return;
+            }
+        }
     }
 }
 
-void Proxy::post_function(int fd_client, int fd_server, int id, PackRequest & request_info) {
+void Proxy::post_function(int fd_client, int fd_server, int id, PackRequest & request_info, SocketInfo * thread_info) {
+    //Log log;
     //test!!!
     std::cout<<"in post function\n";
     if (request_info.content_len_remain != -1) {
@@ -239,28 +261,43 @@ void Proxy::post_function(int fd_client, int fd_server, int id, PackRequest & re
 
         char response[65536] = {0};
         int response_len = recv(fd_server,response,sizeof(response),MSG_WAITALL);
-        std::cout<<"recv response from server with flag: "<<response_len<<"\n";
-        std::cout<<"recv response: \n";
-        std::cout<<response<<"\n";
+        //test!!!
+        //std::cout<<"recv response from server with flag: "<<response_len<<"\n";
+        //std::cout<<"recv response: \n";
+        //std::cout<<response<<"\n";
         
-        if (response_len != 0) {
+        if (response_len > 0) {
             PackResponse res(response);
-            //string log_msg = generateLogMsg(thread_id,"Received \""+res.getFirstLine()
-            //                        +"\" from "+request.getHostname());
-            //writeToLog(log_msg);
-            //cout << "received response: " << response << endl;
+            //ID: Received "RESPONSE" from SERVER
+            pthread_mutex_lock(&lock);
+            logConServer(id, res.response_line, request_info.URI, 1, file);
+            pthread_mutex_unlock(&lock);
+
             int flag_s = send(fd_client, response, response_len, 0);
             std::cout<<"send request to client with flag: "<<flag_s<<"\n";
-            //string log_msg2 = generateLogMsg(thread_id,"Responding \""+res.getFirstLine()+"\"");
-            //writeToLog(log_msg2);
+
+            //ID: Responding "RESPONSE"
+            pthread_mutex_lock(&lock);
+            logRes(id, res.response_line, file);
+            pthread_mutex_unlock(&lock);
             std::cout << "post successfully\n";
         }
         else{
-            std::cout<<"Server closed connection\n";
+            //ID: NOTE MESSAGE
+            std::string note = " The connection between proxy and server is closed";
+            std::cout<< note <<"\n";
+            pthread_mutex_lock(&lock);
+            logNote(note, file, id);
+            pthread_mutex_unlock(&lock);
         }
     }
     else {
-            std::cout << "failed to post\n";
+        //ID: ERROR MESSAGE
+        std::string error = "post is failed";
+        std::cout<< error << "\n";
+        pthread_mutex_lock(&lock);
+        logError(error, file, id);
+        pthread_mutex_unlock(&lock);
     }
 
 }
@@ -268,9 +305,6 @@ void Proxy::post_function(int fd_client, int fd_server, int id, PackRequest & re
 void Proxy::function400(int fd_client, int id) {
         const char * msg = "HTTP/1.1 400 Bad Request";
         send(fd_client, msg, sizeof(msg), MSG_NOSIGNAL);
-        //pthread_mutex_lock(&mutex);
-        //logFile << id << ": Responding \"HTTP/1.1 400 Bad Request\"" << std::endl;
-        //pthread_mutex_unlock(&mutex);
 }
 
 
