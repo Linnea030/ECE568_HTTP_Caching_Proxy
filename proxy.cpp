@@ -9,7 +9,6 @@
 #include "socket_info.h"
 #include "handler.h"
 
-
 #define MAX_LEN 65536
 pthread_mutex_t lock1 = PTHREAD_MUTEX_INITIALIZER;
 pthread_mutex_t lock2 = PTHREAD_MUTEX_INITIALIZER;
@@ -87,7 +86,7 @@ void * Proxy::process(void * thread1) {
         pthread_mutex_lock(&lock1);
         logReq(thread_info->id , req_pack.request_line, thread_info->ip_client, file);
         std::string time = getTime();
-        //file << thread_info->id << ": \"" << req_pack.request_line << "\" from "<< thread_info->ip_client << " @ " << time <<"\n";
+        //file << thread_info->id << ": \"" << req_pack.request_line << "\" from "<< thread_info->ip_client << " @ " << time <<std::endl;
         pthread_mutex_unlock(&lock1);
 
         //test!!!
@@ -120,7 +119,7 @@ void * Proxy::process(void * thread1) {
             //get function
             Handler h;
             Cache cache;
-            h.GETHandler(req_pack, thread_info->fd_client, thread_info->fd_server, cache, thread_info->id);
+            h.GETHandler(req_pack, thread_info->fd_client, thread_info->fd_server, cache, thread_info->id, file, lock1);
             std::cout<<"\n__________END GET__________\n";
         }
         else if(req_pack.method == "POST") {
@@ -141,7 +140,7 @@ void * Proxy::process(void * thread1) {
             std::cout<<"after connect function\n";
             //ID: Tunnel closed
             pthread_mutex_lock(&lock1);
-            //logTunnel(thread_info->id, file);
+            logTunnel(thread_info->id, file);
             pthread_mutex_unlock(&lock1);
             std::cout<<"\n__________END CONNECT__________\n";
         }
@@ -155,8 +154,8 @@ void * Proxy::process(void * thread1) {
             pthread_mutex_unlock(&lock1);
             std::cout<<"\n__________END 400__________\n";
         }
-        delete thread_info;
         std::cout<<"--------new process with id: "<<thread_info->id<<"is over------------\n";
+        delete thread_info;
         return NULL;
 }
 
@@ -304,9 +303,25 @@ void Proxy::post_function(int fd_client, int fd_server, int id, PackRequest & re
 }
 
 void Proxy::function400(int fd_client, int id) {
-        const char * msg = "HTTP/1.1 400 Bad Request";
-        send(fd_client, msg, sizeof(msg), MSG_NOSIGNAL);
+        const char * error = "HTTP/1.1 400 Bad Request";
+        int flag;
+        flag = send(fd_client, error, sizeof(error), MSG_NOSIGNAL);
+        if(flag < 0){
+
+        }
 }
+
+// void Proxy::function502(int fd_client, int id) {
+//     const char * error = "HTTP/1.1 502 Bad Gateway";
+//     int flag;
+//     flag = send(fd_client, error, sizeof(error), 0);
+//     if(flag < 0){
+
+//     }
+//     pthread_mutex_lock(&lock1);
+//     logRes(id, "HTTP/1.1 400 Bad Request", file);
+//     pthread_mutex_unlock(&lock1);
+// }
 
 
 /////////////test!!!

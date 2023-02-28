@@ -101,7 +101,7 @@ int Csbuild::accept_as_server(int fd_accept, std::string & ip) {
     struct sockaddr_in * addr = (struct sockaddr_in *)&socket_addr;
 
     if (socket_fd == -1) {
-        std::cerr << "Error: cannot accept connection on socke in accept_as_server\n";
+        std::cerr << "Error: cannot accept connection on socket in accept_as_server\n";
         return -1;
     } //if
 

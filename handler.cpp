@@ -3,10 +3,106 @@
 #include "socket_info.h"
 #include "csbuild.h"
 #include "cache.h"
+//#include "log.h"
+//#include "helper.h"
 
 #define RESPONSE_MSG_MAX    65536
 
 using namespace std;
+
+///////////
+std::string getTime1() {
+        time_t currTime =time(0);
+        char * time_c = ctime(&currTime);
+        //change it to UTC time zone
+        std::tm * gm =gmtime(&currTime);
+        time_c = asctime(gm);
+        //make it as a string
+        std::string time_s(time_c);
+        return time_s.append("\0");
+    }
+
+    //ID: "REQUEST" from IPFROM @ TIME
+    void logReq1(int id , std::string request_line, std::string ip_client, std::ofstream & file) {
+        //test!!!
+        std::string time = getTime1();
+        file << id << ": \"" << request_line << "\" from "<< ip_client << " @ " << time;
+        std::cout<<"\nafter log req\n";
+    }
+
+    //ID: Responding "RESPONSE"
+    void logRes1(int id , std::string response_line, std::ofstream & file) {
+        file << id << ": Responding \""<< response_line <<"\""<< std::endl;
+    }
+
+    //ID: not in cache
+    //ID: in cache, but expired at EXPIREDTIME 
+    //ID: in cache, requires validation
+    //ID: in cache, valid
+    void logGet1(int id , int mode, std::ofstream & file) {
+        if(mode == 0) {
+            file << id <<": not in cache"<< std::endl;
+        }
+        else if(mode == 1) {
+            std::string time = getTime1();
+            file << id <<": in cache, but expired at "<< time << std::endl;
+        }
+        else if(mode == 2) {
+            file<< id <<": in cache, requires validation"<< std::endl;
+        }
+        else if(mode == 3) {
+            file<< id <<": in cache, valid"<< std::endl;
+        }
+    }
+
+    //ID: Requesting "REQUEST" from SERVER
+    //ID: Received "RESPONSE" from SERVER
+    void logConServer1(int id, std::string re_line, std::string URI, int mode, std::ofstream & file) {
+        if(mode == 0) {
+            file << id << ": Requesting \"" << re_line << "\" from "<< URI << std::endl;
+        }
+        else if(mode == 1) {
+            file << id << ": Received \"" << re_line << " \" from " << URI << std::endl;
+        }
+    }
+
+    //ID: ERROR MESSAGE
+    void logError1(std::string error, std::ofstream & file, int id = -1) {
+        if(id = -1) {
+            file << "(no-id): ERROR: "<< error << std::endl;
+        }
+        else{
+            file << id <<": ERROR: "<< error << std::endl;
+        }
+    }
+
+    //ID: WARNING MESSAGE
+    void logWarning1(std::string warning, std::ofstream & file, int id = -1) {
+        if(id = -1) {
+            file << "(no-id): WARNING: "<< warning << std::endl;
+        }
+        else{
+            file << id <<": WARNING: "<< warning << std::endl;
+        }
+    }
+
+    //ID: NOTE MESSAGE
+    void logNote1(std::string note, std::ofstream & file, int id = -1) {
+        if(id = -1) {
+            file << "(no-id): NOTE: "<< note << std::endl;
+        }
+        else{
+            file << id <<": NOTE: "<< note << std::endl;
+        }
+    }
+
+    //ID: Tunnel closed
+    void logTunnel1(int id, std::ofstream & file) {
+        std::cout<<"in log tunnel\n";
+        file << id << ": Tunnel closed"<< std::endl;
+        std::cout<<"out logtunnel\n";
+    }
+/////////
 
 /**
  * @brief Handle GET method
@@ -21,7 +117,7 @@ using namespace std;
  * 
  * @return null
  */
-void Handler::GETHandler(PackRequest req, int fd_client, int fd_server, Cache & cache, int thread_id){
+void Handler::GETHandler(PackRequest req, int fd_client, int fd_server, Cache & cache, int thread_id, std::ofstream & file, pthread_mutex_t & lock1){
     std::cout<<"int get handler\n";
     //string hostname = req.hostname;
     //string portnum = req.port;
@@ -41,17 +137,40 @@ void Handler::GETHandler(PackRequest req, int fd_client, int fd_server, Cache & 
         if(cache_control.find("no-cache") != string::npos){
             isNoCache = true;
         }
+        //待补充：maxage等
         if(isNoCache){
             //LOG: cached, requires validation
+            //ID: in cache, requires validation
+            pthread_mutex_lock(&lock1);
+            logGet1(thread_id , 2, file);
+            pthread_mutex_unlock(&lock1);
+            cache.revalidate(req, fd_client, fd_server, uri, res, thread_id, file);
+            return;
         }
-        //send response
+        else{
+            // LOG: in cache, valid
+            cout<<"response size"<<res.response.size()<<"\n";
+            int flag_s;
+            // LOG: Responding "RESPONSE"
+            flag_s = send(fd_client, res.response.data(), res.response.size(), MSG_NOSIGNAL);
+            cout<<"response_whole : \n"<<res.response.data()<<"\n";
+            cout<<"send request to remote client with flag: "<<flag_s<<"\n";
+        }
     }
     // If not in cache
     else{
         std::cout<<"not in cache\n";
         //待补充：写入log: not in cache
+        //ID: not in cache
+        pthread_mutex_lock(&lock1);
+        logGet1(thread_id , 0, file);
+        pthread_mutex_unlock(&lock1);
         //读取client的request，send给remote server
         //待补充：写入log：request from server
+        //ID: Requesting "REQUEST" from SERVER
+        pthread_mutex_lock(&lock1);
+        logConServer1(thread_id, req.request_line, req.URI, 0, file);
+        pthread_mutex_unlock(&lock1);
         //client接受返回消息：判断chunk！
         //处理response
         //send回client
@@ -77,6 +196,10 @@ void Handler::GETHandler(PackRequest req, int fd_client, int fd_server, Cache & 
         // 待补充：把第一个包存入response中
         //string response_info_s(msg);
         PackResponse res(msg);
+        //ID: Received "RESPONSE" from SERVER
+        pthread_mutex_lock(&lock1);
+        logConServer1(thread_id, res.response_line, res.URI, 1, file);
+        pthread_mutex_unlock(&lock1);
 
         //处理code 304？
         if(res.code == "304"){
@@ -99,7 +222,6 @@ void Handler::GETHandler(PackRequest req, int fd_client, int fd_server, Cache & 
                 tmp.assign(msg.begin() + index, msg.end() + index);
                 index = index + msg_len;
             }
-            return;
         }
         // If not chunked
         else{
@@ -126,7 +248,7 @@ void Handler::GETHandler(PackRequest req, int fd_client, int fd_server, Cache & 
         // 待补充：receive log
 
         // 待补充：response存入cache
-        cache.store(response, thread_id, uri);
+        cache.store(response, thread_id, uri, file);
 
         //Send response to remote client
         string response_whole;
@@ -136,4 +258,29 @@ void Handler::GETHandler(PackRequest req, int fd_client, int fd_server, Cache & 
         std::cout<<"response_whole : \n"<<response_whole.data()<<"\n";
         std::cout<<"send request to remote client with flag: "<<flag_s<<"\n";
     }
+    return;
 }
+
+    bool Handler::is502(std::string res) {
+        if(res.find("HTTP/1.1")==string::npos){
+            return true;
+        }
+        if(res.find("\r\n\r\n")==string::npos){  
+            return true;
+        }
+        return false;
+    }
+
+    void Handler::function502(int fd_client, int id, std::ofstream & file, pthread_mutex_t & lock1) {
+        const char * error = "HTTP/1.1 502 Bad Gateway";
+        int flag;
+        flag = send(fd_client, error, sizeof(error), 0);
+        if(flag < 0){
+
+        }
+        pthread_mutex_lock(&lock1);
+        logRes1(id, "HTTP/1.1 502 Bad Gateway", file);
+        pthread_mutex_unlock(&lock1);
+    }
+
+        

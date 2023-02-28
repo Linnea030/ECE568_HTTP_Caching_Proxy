@@ -173,3 +173,11 @@ std::string PackResponse::get_cachecontrol(){
 std::string PackResponse::get_expires(){
     return finder("Expires");
 }
+
+std::string PackResponse::get_etag(){
+    return finder("ETag");
+}
+
+std::string PackResponse::get_lastmodified(){
+    return finder("Last-Modified");
+}

@@ -79,6 +79,8 @@ class PackResponse {
     bool isPrivate();
     bool isNoStore();
     bool isNoCache();
+    std::string get_etag();
+    std::string get_lastmodified();
 
     
     ~PackResponse() {}
