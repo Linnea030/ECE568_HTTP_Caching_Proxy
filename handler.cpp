@@ -2,6 +2,7 @@
 #include "package.h"
 #include "socket_info.h"
 #include "csbuild.h"
+#include "cache.h"
 
 #define RESPONSE_MSG_MAX    65536
 
@@ -30,8 +31,21 @@ void Handler::GETHandler(PackRequest req, int fd_client, int fd_server, Cache & 
     // client_fd = init_client(hostname, portnum);
     // 先在cache里面找
     // 待补充：在cache里面
-    bool in_cache = false;
-    if(in_cache){}
+    //bool in_cache = false;
+    string cache_res = cache.search(uri);
+    if(cache_res != ""){
+        PackResponse res = PackResponse(cache_res);
+        //Check if requires re-validate
+        string cache_control = res.get_cachecontrol();
+        bool isNoCache = false;
+        if(cache_control.find("no-cache") != string::npos){
+            isNoCache = true;
+        }
+        if(isNoCache){
+            //LOG: cached, requires validation
+        }
+        //send response
+    }
     // If not in cache
     else{
         std::cout<<"not in cache\n";
@@ -66,7 +80,6 @@ void Handler::GETHandler(PackRequest req, int fd_client, int fd_server, Cache & 
 
         //处理code 304？
         if(res.code == "304"){
-            std::cout<<"get 304 !!!\n";
             return;
         }
 
@@ -95,18 +108,15 @@ void Handler::GETHandler(PackRequest req, int fd_client, int fd_server, Cache & 
             // 待补充：len = res.getLen();
             len = res.get_length();
             // Receive until index = len
-            std::cout<<"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!\n";
             while(len > index){
                 msg.resize(index + RESPONSE_MSG_MAX);
                 // recv size应为65536还是msg.size()?
                 msg_len = recv(fd_server, &msg.data()[index], RESPONSE_MSG_MAX, 0);
-                std::cout<<msg.data();
                 if(msg_len <= 0){
                     break;
                 }
                 index = index + msg_len;
             }
-            std::cout<<"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!\n";
         }
 
         // 待补充：把结果存入response中
@@ -114,7 +124,9 @@ void Handler::GETHandler(PackRequest req, int fd_client, int fd_server, Cache & 
         PackResponse response(msg);
 
         // 待补充：receive log
+
         // 待补充：response存入cache
+        cache.store(response, thread_id, uri);
 
         //Send response to remote client
         string response_whole;

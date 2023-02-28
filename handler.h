@@ -10,9 +10,9 @@
 #include <pthread.h>
 #include <thread>
 #include <string>
-
-
-class Cache{};
+#include "socket_info.h"
+#include "csbuild.h"
+#include "cache.h"
 
 
 class Handler{

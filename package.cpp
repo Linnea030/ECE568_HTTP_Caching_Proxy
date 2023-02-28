@@ -154,3 +154,22 @@ int PackResponse::get_length(){
     std::cout<<"in get_length, len_s: "<<len_s<<"\n";
     return stoi(len_s);
 }
+
+std::string PackResponse::finder(std::string str){
+    size_t pos = response.find(str);
+    if(pos == std::string::npos) {
+        return "";
+    }
+    size_t pos_end = response.find("\r\n", pos + 1);
+    // 2: ": "
+    std::string res = response.substr(pos + 2 + str.size(), pos_end - 2 - pos - str.size());
+    return res;
+}
+
+std::string PackResponse::get_cachecontrol(){
+    return finder("Cache-Control");
+}
+
+std::string PackResponse::get_expires(){
+    return finder("Expires");
+}

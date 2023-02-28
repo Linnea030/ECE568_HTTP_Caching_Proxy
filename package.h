@@ -9,6 +9,7 @@
 #include <string>
 #include <vector>
 
+
 class PackRequest {
     public:
     std::string whole;
@@ -57,6 +58,7 @@ class PackResponse {
 
     PackResponse(std::vector<char> msg) {
         response.assign(msg.begin(), msg.end());
+        parse_res();
     }
     
     PackResponse(std::string response_info_s) {
@@ -67,8 +69,17 @@ class PackResponse {
     void parse_res();
     void parse_header();
     void parse_status();
+
     bool is_chunked();
     int get_length();
+
+    std::string finder(std::string str);
+    std::string get_cachecontrol();
+    std::string get_expires();
+    bool isPrivate();
+    bool isNoStore();
+    bool isNoCache();
+
     
     ~PackResponse() {}
 };

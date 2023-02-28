@@ -1,3 +1,5 @@
+#ifndef __CS_BUILD__
+#define __CS_BUILD__
 #include <iostream>
 #include <vector>
 #include <cstring>
@@ -35,3 +37,4 @@ class Csbuild {
     }*/
     ~Csbuild() {}
 };
+#endif
