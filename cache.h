@@ -5,6 +5,7 @@
 #include <mutex>
 #include "package.h"
 #include <sys/socket.h>
+#include <fstream>
 
 using namespace std;
 
@@ -42,8 +43,9 @@ class Cache{
 
     string search(string uri);
     void add(string uri, PackResponse response);
-    void store(PackResponse response, int thread_id, string uri, std::ofstream & file);
+    void store(PackResponse response, int thread_id, string uri, std::ofstream & file, pthread_mutex_t & lock1);
     string getResfromServer(PackRequest request, int fd_server);
-    void revalidate(PackRequest request, int fd_client, int fd_server, string uri, PackResponse response, int thread_id, std::ofstream & file);
+    void revalidate(PackRequest request, int fd_client, int fd_server, string uri, PackResponse response, int thread_id, std::ofstream & file, pthread_mutex_t & lock1);
 };
+
 #endif

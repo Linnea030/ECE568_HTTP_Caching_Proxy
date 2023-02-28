@@ -144,7 +144,7 @@ void Handler::GETHandler(PackRequest req, int fd_client, int fd_server, Cache & 
             pthread_mutex_lock(&lock1);
             logGet1(thread_id , 2, file);
             pthread_mutex_unlock(&lock1);
-            cache.revalidate(req, fd_client, fd_server, uri, res, thread_id, file);
+            cache.revalidate(req, fd_client, fd_server, uri, res, thread_id, file, lock1);
             return;
         }
         else{
@@ -203,6 +203,11 @@ void Handler::GETHandler(PackRequest req, int fd_client, int fd_server, Cache & 
 
         //处理code 304？
         if(res.code == "304"){
+            //ID: NOTE MESSAGE
+            std::string warning = "get 304 not modified";
+            pthread_mutex_lock(&lock1);
+            logNote1(warning, file, thread_id);
+            pthread_mutex_unlock(&lock1);
             return;
         }
 
@@ -245,10 +250,13 @@ void Handler::GETHandler(PackRequest req, int fd_client, int fd_server, Cache & 
         // string response_info_s(msg);
         PackResponse response(msg);
 
-        // 待补充：receive log
+        //ID: Received "RESPONSE" from SERVER
+        pthread_mutex_lock(&lock1);
+        logConServer1(thread_id, response.response_line, response.URI, 1, file);
+        pthread_mutex_unlock(&lock1);
 
         // 待补充：response存入cache
-        cache.store(response, thread_id, uri, file);
+        cache.store(response, thread_id, uri, file, lock1);
 
         //Send response to remote client
         string response_whole;
@@ -257,6 +265,12 @@ void Handler::GETHandler(PackRequest req, int fd_client, int fd_server, Cache & 
         flag_s = send(fd_client, response_whole.data(), response_whole.size(), MSG_NOSIGNAL);
         std::cout<<"response_whole : \n"<<response_whole.data()<<"\n";
         std::cout<<"send request to remote client with flag: "<<flag_s<<"\n";
+        
+        //ID: Responding "RESPONSE"
+        pthread_mutex_lock(&lock1);
+        logRes1(thread_id, res.response_line, file);
+        pthread_mutex_unlock(&lock1);
+
     }
     return;
 }
