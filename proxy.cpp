@@ -118,7 +118,7 @@ void * Proxy::process(void * thread1) {
             std::cout<<"\n__________here method is GET__________\n";
             //get function
             Handler h;
-            Cache cache;
+            Cache cache(50);
             h.GETHandler(req_pack, thread_info->fd_client, thread_info->fd_server, cache, thread_info->id, file, lock1);
             std::cout<<"\n__________END GET__________\n";
         }

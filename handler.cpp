@@ -139,6 +139,9 @@ void Handler::GETHandler(PackRequest req, int fd_client, int fd_server, Cache & 
         }
         //待补充：maxage等
         if(isNoCache){
+            std::cout<<"in isNoCache!!!!!!!!!!!!!!!!\n";
+            std::cout<<"in isNoCache!!!!!!!!!!!!!!!!\n";
+            std::cout<<"in isNoCache!!!!!!!!!!!!!!!!\n";
             //LOG: cached, requires validation
             //ID: in cache, requires validation
             pthread_mutex_lock(&lock1);
@@ -149,6 +152,9 @@ void Handler::GETHandler(PackRequest req, int fd_client, int fd_server, Cache & 
         }
         else{
             // LOG: in cache, valid
+            pthread_mutex_lock(&lock1);
+            logGet1(thread_id , 3, file);
+            pthread_mutex_unlock(&lock1);
             cout<<"response size"<<res.response.size()<<"\n";
             int flag_s;
             // LOG: Responding "RESPONSE"

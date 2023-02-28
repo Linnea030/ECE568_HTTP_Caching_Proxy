@@ -127,10 +127,10 @@ void PackResponse::parse_header(){
 
 void PackResponse::parse_status(){
     size_t pos_st = response_header.find(" ");
-    size_t pos_code_end = response_header.find(" ");
+    size_t pos_code_end = response_header.find(" ", pos_st + 1);
     size_t pos_st_end = response_header.find("\r\n");
-    status_code = response_header.substr(pos_st, pos_st_end);
-    code = response_header.substr(pos_st, pos_code_end);
+    status_code = response_header.substr(pos_st + 1, pos_st_end - pos_st - 1);
+    code = response_header.substr(pos_st + 1, pos_code_end - pos_st - 1);
 }
 
 bool PackResponse::is_chunked(){

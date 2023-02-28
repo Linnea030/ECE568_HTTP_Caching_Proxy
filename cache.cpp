@@ -19,7 +19,7 @@ std::string getTime2() {
         std::string time_s(time_c);
         return time_s.append("\0");
     }
-    
+
 // ID: not cacheable because REASON
 // ID: cached, expires at EXPIRES
 // ID: cached, but requires re-validation
@@ -180,6 +180,7 @@ void Cache::store(PackResponse response, int thread_id, string uri, std::ofstrea
     string cache_control = response.get_cachecontrol();
     bool isPrivate = false;
     bool isNoStore = false;
+    std::cout<<"response code !!!!!!!!!!!!!!!!"<<response.code<<"!!!!!!"<<std::endl;
     //bool isNoCache = false;
     if(cache_control != ""){
         if(cache_control.find("private") != string::npos){
@@ -192,11 +193,18 @@ void Cache::store(PackResponse response, int thread_id, string uri, std::ofstrea
         //     isNoCache = true;
         // }
     }
+    std::cout<<"isPrivate: "<<isPrivate<<" isNoStore: "<<isNoStore<<" response.code == \"200\": " <<(response.code == "200")<<
+    " cache_control: "<<cache_control<<std::endl;
     if(!isPrivate && !isNoStore && response.code == "200"){
         // store in map_cache
+        std::cout<<"in if before add\n";
+        std::cout<<"uri: "<<uri<<"\nresponse:\n" <<response.response<<std::endl;
         add(uri, response);
+        std::cout<<"in if after add\n";
         string expires = response.get_expires(); 
+        std::cout<<"expires: "<<expires<<std::endl;
         if(expires == ""){
+            std::cout<<"expires== \"\" re-validation "<<std::endl;
             //LOG: cached, but requires re-validation    
             //ID: in cache, requires validation
             pthread_mutex_lock(&lock1);
@@ -204,6 +212,7 @@ void Cache::store(PackResponse response, int thread_id, string uri, std::ofstrea
             pthread_mutex_unlock(&lock1);
         }
         else{
+            std::cout<<" expires at EXPIRES"<<std::endl;
             //LOG: cached, expires at EXPIRES
             //ID: in cache, but expired at EXPIREDTIME 
             pthread_mutex_lock(&lock1);
