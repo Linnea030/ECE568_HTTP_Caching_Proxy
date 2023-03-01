@@ -15,7 +15,7 @@ pthread_mutex_t lock2 = PTHREAD_MUTEX_INITIALIZER;
 
 //static Log log;
 //！！！！！！！！！！！！！记得改路径
-std::ofstream file("proxy.log");
+std::ofstream file("/var/log/erss/proxy.log");
 
 void Proxy::init_Proxy() {
     Csbuild cs;
