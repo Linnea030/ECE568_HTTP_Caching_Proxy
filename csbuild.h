@@ -16,9 +16,6 @@
 
 class Csbuild {
     public:
-    // int fd_accept;//used to accept remote client
-    // int fd_client;//used to send and recv from remote client
-    // int fd_server;//used to connect remote server
 
     // std::string ip_client;//ip for remote client used to print in log file
 

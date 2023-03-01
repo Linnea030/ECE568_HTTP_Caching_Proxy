@@ -12,8 +12,9 @@
 #define MAX_LEN 65536
 pthread_mutex_t lock1 = PTHREAD_MUTEX_INITIALIZER;
 pthread_mutex_t lock2 = PTHREAD_MUTEX_INITIALIZER;
-//pthread_mutex_t lock;
+
 //static Log log;
+//！！！！！！！！！！！！！记得改路径
 std::ofstream file("proxy.log");
 
 void Proxy::init_Proxy() {
@@ -34,7 +35,7 @@ void Proxy::init_Proxy() {
     }
     int thread_id = 0;
 
-    //need to add multi-thread!!!
+    //need to add multi-thread
     while(1) {
         std::string ip;
         int fd_client = cs.accept_as_server(fd_accept, ip);
@@ -52,11 +53,16 @@ void Proxy::init_Proxy() {
         std::cout<<"accept client in init_proxy\n";
 
         pthread_t new_thread;
+        //get into a new thread
+
         pthread_mutex_lock(&lock2);
         int fd = -1;
+        //save all arguments in one object
         SocketInfo * thread_info = new SocketInfo(fd_accept, fd_client, fd, thread_id, ip);
-        thread_id++;
+        thread_id = thread_id + 1;
         pthread_mutex_unlock(&lock2);
+
+        //join a new thread
         pthread_create(&new_thread, NULL, process, thread_info);
         std::cout<<"\n";
     }
@@ -73,6 +79,16 @@ void * Proxy::process(void * thread1) {
         int flag_size = recv(thread_info->fd_client, request_info, sizeof(request_info), 0);
         //判断recv的size =0 就结束这个handlereq， 小于0就400
         if(flag_size == 0) return NULL;
+        else if(flag_size < 0) {
+            //400 function
+            std::cout<<"__________here method is 400__________\n";
+            function400(thread_info->fd_client, thread_info->id);
+            //ID: Responding "RESPONSE"
+            pthread_mutex_lock(&lock1);
+            logRes(thread_info->id, "HTTP/1.1 400 Bad Request", file);
+            pthread_mutex_unlock(&lock1);
+            std::cout<<"\n__________END 400__________\n";
+        }
 
         //test!!!
         std::cout << "received request is!!!:\n" << request_info;
@@ -101,6 +117,8 @@ void * Proxy::process(void * thread1) {
         //std::cout << h << ":" << p << std::endl;
 
         thread_info->fd_server = cs.init_client(h, p);
+        //test!!!
+        thread_info->info_print();
         if(thread_info->fd_server == -1){
             pthread_mutex_lock(&lock1);
             std::string error = "ERROR in connecting client";
@@ -110,14 +128,12 @@ void * Proxy::process(void * thread1) {
         	return NULL;
 		}
 
-        //test!!!
-        thread_info->info_print();
-
-        //update_cs();
+         //update_cs();
         if(req_pack.method == "GET"){
             std::cout<<"\n__________here method is GET__________\n";
             //get function
             Handler h;
+            //initilize cache with size 50
             Cache cache(50);
             h.GETHandler(req_pack, thread_info->fd_client, thread_info->fd_server, cache, thread_info->id, file, lock1);
             std::cout<<"\n__________END GET__________\n";
@@ -173,6 +189,12 @@ void Proxy::connect_function(int fd_client, int fd_server, int id, SocketInfo * 
     int flag_size_s;
     flag_size_s = send(fd_client, con_info_c, con_info_len, MSG_NOSIGNAL);
     //std::cout<<"send 200OK to client with flag: "<<flag_size_s<<"\n";
+    if(flag_size_s <= 0){
+        std::string error = "send HTTP/1.1 200 OK failed";
+        pthread_mutex_lock(&lock1);
+        logError(error, file, id);
+        pthread_mutex_unlock(&lock1);
+    }
 
     //ID: Responding "RESPONSE"
     std::string response_line = "HTTP/1.1 200 OK";
@@ -182,7 +204,11 @@ void Proxy::connect_function(int fd_client, int fd_server, int id, SocketInfo * 
 
     if (flag_size_s < 0) {
         //print Log(id, ": ERROR respond connect fails");
-        perror("error of send");
+        //perror("error of send");
+        std::string error = "send HTTP/1.1 200 OK failed";
+        pthread_mutex_lock(&lock1);
+        logError(error, file, id);
+        pthread_mutex_unlock(&lock1);
         return;
     }
     
@@ -208,7 +234,11 @@ void Proxy::connect_function(int fd_client, int fd_server, int id, SocketInfo * 
             //test!!!
             //std::cout<<flag_r<<"\n";
             if(flag_r <= 0) {
-                perror("error of recv");
+                //perror("error of recv");
+                std::string note = "recv nothing";
+                pthread_mutex_lock(&lock1);
+                logNote(note, file, id);
+                pthread_mutex_unlock(&lock1);
                 return;
             }
 
@@ -219,7 +249,11 @@ void Proxy::connect_function(int fd_client, int fd_server, int id, SocketInfo * 
             //test!!!
             //std::cout<<flag_s<<"\n";
             if(flag_s <= 0) {
-                perror("error of send");
+                //perror("error of send");
+                std::string note = "send nothing";
+                pthread_mutex_lock(&lock1);
+                logNote(note, file, id);
+                pthread_mutex_unlock(&lock1);
                 return;
             }
         }
@@ -231,7 +265,11 @@ void Proxy::connect_function(int fd_client, int fd_server, int id, SocketInfo * 
             //test!!!
             //std::cout<<flag_r<<"\n";
             if(flag_r <= 0) {
-                perror("error of recv");
+                //perror("error of recv");
+                std::string note = "recv nothing";
+                pthread_mutex_lock(&lock1);
+                logNote(note, file, id);
+                pthread_mutex_unlock(&lock1);
                 return;
             }
 
@@ -242,7 +280,11 @@ void Proxy::connect_function(int fd_client, int fd_server, int id, SocketInfo * 
             //test!!!
             //std::cout<<flag_s<<"\n";
             if(flag_s <= 0) {
-                perror("error of send");
+                //perror("error of send");
+                std::string note = "send nothing";
+                pthread_mutex_lock(&lock1);
+                logNote(note, file, id);
+                pthread_mutex_unlock(&lock1);
                 return;
             }
         }
@@ -258,12 +300,19 @@ void Proxy::post_function(int fd_client, int fd_server, int id, PackRequest & re
         const char * res_info_c = request_info.request.c_str();
         flag_size_s = send(fd_server, res_info_c, request_info.request.size(), MSG_NOSIGNAL);//0 in xy
         std::cout<<"send request to server with flag: "<<flag_size_s<<"\n";
+        if(flag_size_s <= 0) {
+                //perror("error of recv");
+                std::string note = "send nothing";
+                pthread_mutex_lock(&lock1);
+                logNote(note, file, id);
+                pthread_mutex_unlock(&lock1);
+                //return;
+        }
 
         char response[65536] = {0};
         int response_len = recv(fd_server,response,sizeof(response),MSG_WAITALL);
         //test!!!
         //std::cout<<"recv response from server with flag: "<<response_len<<"\n";
-        //std::cout<<"recv response: \n";
         //std::cout<<response<<"\n";
         
         if (response_len > 0) {
@@ -275,7 +324,14 @@ void Proxy::post_function(int fd_client, int fd_server, int id, PackRequest & re
 
             int flag_s = send(fd_client, response, response_len, 0);
             std::cout<<"send request to client with flag: "<<flag_s<<"\n";
-
+            if(flag_s <= 0) {
+                //perror("error of recv");
+                std::string note = "send nothing";
+                pthread_mutex_lock(&lock1);
+                logNote(note, file, id);
+                pthread_mutex_unlock(&lock1);
+                //return;
+            }
             //ID: Responding "RESPONSE"
             pthread_mutex_lock(&lock1);
             logRes(id, res.response_line, file);
@@ -293,7 +349,7 @@ void Proxy::post_function(int fd_client, int fd_server, int id, PackRequest & re
     }
     else {
         //ID: ERROR MESSAGE
-        std::string error = "post is failed";
+        std::string error = "cannot post";
         std::cout<< error << "\n";
         pthread_mutex_lock(&lock1);
         logError(error, file, id);
@@ -302,61 +358,14 @@ void Proxy::post_function(int fd_client, int fd_server, int id, PackRequest & re
 
 }
 
+//handler 400
 void Proxy::function400(int fd_client, int id) {
         const char * error = "HTTP/1.1 400 Bad Request";
         int flag;
         flag = send(fd_client, error, sizeof(error), MSG_NOSIGNAL);
         if(flag < 0){
-
+            pthread_mutex_lock(&lock1);
+            logError(error, file, id);
+            pthread_mutex_unlock(&lock1);
         }
-}
-
-// void Proxy::function502(int fd_client, int id) {
-//     const char * error = "HTTP/1.1 502 Bad Gateway";
-//     int flag;
-//     flag = send(fd_client, error, sizeof(error), 0);
-//     if(flag < 0){
-
-//     }
-//     pthread_mutex_lock(&lock1);
-//     logRes(id, "HTTP/1.1 400 Bad Request", file);
-//     pthread_mutex_unlock(&lock1);
-// }
-
-
-/////////////test!!!
-void posthandle(int fd_client, int fd_server, int thread_id, PackRequest * request_info) {
-    std::cout<<send(fd_server, request_info->request.c_str(), request_info->request.size(), MSG_NOSIGNAL)<<std::endl;
-
-    //h.recv_message(fd_server, &response, true);
-    char response[65536] = {0};
-    int response_len = recv(fd_server, response, sizeof(response), MSG_WAITALL);
-    std::string response_info_s(response);
-
-    std::cout<<"The Length is "<<response_len<<std::endl;
-    //string response_str(response.begin(), response.end());
-    if(response_len > 1){
-        // Which parameter trans in.
-        // response res;
-        // res.parseResponse();
-        //response_len = h.recv_message(server_fd, &response, false);
-        std::cout<<response_len<<std::endl;
-        std::string temp(response_info_s.begin(), response_info_s.begin() + response_len);
-        std::cout<<temp<<std::endl;
-        PackResponse res(temp); 
-        //res.parseResponse();
-
-        // How to get the first line in the response?
-        //pthread_mutex_lock(&mutex);
-        //logFile << thread_id << ": Received \"" << res.firstLine << "\" from " << request->uri << endl;
-        //pthread_mutex_unlock(&mutex);
-        send(fd_client, temp.c_str(), response_len, MSG_NOSIGNAL);
-
-        //pthread_mutex_lock(&mutex);
-        //logFile << thread_id << ": Responding \""<<res.firstLine<<endl;
-        //pthread_mutex_unlock(&mutex);
-    }
-    else{
-        std::cout<<"Server Socket Closed\n";
-    }
 }

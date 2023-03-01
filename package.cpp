@@ -12,77 +12,57 @@ void PackRequest::parse_line() {
     size_t pos_line = request.find("\r\n");
 	request_line = request.substr(0, pos_line);
     //get method in line
-    size_t pos_m = request_line.find(" ");
-	method = request_line.substr(0, pos_m);
-    //get URI in line
-	size_t pos_u = request_line.find(" ", pos_m + 1);
-	URI = request_line.substr(pos_m + 1, pos_u - pos_m);
+    size_t pos_mend = request_line.find(" ");
+	method = request_line.substr(0, pos_mend);
+    //test!!!
+    std::cout<<"in parse_line get method: "<<method<<std::endl;
+    //get hostname:port in line
+	size_t pos_u = request_line.find(" ", pos_mend + 1);
+	URI = request_line.substr(pos_mend + 1, pos_u - pos_mend);
 }
 
 void PackRequest::parse_header() {
     //get request header
     size_t pos_line = request.find("\r\n");
     size_t pos_header = request.find("\r\n\r\n");
+    //if no \r\n\r\n
     if(pos_header == std::string::npos) {
         port = "";
         hostname = "";
-        //判断！！！
         return;
     }
 	request_header = request.substr(pos_line + strlen("\r\n"), pos_header);
-    size_t pos_host = request.find("Host");
-	std::string mid_host = request.substr(pos_host+6);
-	size_t end = mid_host.find("\r\n");
-	std::string host_port = mid_host.substr(0,end);
-	size_t port_pos = host_port.find(":");
+    size_t pos_h = request.find("Host");
+    size_t len_host = strlen("Host: ");
+	std::string h1 = request.substr(pos_h + len_host);
+	size_t end_line = h1.find("\r\n");
+	std::string hp = h1.substr(0, end_line);
+	size_t pos_p = hp.find(":");
 	//std::cout << port_pos <<std::endl;
-	if(port_pos!= std::string::npos){
-		hostname = host_port.substr(0,port_pos);
-		port = host_port.substr(port_pos+1);
-	} else{
-		hostname = host_port;
+	if(pos_p == std::string::npos){
+		hostname = hp;
 		port="80";
+	} else{
+        hostname = hp.substr(0, pos_p);
+		port = hp.substr(pos_p + 1);
 	}
-    // //get hostname and port
-    // size_t pos_h = request_header.find("Host") + 6;
-    // //std::cout<<request_header<<"\n\n";
-    // size_t pos_h_end = request_header.find("\r\n\r\n");
-    // std::cout<<"pos_h_end: "<<pos_h_end<<"\n";
-	// std::string line_hp = request_header.substr(pos_h, pos_h_end - pos_h);
-    // //std::cout<<line_hp<<"\n\n";
-    // //get port
-	// size_t pos_p = line_hp.find(":");
-    // //std::cout<<"!!!!!!!!!"<<line_hp<<"\n";
-	// if(pos_p == std::string::npos){
-    //     std::cout<<"port is 80\n";
-    //     port = "80";
-	// 	hostname = line_hp;
-	// } else{
-    //     std::cout<<"port is not 80\n";
-	// 	port = line_hp.substr(pos_p + 1);
-    //     //std::cout<<"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!\n";
-    //     //std::cout<<port.size()<<"\n";
-    //     hostname = line_hp.substr(0, pos_p);
-	// }
 }
 
 void PackRequest::parse_body() {
     size_t pos_header = request.find("\r\n\r\n");
-	//if(method == "POST"){
-		std::string info = request.substr(pos_header + 4);
-		size_t pos_len = request_header.find("Content-Length");
-        if (pos_len == std::string::npos) {
-            content_len_remain = -1;
-        }
-		std::string content_len;
-        content_len = request_header.substr(pos_len + 16);
-		size_t pos_len_end = content_len.find("\r\n");
-		len_info = content_len.substr(0, pos_len_end);
-	//}
+	std::string info = request.substr(pos_header + 4);
+	size_t pos_len = request_header.find("Content-Length");
+    if (pos_len == std::string::npos) {
+        content_len_remain = -1;
+    }
+	std::string content_len;
+    content_len = request_header.substr(pos_len + 16);
+	size_t pos_len_end = content_len.find("\r\n");
+	len_info = content_len.substr(0, pos_len_end);
 
     int rest_len = request.size() - int(pos_header) - 8;
     size_t end = request.find("\r\n", pos_len);
-    //len_info = stoi(request.substr(pos_len + 16, end - pos_len - 16));
+    //len_info = stoi(request.substr(pos_len + 8, end - pos_len - 6));
     content_len_remain = stoi(len_info) - rest_len - 4;
 }
 
@@ -119,15 +99,22 @@ void PackResponse::parse_res() {
 void PackResponse::parse_header(){
     size_t pos_line = response.find("\r\n");
 	response_line = response.substr(0, pos_line);
+    //get uri by first line
     URI = response_line;
     size_t pos_h_end = response.find("\r\n\r\n");
+    //get header
+    //test!!!
     response_header = response.substr(0, pos_h_end);
-    response_body = response.substr(pos_h_end + 4);
+    size_t len = strlen("\r\n\r\n");
+    //get body
+    response_body = response.substr(pos_h_end + len);
 }
 
 void PackResponse::parse_status(){
+    //get position
     size_t pos_st = response_header.find(" ");
     size_t pos_code_end = response_header.find(" ", pos_st + 1);
+    //get code
     size_t pos_st_end = response_header.find("\r\n");
     status_code = response_header.substr(pos_st + 1, pos_st_end - pos_st - 1);
     code = response_header.substr(pos_st + 1, pos_code_end - pos_st - 1);

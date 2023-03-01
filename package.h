@@ -12,6 +12,8 @@
 
 class PackRequest {
     public:
+    int content_len_remain;
+    int flag_nocache;
     std::string whole;
     std::string request;
     std::string request_line;
@@ -24,8 +26,6 @@ class PackRequest {
     std::string port;
     std::string len_info;
 
-    int content_len_remain;
-    int flag_nocache;
 
     PackRequest(std::string request_info_s) {
         request = request_info_s;
