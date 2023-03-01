@@ -1,305 +1,177 @@
-0: "CONNECT incoming.telemetry.mozilla.org:443 HTTP/1.1" from 174.99.41.104 @ Wed Mar  1 02:10:53 2023
-1: "GET http://httpbin.org/forms/post HTTP/1.1" from 174.99.41.104 @ Wed Mar  1 02:10:53 2023
+0: "CONNECT www.youtube.com:443 HTTP/1.1" from 174.99.41.104 @ Wed Mar  1 02:16:13 2023
 0: Responding "HTTP/1.1 200 OK"
-1: not in cache
-1: Requesting "GET http://httpbin.org/forms/post HTTP/1.1" from http://httpbin.org/forms/post
-1: Received "HTTP/1.1 200 OK " from HTTP/1.1 200 OK
-1: Received "HTTP/1.1 200 OK " from HTTP/1.1 200 OK
-1: in cache, requires validation
+1: "CONNECT rr1---sn-5uaeznr6.googlevideo.com:443 HTTP/1.1" from 174.99.41.104 @ Wed Mar  1 02:16:14 2023
 1: Responding "HTTP/1.1 200 OK"
-2: "CONNECT incoming.telemetry.mozilla.org:443 HTTP/1.1" from 174.99.41.104 @ Wed Mar  1 02:10:54 2023
-2: Responding "HTTP/1.1 200 OK"
-3: "CONNECT contile-images.services.mozilla.com:443 HTTP/1.1" from 174.99.41.104 @ Wed Mar  1 02:10:55 2023
+2: "POST http://ocsp.pki.goog/gts1c3 HTTP/1.1" from 174.99.41.104 @ Wed Mar  1 02:16:15 2023
+3: "CONNECT incoming.telemetry.mozilla.org:443 HTTP/1.1" from 174.99.41.104 @ Wed Mar  1 02:16:17 2023
 3: Responding "HTTP/1.1 200 OK"
-4: "GET http://www.httpwatch.com/httpgallery/methods/ HTTP/1.1" from 174.99.41.104 @ Wed Mar  1 02:10:55 2023
-4: not in cache
-4: Requesting "GET http://www.httpwatch.com/httpgallery/methods/ HTTP/1.1" from http://www.httpwatch.com/httpgallery/methods/
-4: Received "HTTP/1.1 200 OK " from HTTP/1.1 200 OK
-4: Received "HTTP/1.1 200 OK " from HTTP/1.1 200 OK
-4: not cacheable because is no-store
+4: "CONNECT contile-images.services.mozilla.com:443 HTTP/1.1" from 174.99.41.104 @ Wed Mar  1 02:16:17 2023
 4: Responding "HTTP/1.1 200 OK"
-5: "CONNECT firefox.dns.nextdns.io:443 HTTP/1.1" from 174.99.41.104 @ Wed Mar  1 02:10:55 2023
+(no-id): NOTE: recv nothing
+1: Tunnel closed
+5: "GET http://httpbin.org/forms/post HTTP/1.1" from 174.99.41.104 @ Wed Mar  1 02:16:19 2023
+5: not in cache
+5: Requesting "GET http://httpbin.org/forms/post HTTP/1.1" from http://httpbin.org/forms/post
+5: Received "HTTP/1.1 200 OK " from HTTP/1.1 200 OK
+5: Received "HTTP/1.1 200 OK " from HTTP/1.1 200 OK
+5: in cache, requires validation
 5: Responding "HTTP/1.1 200 OK"
-6: "GET http://www.httpwatch.com/httpgallery/methods/retry.png HTTP/1.1" from 174.99.41.104 @ Wed Mar  1 02:10:55 2023
-7: "CONNECT www.httpwatch.com:443 HTTP/1.1" from 174.99.41.104 @ Wed Mar  1 02:10:55 2023
-7: Responding "HTTP/1.1 200 OK"
-6: not in cache
-6: Requesting "GET http://www.httpwatch.com/httpgallery/methods/retry.png HTTP/1.1" from http://www.httpwatch.com/httpgallery/methods/retry.png
-6: Received "HTTP/1.1 200 OK " from HTTP/1.1 200 OK
-6: Received "HTTP/1.1 200 OK " from HTTP/1.1 200 OK
-6: in cache, requires validation
+6: "CONNECT incoming.telemetry.mozilla.org:443 HTTP/1.1" from 174.99.41.104 @ Wed Mar  1 02:16:19 2023
 6: Responding "HTTP/1.1 200 OK"
-13: "CONNECT www.google-analytics.com:443 HTTP/1.1" from 174.99.41.104 @ Wed Mar  1 02:10:56 2023
-13: Responding "HTTP/1.1 200 OK"
-8: "GET http://www.httpwatch.com/httpgallery/methods/ HTTP/1.1" from 174.99.41.104 @ Wed Mar  1 02:10:58 2023
+7: "GET http://www.httpwatch.com/httpgallery/methods/ HTTP/1.1" from 174.99.41.104 @ Wed Mar  1 02:16:22 2023
+7: not in cache
+7: Requesting "GET http://www.httpwatch.com/httpgallery/methods/ HTTP/1.1" from http://www.httpwatch.com/httpgallery/methods/
+7: Received "HTTP/1.1 200 OK " from HTTP/1.1 200 OK
+7: Received "HTTP/1.1 200 OK " from HTTP/1.1 200 OK
+7: not cacheable because is no-store
+7: Responding "HTTP/1.1 200 OK"
+10: "GET http://www.httpwatch.com/httpgallery/methods/retry.png HTTP/1.1" from 174.99.41.104 @ Wed Mar  1 02:16:22 2023
+10: not in cache
+10: Requesting "GET http://www.httpwatch.com/httpgallery/methods/retry.png HTTP/1.1" from http://www.httpwatch.com/httpgallery/methods/retry.png
+14: "CONNECT www.httpwatch.com:443 HTTP/1.1" from 174.99.41.104 @ Wed Mar  1 02:16:22 2023
+10: Received "HTTP/1.1 200 OK " from HTTP/1.1 200 OK
+10: Received "HTTP/1.1 200 OK " from HTTP/1.1 200 OK
+14: Responding "HTTP/1.1 200 OK"
+10: in cache, requires validation
+10: Responding "HTTP/1.1 200 OK"
+11: "GET http://www.httpwatch.com/favicon.ico?v1 HTTP/1.1" from 174.99.41.104 @ Wed Mar  1 02:16:22 2023
+11: not in cache
+11: Requesting "GET http://www.httpwatch.com/favicon.ico?v1 HTTP/1.1" from http://www.httpwatch.com/favicon.ico?v1
+16: "CONNECT www.google-analytics.com:443 HTTP/1.1" from 174.99.41.104 @ Wed Mar  1 02:16:22 2023
+11: Received "HTTP/1.1 301 Moved Permanently " from HTTP/1.1 301 Moved Permanently
+11: Received "HTTP/1.1 301 Moved Permanently " from HTTP/1.1 301 Moved Permanently
+11: not cacheable because not 200 OK
+11: Responding "HTTP/1.1 301 Moved Permanently"
+16: Responding "HTTP/1.1 200 OK"
+8: "GET http://www.httpwatch.com/httpgallery/methods/ HTTP/1.1" from 174.99.41.104 @ Wed Mar  1 02:16:24 2023
 8: not in cache
 8: Requesting "GET http://www.httpwatch.com/httpgallery/methods/ HTTP/1.1" from http://www.httpwatch.com/httpgallery/methods/
 8: Received "HTTP/1.1 200 OK " from HTTP/1.1 200 OK
 8: Received "HTTP/1.1 200 OK " from HTTP/1.1 200 OK
 8: not cacheable because is no-store
 8: Responding "HTTP/1.1 200 OK"
-10: "GET http://www.httpwatch.com/httpgallery/methods/retry.png HTTP/1.1" from 174.99.41.104 @ Wed Mar  1 02:10:58 2023
-10: not in cache
-10: Requesting "GET http://www.httpwatch.com/httpgallery/methods/retry.png HTTP/1.1" from http://www.httpwatch.com/httpgallery/methods/retry.png
-10: Received "HTTP/1.1 200 OK " from HTTP/1.1 200 OK
-10: Received "HTTP/1.1 200 OK " from HTTP/1.1 200 OK
-10: in cache, requires validation
-10: Responding "HTTP/1.1 200 OK"
-9: "GET http://www.httpwatch.com/httpgallery/methods/ HTTP/1.1" from 174.99.41.104 @ Wed Mar  1 02:11:00 2023
-9: not in cache
-9: Requesting "GET http://www.httpwatch.com/httpgallery/methods/ HTTP/1.1" from http://www.httpwatch.com/httpgallery/methods/
-9: Received "HTTP/1.1 200 OK " from HTTP/1.1 200 OK
-9: Received "HTTP/1.1 200 OK " from HTTP/1.1 200 OK
-9: not cacheable because is no-store
-9: Responding "HTTP/1.1 200 OK"
-14: "GET http://www.httpwatch.com/httpgallery/methods/retry.png HTTP/1.1" from 174.99.41.104 @ Wed Mar  1 02:11:00 2023
-14: not in cache
-14: Requesting "GET http://www.httpwatch.com/httpgallery/methods/retry.png HTTP/1.1" from http://www.httpwatch.com/httpgallery/methods/retry.png
-14: Received "HTTP/1.1 200 OK " from HTTP/1.1 200 OK
-14: Received "HTTP/1.1 200 OK " from HTTP/1.1 200 OK
-14: in cache, requires validation
-14: Responding "HTTP/1.1 200 OK"
-15: "GET http://www.httpwatch.com/httpgallery/methods/ HTTP/1.1" from 174.99.41.104 @ Wed Mar  1 02:11:01 2023
-15: not in cache
-15: Requesting "GET http://www.httpwatch.com/httpgallery/methods/ HTTP/1.1" from http://www.httpwatch.com/httpgallery/methods/
-15: Received "HTTP/1.1 200 OK " from HTTP/1.1 200 OK
-15: Received "HTTP/1.1 200 OK " from HTTP/1.1 200 OK
-15: not cacheable because is no-store
-15: Responding "HTTP/1.1 200 OK"
-16: "GET http://www.httpwatch.com/httpgallery/methods/retry.png HTTP/1.1" from 174.99.41.104 @ Wed Mar  1 02:11:01 2023
-16: not in cache
-16: Requesting "GET http://www.httpwatch.com/httpgallery/methods/retry.png HTTP/1.1" from http://www.httpwatch.com/httpgallery/methods/retry.png
-16: Received "HTTP/1.1 200 OK " from HTTP/1.1 200 OK
-16: Received "HTTP/1.1 200 OK " from HTTP/1.1 200 OK
-16: in cache, requires validation
-16: Responding "HTTP/1.1 200 OK"
-17: "GET http://www.httpwatch.com/httpgallery/methods/ HTTP/1.1" from 174.99.41.104 @ Wed Mar  1 02:11:02 2023
+12: "GET http://www.httpwatch.com/httpgallery/methods/retry.png HTTP/1.1" from 174.99.41.104 @ Wed Mar  1 02:16:24 2023
+12: not in cache
+12: Requesting "GET http://www.httpwatch.com/httpgallery/methods/retry.png HTTP/1.1" from http://www.httpwatch.com/httpgallery/methods/retry.png
+12: Received "HTTP/1.1 200 OK " from HTTP/1.1 200 OK
+12: Received "HTTP/1.1 200 OK " from HTTP/1.1 200 OK
+12: in cache, requires validation
+12: Responding "HTTP/1.1 200 OK"
+13: "GET http://www.httpwatch.com/httpgallery/methods/ HTTP/1.1" from 174.99.41.104 @ Wed Mar  1 02:16:25 2023
+13: not in cache
+13: Requesting "GET http://www.httpwatch.com/httpgallery/methods/ HTTP/1.1" from http://www.httpwatch.com/httpgallery/methods/
+13: Received "HTTP/1.1 200 OK " from HTTP/1.1 200 OK
+13: Received "HTTP/1.1 200 OK " from HTTP/1.1 200 OK
+13: not cacheable because is no-store
+13: Responding "HTTP/1.1 200 OK"
+17: "GET http://www.httpwatch.com/httpgallery/methods/retry.png HTTP/1.1" from 174.99.41.104 @ Wed Mar  1 02:16:26 2023
 17: not in cache
-17: Requesting "GET http://www.httpwatch.com/httpgallery/methods/ HTTP/1.1" from http://www.httpwatch.com/httpgallery/methods/
+17: Requesting "GET http://www.httpwatch.com/httpgallery/methods/retry.png HTTP/1.1" from http://www.httpwatch.com/httpgallery/methods/retry.png
 17: Received "HTTP/1.1 200 OK " from HTTP/1.1 200 OK
 17: Received "HTTP/1.1 200 OK " from HTTP/1.1 200 OK
-17: not cacheable because is no-store
+17: in cache, requires validation
 17: Responding "HTTP/1.1 200 OK"
-18: "GET http://www.httpwatch.com/httpgallery/methods/retry.png HTTP/1.1" from 174.99.41.104 @ Wed Mar  1 02:11:02 2023
+18: "GET http://www.httpwatch.com/httpgallery/methods/ HTTP/1.1" from 174.99.41.104 @ Wed Mar  1 02:16:26 2023
 18: not in cache
-18: Requesting "GET http://www.httpwatch.com/httpgallery/methods/retry.png HTTP/1.1" from http://www.httpwatch.com/httpgallery/methods/retry.png
+18: Requesting "GET http://www.httpwatch.com/httpgallery/methods/ HTTP/1.1" from http://www.httpwatch.com/httpgallery/methods/
 18: Received "HTTP/1.1 200 OK " from HTTP/1.1 200 OK
 18: Received "HTTP/1.1 200 OK " from HTTP/1.1 200 OK
-18: in cache, requires validation
+18: not cacheable because is no-store
 18: Responding "HTTP/1.1 200 OK"
-19: "GET http://www.httpwatch.com/httpgallery/methods/ HTTP/1.1" from 174.99.41.104 @ Wed Mar  1 02:11:04 2023
+19: "GET http://www.httpwatch.com/httpgallery/methods/retry.png HTTP/1.1" from 174.99.41.104 @ Wed Mar  1 02:16:27 2023
 19: not in cache
-19: Requesting "GET http://www.httpwatch.com/httpgallery/methods/ HTTP/1.1" from http://www.httpwatch.com/httpgallery/methods/
+19: Requesting "GET http://www.httpwatch.com/httpgallery/methods/retry.png HTTP/1.1" from http://www.httpwatch.com/httpgallery/methods/retry.png
 19: Received "HTTP/1.1 200 OK " from HTTP/1.1 200 OK
 19: Received "HTTP/1.1 200 OK " from HTTP/1.1 200 OK
-19: not cacheable because is no-store
+19: in cache, requires validation
 19: Responding "HTTP/1.1 200 OK"
-21: "GET http://www.httpwatch.com/httpgallery/methods/retry.png HTTP/1.1" from 174.99.41.104 @ Wed Mar  1 02:11:04 2023
+20: "GET http://www.httpwatch.com/httpgallery/methods/ HTTP/1.1" from 174.99.41.104 @ Wed Mar  1 02:16:28 2023
+20: not in cache
+20: Requesting "GET http://www.httpwatch.com/httpgallery/methods/ HTTP/1.1" from http://www.httpwatch.com/httpgallery/methods/
+20: Received "HTTP/1.1 200 OK " from HTTP/1.1 200 OK
+20: Received "HTTP/1.1 200 OK " from HTTP/1.1 200 OK
+20: not cacheable because is no-store
+20: Responding "HTTP/1.1 200 OK"
+21: "GET http://www.httpwatch.com/httpgallery/methods/retry.png HTTP/1.1" from 174.99.41.104 @ Wed Mar  1 02:16:29 2023
 21: not in cache
 21: Requesting "GET http://www.httpwatch.com/httpgallery/methods/retry.png HTTP/1.1" from http://www.httpwatch.com/httpgallery/methods/retry.png
 21: Received "HTTP/1.1 200 OK " from HTTP/1.1 200 OK
 21: Received "HTTP/1.1 200 OK " from HTTP/1.1 200 OK
 21: in cache, requires validation
 21: Responding "HTTP/1.1 200 OK"
-20: "GET http://www.httpwatch.com/httpgallery/methods/?AddX=21&AddY=12&B1=Add HTTP/1.1" from 174.99.41.104 @ Wed Mar  1 02:11:07 2023
-20: not in cache
-20: Requesting "GET http://www.httpwatch.com/httpgallery/methods/?AddX=21&AddY=12&B1=Add HTTP/1.1" from http://www.httpwatch.com/httpgallery/methods/?AddX=21&AddY=12&B1=Add
-20: Received "HTTP/1.1 200 OK " from HTTP/1.1 200 OK
-20: Received "HTTP/1.1 200 OK " from HTTP/1.1 200 OK
-20: not cacheable because is no-store
-20: Responding "HTTP/1.1 200 OK"
-22: "GET http://www.httpwatch.com/httpgallery/methods/retry.png HTTP/1.1" from 174.99.41.104 @ Wed Mar  1 02:11:07 2023
+22: "GET http://www.httpwatch.com/httpgallery/methods/ HTTP/1.1" from 174.99.41.104 @ Wed Mar  1 02:16:30 2023
 22: not in cache
-22: Requesting "GET http://www.httpwatch.com/httpgallery/methods/retry.png HTTP/1.1" from http://www.httpwatch.com/httpgallery/methods/retry.png
+22: Requesting "GET http://www.httpwatch.com/httpgallery/methods/ HTTP/1.1" from http://www.httpwatch.com/httpgallery/methods/
 22: Received "HTTP/1.1 200 OK " from HTTP/1.1 200 OK
 22: Received "HTTP/1.1 200 OK " from HTTP/1.1 200 OK
-22: in cache, requires validation
+22: not cacheable because is no-store
 22: Responding "HTTP/1.1 200 OK"
-24: "GET http://www.httpwatch.com/httpgallery/methods/?AddX=21&AddY=12&B1=Add HTTP/1.1" from 174.99.41.104 @ Wed Mar  1 02:11:10 2023
+24: "GET http://www.httpwatch.com/httpgallery/methods/retry.png HTTP/1.1" from 174.99.41.104 @ Wed Mar  1 02:16:30 2023
 24: not in cache
-24: Requesting "GET http://www.httpwatch.com/httpgallery/methods/?AddX=21&AddY=12&B1=Add HTTP/1.1" from http://www.httpwatch.com/httpgallery/methods/?AddX=21&AddY=12&B1=Add
+24: Requesting "GET http://www.httpwatch.com/httpgallery/methods/retry.png HTTP/1.1" from http://www.httpwatch.com/httpgallery/methods/retry.png
 24: Received "HTTP/1.1 200 OK " from HTTP/1.1 200 OK
 24: Received "HTTP/1.1 200 OK " from HTTP/1.1 200 OK
-24: not cacheable because is no-store
+24: in cache, requires validation
 24: Responding "HTTP/1.1 200 OK"
-25: "GET http://www.httpwatch.com/httpgallery/methods/retry.png HTTP/1.1" from 174.99.41.104 @ Wed Mar  1 02:11:10 2023
+25: "GET http://www.httpwatch.com/httpgallery/methods/ HTTP/1.1" from 174.99.41.104 @ Wed Mar  1 02:16:31 2023
 25: not in cache
-25: Requesting "GET http://www.httpwatch.com/httpgallery/methods/retry.png HTTP/1.1" from http://www.httpwatch.com/httpgallery/methods/retry.png
+25: Requesting "GET http://www.httpwatch.com/httpgallery/methods/ HTTP/1.1" from http://www.httpwatch.com/httpgallery/methods/
 25: Received "HTTP/1.1 200 OK " from HTTP/1.1 200 OK
 25: Received "HTTP/1.1 200 OK " from HTTP/1.1 200 OK
-25: in cache, requires validation
+25: not cacheable because is no-store
 25: Responding "HTTP/1.1 200 OK"
-27: "POST http://httpbin.org/post HTTP/1.1" from 174.99.41.104 @ Wed Mar  1 02:11:22 2023
-28: "CONNECT www.youtube.com:443 HTTP/1.1" from 174.99.41.104 @ Wed Mar  1 02:11:25 2023
-28: Responding "HTTP/1.1 200 OK"
-29: "CONNECT i.ytimg.com:443 HTTP/1.1" from 174.99.41.104 @ Wed Mar  1 02:11:25 2023
-29: Responding "HTTP/1.1 200 OK"
-30: "CONNECT fonts.googleapis.com:443 HTTP/1.1" from 174.99.41.104 @ Wed Mar  1 02:11:25 2023
-30: Responding "HTTP/1.1 200 OK"
-33: "CONNECT googleads.g.doubleclick.net:443 HTTP/1.1" from 174.99.41.104 @ Wed Mar  1 02:11:26 2023
-33: Responding "HTTP/1.1 200 OK"
-31: "CONNECT fonts.gstatic.com:443 HTTP/1.1" from 174.99.41.104 @ Wed Mar  1 02:11:26 2023
-31: Responding "HTTP/1.1 200 OK"
-(no-id): NOTE: recv nothing
-31: Tunnel closed
-34: "CONNECT www.google.com:443 HTTP/1.1" from 174.99.41.104 @ Wed Mar  1 02:11:26 2023
-34: Responding "HTTP/1.1 200 OK"
-35: "CONNECT yt3.ggpht.com:443 HTTP/1.1" from 174.99.41.104 @ Wed Mar  1 02:11:27 2023
-35: Responding "HTTP/1.1 200 OK"
-37: "CONNECT static.doubleclick.net:443 HTTP/1.1" from 174.99.41.104 @ Wed Mar  1 02:11:27 2023
-37: Responding "HTTP/1.1 200 OK"
-38: "CONNECT jnn-pa.googleapis.com:443 HTTP/1.1" from 174.99.41.104 @ Wed Mar  1 02:11:27 2023
-38: Responding "HTTP/1.1 200 OK"
-39: "CONNECT rr2---sn-hjoj-gq0l.googlevideo.com:443 HTTP/1.1" from 174.99.41.104 @ Wed Mar  1 02:11:32 2023
-39: Responding "HTTP/1.1 200 OK"
-40: "CONNECT youtube.com:443 HTTP/1.1" from 174.99.41.104 @ Wed Mar  1 02:11:32 2023
-40: Responding "HTTP/1.1 200 OK"
-43: "CONNECT rr2---sn-hjoj-gq0l.googlevideo.com:443 HTTP/1.1" from 174.99.41.104 @ Wed Mar  1 02:11:33 2023
-41: "CONNECT tpc.googlesyndication.com:443 HTTP/1.1" from 174.99.41.104 @ Wed Mar  1 02:11:33 2023
-42: "CONNECT rr2---sn-hjoj-gq0l.googlevideo.com:443 HTTP/1.1" from 174.99.41.104 @ Wed Mar  1 02:11:33 2023
-43: Responding "HTTP/1.1 200 OK"
-42: Responding "HTTP/1.1 200 OK"
-41: Responding "HTTP/1.1 200 OK"
-(no-id): NOTE: recv nothing
-41: Tunnel closed
-45: "CONNECT rr4---sn-hjoj-gq0l.googlevideo.com:443 HTTP/1.1" from 174.99.41.104 @ Wed Mar  1 02:11:33 2023
-44: "CONNECT rr4---sn-hjoj-gq0l.googlevideo.com:443 HTTP/1.1" from 174.99.41.104 @ Wed Mar  1 02:11:33 2023
-44: Responding "HTTP/1.1 200 OK"
-45: Responding "HTTP/1.1 200 OK"
-47: "POST http://ocsp.pki.goog/gts1c3 HTTP/1.1" from 174.99.41.104 @ Wed Mar  1 02:11:33 2023
-48: "POST http://ocsp.pki.goog/gts1c3 HTTP/1.1" from 174.99.41.104 @ Wed Mar  1 02:11:33 2023
-46: "CONNECT pagead2.googlesyndication.com:443 HTTP/1.1" from 174.99.41.104 @ Wed Mar  1 02:11:33 2023
-49: "CONNECT tpc.googlesyndication.com:443 HTTP/1.1" from 174.99.41.104 @ Wed Mar  1 02:11:33 2023
-46: Responding "HTTP/1.1 200 OK"
-49: Responding "HTTP/1.1 200 OK"
-51: "POST http://ocsp.pki.goog/gts1c3 HTTP/1.1" from 174.99.41.104 @ Wed Mar  1 02:11:34 2023
-50: "POST http://ocsp.pki.goog/gts1c3 HTTP/1.1" from 174.99.41.104 @ Wed Mar  1 02:11:34 2023
-52: "POST http://ocsp.pki.goog/gts1c3 HTTP/1.1" from 174.99.41.104 @ Wed Mar  1 02:11:34 2023
-53: "POST http://www.httpwatch.com/httpgallery/methods/?AddX=21&AddY=12&B1=Add HTTP/1.1" from 174.99.41.104 @ Wed Mar  1 02:11:40 2023
-54: "CONNECT r3---sn-p5qs7nsk.googlevideo.com:443 HTTP/1.1" from 174.99.41.104 @ Wed Mar  1 02:11:44 2023
-54: Responding "HTTP/1.1 200 OK"
-55: "POST http://ocsp.pki.goog/gts1c3 HTTP/1.1" from 174.99.41.104 @ Wed Mar  1 02:11:44 2023
-(no-id): NOTE: recv nothing
-54: Tunnel closed
-56: "CONNECT play.google.com:443 HTTP/1.1" from 174.99.41.104 @ Wed Mar  1 02:11:58 2023
-56: Responding "HTTP/1.1 200 OK"
-57: "GET http://info.cern.ch/favicon.ico HTTP/1.1" from 174.99.41.104 @ Wed Mar  1 02:12:21 2023
-57: not in cache
-57: Requesting "GET http://info.cern.ch/favicon.ico HTTP/1.1" from http://info.cern.ch/favicon.ico
-57: Received "HTTP/1.1 200 OK " from HTTP/1.1 200 OK
-57: Received "HTTP/1.1 200 OK " from HTTP/1.1 200 OK
-57: in cache, requires validation
-57: Responding "HTTP/1.1 200 OK"
-27: Received "HTTP/1.1 200 OK " from http://httpbin.org/post
+27: "GET http://www.httpwatch.com/httpgallery/methods/retry.png HTTP/1.1" from 174.99.41.104 @ Wed Mar  1 02:16:32 2023
+27: not in cache
+27: Requesting "GET http://www.httpwatch.com/httpgallery/methods/retry.png HTTP/1.1" from http://www.httpwatch.com/httpgallery/methods/retry.png
+27: Received "HTTP/1.1 200 OK " from HTTP/1.1 200 OK
+27: Received "HTTP/1.1 200 OK " from HTTP/1.1 200 OK
+27: in cache, requires validation
 27: Responding "HTTP/1.1 200 OK"
-58: "GET http://info.cern.ch/hypertext/WWW/Policy.html HTTP/1.1" from 174.99.41.104 @ Wed Mar  1 02:12:23 2023
-58: not in cache
-58: Requesting "GET http://info.cern.ch/hypertext/WWW/Policy.html HTTP/1.1" from http://info.cern.ch/hypertext/WWW/Policy.html
-58: Received "HTTP/1.1 200 OK " from HTTP/1.1 200 OK
-58: Received "HTTP/1.1 200 OK " from HTTP/1.1 200 OK
-58: in cache, requires validation
-58: Responding "HTTP/1.1 200 OK"
-59: "GET http://info.cern.ch/hypertext/WWW/Library/Status.html HTTP/1.1" from 174.99.41.104 @ Wed Mar  1 02:12:27 2023
-59: not in cache
-59: Requesting "GET http://info.cern.ch/hypertext/WWW/Library/Status.html HTTP/1.1" from http://info.cern.ch/hypertext/WWW/Library/Status.html
-59: Received "HTTP/1.1 200 OK " from HTTP/1.1 200 OK
-59: Received "HTTP/1.1 200 OK " from HTTP/1.1 200 OK
-59: in cache, requires validation
-59: Responding "HTTP/1.1 200 OK"
-61: "GET http://info.cern.ch/hypertext/WWW/LineMode/Status.html HTTP/1.1" from 174.99.41.104 @ Wed Mar  1 02:12:36 2023
-61: not in cache
-61: Requesting "GET http://info.cern.ch/hypertext/WWW/LineMode/Status.html HTTP/1.1" from http://info.cern.ch/hypertext/WWW/LineMode/Status.html
-61: Received "HTTP/1.1 200 OK " from HTTP/1.1 200 OK
-61: Received "HTTP/1.1 200 OK " from HTTP/1.1 200 OK
-61: in cache, requires validation
-61: Responding "HTTP/1.1 200 OK"
-63: "GET http://info.cern.ch/hypertext/WWW/LineMode/Browser.html HTTP/1.1" from 174.99.41.104 @ Wed Mar  1 02:12:51 2023
-63: not in cache
-63: Requesting "GET http://info.cern.ch/hypertext/WWW/LineMode/Browser.html HTTP/1.1" from http://info.cern.ch/hypertext/WWW/LineMode/Browser.html
-63: Received "HTTP/1.1 200 OK " from HTTP/1.1 200 OK
-63: Received "HTTP/1.1 200 OK " from HTTP/1.1 200 OK
-63: in cache, requires validation
-63: Responding "HTTP/1.1 200 OK"
-64: "GET http://info.cern.ch/hypertext/WWW/People.html HTTP/1.1" from 174.99.41.104 @ Wed Mar  1 02:12:54 2023
-64: not in cache
-64: Requesting "GET http://info.cern.ch/hypertext/WWW/People.html HTTP/1.1" from http://info.cern.ch/hypertext/WWW/People.html
-64: Received "HTTP/1.1 304 Not Modified " from HTTP/1.1 304 Not Modified
-(no-id): NOTE: get 304 not modified
-65: "GET http://info.cern.ch/hypertext/WWW/People.html HTTP/1.1" from 174.99.41.104 @ Wed Mar  1 02:12:54 2023
-65: not in cache
-65: Requesting "GET http://info.cern.ch/hypertext/WWW/People.html HTTP/1.1" from http://info.cern.ch/hypertext/WWW/People.html
-65: Received "HTTP/1.1 304 Not Modified " from HTTP/1.1 304 Not Modified
-(no-id): NOTE: get 304 not modified
-66: "GET http://info.cern.ch/hypertext/WWW/People.html HTTP/1.1" from 174.99.41.104 @ Wed Mar  1 02:12:55 2023
-66: not in cache
-66: Requesting "GET http://info.cern.ch/hypertext/WWW/People.html HTTP/1.1" from http://info.cern.ch/hypertext/WWW/People.html
-66: Received "HTTP/1.1 304 Not Modified " from HTTP/1.1 304 Not Modified
-(no-id): NOTE: get 304 not modified
-67: "GET http://info.cern.ch/hypertext/WWW/People.html HTTP/1.1" from 174.99.41.104 @ Wed Mar  1 02:12:55 2023
-67: not in cache
-67: Requesting "GET http://info.cern.ch/hypertext/WWW/People.html HTTP/1.1" from http://info.cern.ch/hypertext/WWW/People.html
-67: Received "HTTP/1.1 304 Not Modified " from HTTP/1.1 304 Not Modified
-(no-id): NOTE: get 304 not modified
-68: "GET http://info.cern.ch/hypertext/WWW/People.html HTTP/1.1" from 174.99.41.104 @ Wed Mar  1 02:12:55 2023
-68: not in cache
-68: Requesting "GET http://info.cern.ch/hypertext/WWW/People.html HTTP/1.1" from http://info.cern.ch/hypertext/WWW/People.html
-68: Received "HTTP/1.1 304 Not Modified " from HTTP/1.1 304 Not Modified
-(no-id): NOTE: get 304 not modified
-69: "GET http://info.cern.ch/hypertext/WWW/People.html HTTP/1.1" from 174.99.41.104 @ Wed Mar  1 02:12:55 2023
-69: not in cache
-69: Requesting "GET http://info.cern.ch/hypertext/WWW/People.html HTTP/1.1" from http://info.cern.ch/hypertext/WWW/People.html
-69: Received "HTTP/1.1 304 Not Modified " from HTTP/1.1 304 Not Modified
-(no-id): NOTE: get 304 not modified
-70: "GET http://info.cern.ch/hypertext/WWW/People.html HTTP/1.1" from 174.99.41.104 @ Wed Mar  1 02:12:56 2023
-70: not in cache
-70: Requesting "GET http://info.cern.ch/hypertext/WWW/People.html HTTP/1.1" from http://info.cern.ch/hypertext/WWW/People.html
-70: Received "HTTP/1.1 304 Not Modified " from HTTP/1.1 304 Not Modified
-(no-id): NOTE: get 304 not modified
-71: "GET http://info.cern.ch/hypertext/WWW/People.html HTTP/1.1" from 174.99.41.104 @ Wed Mar  1 02:12:56 2023
-71: not in cache
-71: Requesting "GET http://info.cern.ch/hypertext/WWW/People.html HTTP/1.1" from http://info.cern.ch/hypertext/WWW/People.html
-71: Received "HTTP/1.1 304 Not Modified " from HTTP/1.1 304 Not Modified
-(no-id): NOTE: get 304 not modified
-72: "GET http://info.cern.ch/hypertext/WWW/People.html HTTP/1.1" from 174.99.41.104 @ Wed Mar  1 02:12:56 2023
-72: not in cache
-72: Requesting "GET http://info.cern.ch/hypertext/WWW/People.html HTTP/1.1" from http://info.cern.ch/hypertext/WWW/People.html
-72: Received "HTTP/1.1 304 Not Modified " from HTTP/1.1 304 Not Modified
-(no-id): NOTE: get 304 not modified
-73: "GET http://info.cern.ch/hypertext/WWW/People.html HTTP/1.1" from 174.99.41.104 @ Wed Mar  1 02:12:57 2023
-73: not in cache
-73: Requesting "GET http://info.cern.ch/hypertext/WWW/People.html HTTP/1.1" from http://info.cern.ch/hypertext/WWW/People.html
-73: Received "HTTP/1.1 304 Not Modified " from HTTP/1.1 304 Not Modified
-(no-id): NOTE: get 304 not modified
+29: "CONNECT firefox.dns.nextdns.io:443 HTTP/1.1" from 174.99.41.104 @ Wed Mar  1 02:16:37 2023
+29: Responding "HTTP/1.1 200 OK"
+30: "GET http://www.httpwatch.com/httpgallery/methods/ HTTP/1.1" from 174.99.41.104 @ Wed Mar  1 02:17:17 2023
+30: not in cache
+30: Requesting "GET http://www.httpwatch.com/httpgallery/methods/ HTTP/1.1" from http://www.httpwatch.com/httpgallery/methods/
+30: Received "HTTP/1.1 200 OK " from HTTP/1.1 200 OK
+30: Received "HTTP/1.1 200 OK " from HTTP/1.1 200 OK
+30: not cacheable because is no-store
+30: Responding "HTTP/1.1 200 OK"
+32: "GET http://www.httpwatch.com/httpgallery/methods/retry.png HTTP/1.1" from 174.99.41.104 @ Wed Mar  1 02:17:18 2023
+32: not in cache
+32: Requesting "GET http://www.httpwatch.com/httpgallery/methods/retry.png HTTP/1.1" from http://www.httpwatch.com/httpgallery/methods/retry.png
+32: Received "HTTP/1.1 200 OK " from HTTP/1.1 200 OK
+32: Received "HTTP/1.1 200 OK " from HTTP/1.1 200 OK
+32: in cache, requires validation
+32: Responding "HTTP/1.1 200 OK"
+31: "GET http://www.httpwatch.com/httpgallery/methods/?AddX=3&AddY=12&B1=Add HTTP/1.1" from 174.99.41.104 @ Wed Mar  1 02:17:22 2023
+31: not in cache
+31: Requesting "GET http://www.httpwatch.com/httpgallery/methods/?AddX=3&AddY=12&B1=Add HTTP/1.1" from http://www.httpwatch.com/httpgallery/methods/?AddX=3&AddY=12&B1=Add
+31: Received "HTTP/1.1 200 OK " from HTTP/1.1 200 OK
+31: Received "HTTP/1.1 200 OK " from HTTP/1.1 200 OK
+31: not cacheable because is no-store
+31: Responding "HTTP/1.1 200 OK"
+36: "GET http://www.httpwatch.com/httpgallery/methods/retry.png HTTP/1.1" from 174.99.41.104 @ Wed Mar  1 02:17:22 2023
+36: not in cache
+36: Requesting "GET http://www.httpwatch.com/httpgallery/methods/retry.png HTTP/1.1" from http://www.httpwatch.com/httpgallery/methods/retry.png
+36: Received "HTTP/1.1 200 OK " from HTTP/1.1 200 OK
+36: Received "HTTP/1.1 200 OK " from HTTP/1.1 200 OK
+36: in cache, requires validation
+36: Responding "HTTP/1.1 200 OK"
+38: "GET http://www.httpwatch.com/httpgallery/methods/?AddX=3&AddY=12&B1=Add HTTP/1.1" from 174.99.41.104 @ Wed Mar  1 02:17:24 2023
+38: not in cache
+38: Requesting "GET http://www.httpwatch.com/httpgallery/methods/?AddX=3&AddY=12&B1=Add HTTP/1.1" from http://www.httpwatch.com/httpgallery/methods/?AddX=3&AddY=12&B1=Add
+38: Received "HTTP/1.1 200 OK " from HTTP/1.1 200 OK
+38: Received "HTTP/1.1 200 OK " from HTTP/1.1 200 OK
+38: not cacheable because is no-store
+38: Responding "HTTP/1.1 200 OK"
+39: "GET http://www.httpwatch.com/httpgallery/methods/retry.png HTTP/1.1" from 174.99.41.104 @ Wed Mar  1 02:17:24 2023
+39: not in cache
+39: Requesting "GET http://www.httpwatch.com/httpgallery/methods/retry.png HTTP/1.1" from http://www.httpwatch.com/httpgallery/methods/retry.png
+39: Received "HTTP/1.1 200 OK " from HTTP/1.1 200 OK
+39: Received "HTTP/1.1 200 OK " from HTTP/1.1 200 OK
+39: in cache, requires validation
+39: Responding "HTTP/1.1 200 OK"
 (no-id): NOTE: recv nothing
+0: Tunnel closed
 (no-id): NOTE: recv nothing
-45: Tunnel closed
-(no-id): NOTE: recv nothing
-42: Tunnel closed
-43: Tunnel closed
-(no-id): NOTE: recv nothing
-44: Tunnel closed
-53: Received "HTTP/1.1 200 OK " from http://www.httpwatch.com/httpgallery/methods/?AddX=21&AddY=12&B1=Add
-53: Responding "HTTP/1.1 200 OK"
-75: "GET http://www.httpwatch.com/httpgallery/methods/retry.png HTTP/1.1" from 174.99.41.104 @ Wed Mar  1 02:13:52 2023
-75: not in cache
-75: Requesting "GET http://www.httpwatch.com/httpgallery/methods/retry.png HTTP/1.1" from http://www.httpwatch.com/httpgallery/methods/retry.png
-75: Received "HTTP/1.1 200 OK " from HTTP/1.1 200 OK
-75: Received "HTTP/1.1 200 OK " from HTTP/1.1 200 OK
-75: in cache, requires validation
-75: Responding "HTTP/1.1 200 OK"
-(no-id): NOTE: recv nothing
-34: Tunnel closed
-(no-id): NOTE: recv nothing
-37: Tunnel closed
-(no-id): NOTE: recv nothing
-38: Tunnel closed
-(no-id): NOTE: recv nothing
-(no-id): NOTE: recv nothing
-40: Tunnel closed
-30: Tunnel closed
-(no-id): NOTE: recv nothing
-46: Tunnel closed
-(no-id): NOTE: recv nothing
-49: Tunnel closed
-(no-id): NOTE: recv nothing
-35: Tunnel closed
+4: Tunnel closed

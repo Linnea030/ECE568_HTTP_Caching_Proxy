@@ -69,7 +69,7 @@ void PackRequest::parse_body() {
 
     int rest_len = request.size() - int(pos_header) - 4;
     size_t end = request.find("\r\n", pos_len);
-    //len_info = stoi(request.substr(pos_len + 8, end - pos_len - 6));
+    //std::cout<<len_info <<endl;
     content_len_remain = stoi(len_info) - rest_len - 4;
 }
 
