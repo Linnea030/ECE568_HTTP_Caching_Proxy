@@ -20,11 +20,11 @@ class Cache{
         Node():prev(NULL), next(NULL){}
         Node(string u, string val): uri(u), value(val), prev(NULL), next(NULL){}
     };
-    map<string, Node*> map_cache;   //map to store cache
     int size;           //currsent size
     int total_size;     //total size
     Node * head;
     Node * tail;
+    map<string, Node*> map_cache;   //map to store cache
 
     Cache(){}
     Cache(int ts): total_size(ts), size(0){

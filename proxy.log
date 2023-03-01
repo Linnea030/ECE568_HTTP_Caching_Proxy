@@ -1,112 +1,303 @@
-0: "CONNECT firefox.dns.nextdns.io:443 HTTP/1.1" from 174.99.41.104 @ Wed Mar  1 01:31:40 2023
+0: "CONNECT contile-images.services.mozilla.com:443 HTTP/1.1" from 174.99.41.104 @ Wed Mar  1 01:49:24 2023
+1: "CONNECT firefox.dns.nextdns.io:443 HTTP/1.1" from 174.99.41.104 @ Wed Mar  1 01:49:24 2023
 0: Responding "HTTP/1.1 200 OK"
-(no-id): NOTE: recv nothing
-0: Tunnel closed
-1: "CONNECT firefox.dns.nextdns.io:443 HTTP/1.1" from 174.99.41.104 @ Wed Mar  1 01:35:16 2023
 1: Responding "HTTP/1.1 200 OK"
-2: "CONNECT www.youtube.com:443 HTTP/1.1" from 174.99.41.104 @ Wed Mar  1 01:35:16 2023
-3: "CONNECT incoming.telemetry.mozilla.org:443 HTTP/1.1" from 174.99.41.104 @ Wed Mar  1 01:35:16 2023
+2: "CONNECT incoming.telemetry.mozilla.org:443 HTTP/1.1" from 174.99.41.104 @ Wed Mar  1 01:49:24 2023
 2: Responding "HTTP/1.1 200 OK"
+3: "GET http://httpbin.org/forms/post HTTP/1.1" from 174.99.41.104 @ Wed Mar  1 01:49:25 2023
+3: not in cache
+3: Requesting "GET http://httpbin.org/forms/post HTTP/1.1" from http://httpbin.org/forms/post 
+3: Received "HTTP/1.1 200 OK " from HTTP/1.1 200 OK
+3: Received "HTTP/1.1 200 OK " from HTTP/1.1 200 OK
+3: in cache, requires validation
 3: Responding "HTTP/1.1 200 OK"
-6: "CONNECT incoming.telemetry.mozilla.org:443 HTTP/1.1" from 174.99.41.104 @ Wed Mar  1 01:35:17 2023
-4: "CONNECT i.ytimg.com:443 HTTP/1.1" from 174.99.41.104 @ Wed Mar  1 01:35:17 2023
-6: Responding "HTTP/1.1 200 OK"
+4: "CONNECT incoming.telemetry.mozilla.org:443 HTTP/1.1" from 174.99.41.104 @ Wed Mar  1 01:49:25 2023
 4: Responding "HTTP/1.1 200 OK"
-9: "CONNECT googleads.g.doubleclick.net:443 HTTP/1.1" from 174.99.41.104 @ Wed Mar  1 01:35:17 2023
-9: Responding "HTTP/1.1 200 OK"
-11: "CONNECT www.google.com:443 HTTP/1.1" from 174.99.41.104 @ Wed Mar  1 01:35:18 2023
+5: "POST http://httpbin.org/post HTTP/1.1" from 174.99.41.104 @ Wed Mar  1 01:49:43 2023
+6: "CONNECT www.youtube.com:443 HTTP/1.1" from 174.99.41.104 @ Wed Mar  1 01:49:45 2023
+6: Responding "HTTP/1.1 200 OK"
+8: "CONNECT i.ytimg.com:443 HTTP/1.1" from 174.99.41.104 @ Wed Mar  1 01:49:45 2023
+8: Responding "HTTP/1.1 200 OK"
+11: "CONNECT googleads.g.doubleclick.net:443 HTTP/1.1" from 174.99.41.104 @ Wed Mar  1 01:49:46 2023
 11: Responding "HTTP/1.1 200 OK"
-10: "CONNECT yt3.ggpht.com:443 HTTP/1.1" from 174.99.41.104 @ Wed Mar  1 01:35:18 2023
-10: Responding "HTTP/1.1 200 OK"
-13: "CONNECT jnn-pa.googleapis.com:443 HTTP/1.1" from 174.99.41.104 @ Wed Mar  1 01:35:18 2023
-13: Responding "HTTP/1.1 200 OK"
-14: "CONNECT contile-images.services.mozilla.com:443 HTTP/1.1" from 174.99.41.104 @ Wed Mar  1 01:35:20 2023
+12: "CONNECT www.google.com:443 HTTP/1.1" from 174.99.41.104 @ Wed Mar  1 01:49:46 2023
+12: Responding "HTTP/1.1 200 OK"
+9: "CONNECT fonts.gstatic.com:443 HTTP/1.1" from 174.99.41.104 @ Wed Mar  1 01:49:46 2023
+9: Responding "HTTP/1.1 200 OK"
+(no-id): NOTE: recv nothing
+9: Tunnel closed
+14: "CONNECT static.doubleclick.net:443 HTTP/1.1" from 174.99.41.104 @ Wed Mar  1 01:49:46 2023
 14: Responding "HTTP/1.1 200 OK"
-15: "GET http://httpbin.org/forms/post HTTP/1.1" from 174.99.41.104 @ Wed Mar  1 01:35:23 2023
-15: not in cache
-15: Requesting "GET http://httpbin.org/forms/post HTTP/1.1" from http://httpbin.org/forms/post 
-15: Received "HTTP/1.1 200 OK " from HTTP/1.1 200 OK
-15: Received "HTTP/1.1 200 OK " from HTTP/1.1 200 OK
-15: in cache, requires validation
+15: "CONNECT jnn-pa.googleapis.com:443 HTTP/1.1" from 174.99.41.104 @ Wed Mar  1 01:49:47 2023
 15: Responding "HTTP/1.1 200 OK"
-16: "GET http://www.httpwatch.com/httpgallery/methods/ HTTP/1.1" from 174.99.41.104 @ Wed Mar  1 01:35:26 2023
-16: not in cache
-16: Requesting "GET http://www.httpwatch.com/httpgallery/methods/ HTTP/1.1" from http://www.httpwatch.com/httpgallery/methods/ 
-16: Received "HTTP/1.1 200 OK " from HTTP/1.1 200 OK
-16: Received "HTTP/1.1 200 OK " from HTTP/1.1 200 OK
-16: not cacheable because is no-store
+16: "CONNECT rr3---sn-hjoj-gq0l.googlevideo.com:443 HTTP/1.1" from 174.99.41.104 @ Wed Mar  1 01:49:47 2023
 16: Responding "HTTP/1.1 200 OK"
-17: "GET http://www.httpwatch.com/assets/images/logo2.png HTTP/1.1" from 174.99.41.104 @ Wed Mar  1 01:35:27 2023
-18: "GET http://www.httpwatch.com/httpgallery/methods/retry.png HTTP/1.1" from 174.99.41.104 @ Wed Mar  1 01:35:27 2023
-22: "GET http://www.httpwatch.com/assets/images/logo1.png HTTP/1.1" from 174.99.41.104 @ Wed Mar  1 01:35:27 2023
-21: "CONNECT www.httpwatch.com:443 HTTP/1.1" from 174.99.41.104 @ Wed Mar  1 01:35:27 2023
-23: "GET http://www.httpwatch.com/assets/images/page-head-bg.gif HTTP/1.1" from 174.99.41.104 @ Wed Mar  1 01:35:27 2023
-20: "GET http://www.httpwatch.com/assets/images/httpwatch_32x32.png HTTP/1.1" from 174.99.41.104 @ Wed Mar  1 01:35:27 2023
-17: not in cache
-17: Requesting "GET http://www.httpwatch.com/assets/images/logo2.png HTTP/1.1" from http://www.httpwatch.com/assets/images/logo2.png 
-22: not in cache
+17: "POST http://ocsp.pki.goog/gts1c3 HTTP/1.1" from 174.99.41.104 @ Wed Mar  1 01:49:47 2023
+21: "CONNECT rr3---sn-hjoj-gq0l.googlevideo.com:443 HTTP/1.1" from 174.99.41.104 @ Wed Mar  1 01:49:47 2023
+22: "CONNECT rr2---sn-hjoj-gq0l.googlevideo.com:443 HTTP/1.1" from 174.99.41.104 @ Wed Mar  1 01:49:47 2023
+19: "CONNECT rr3---sn-hjoj-gq0l.googlevideo.com:443 HTTP/1.1" from 174.99.41.104 @ Wed Mar  1 01:49:47 2023
+20: "CONNECT rr2---sn-hjoj-gq0l.googlevideo.com:443 HTTP/1.1" from 174.99.41.104 @ Wed Mar  1 01:49:47 2023
 21: Responding "HTTP/1.1 200 OK"
-18: not in cache
-18: Requesting "GET http://www.httpwatch.com/httpgallery/methods/retry.png HTTP/1.1" from http://www.httpwatch.com/httpgallery/methods/retry.png 
-22: Requesting "GET http://www.httpwatch.com/assets/images/logo1.png HTTP/1.1" from http://www.httpwatch.com/assets/images/logo1.png 
-23: not in cache
-20: not in cache
-20: Requesting "GET http://www.httpwatch.com/assets/images/httpwatch_32x32.png HTTP/1.1" from http://www.httpwatch.com/assets/images/httpwatch_32x32.png 
-23: Requesting "GET http://www.httpwatch.com/assets/images/page-head-bg.gif HTTP/1.1" from http://www.httpwatch.com/assets/images/page-head-bg.gif 
-17: Received "HTTP/1.1 301 Moved Permanently " from HTTP/1.1 301 Moved Permanently
-17: Received "HTTP/1.1 301 Moved Permanently " from HTTP/1.1 301 Moved Permanently
-17: not cacheable because not 200 OK
-17: Responding "HTTP/1.1 301 Moved Permanently"
-22: Received "HTTP/1.1 301 Moved Permanently " from HTTP/1.1 301 Moved Permanently
-20: Received "HTTP/1.1 301 Moved Permanently " from HTTP/1.1 301 Moved Permanently
-20: Received "HTTP/1.1 301 Moved Permanently " from HTTP/1.1 301 Moved Permanently
-20: not cacheable because not 200 OK
-23: Received "HTTP/1.1 301 Moved Permanently " from HTTP/1.1 301 Moved Permanently
-22: Received "HTTP/1.1 301 Moved Permanently " from HTTP/1.1 301 Moved Permanently
-23: Received "HTTP/1.1 301 Moved Permanently " from HTTP/1.1 301 Moved Permanently
-22: not cacheable because not 200 OK
-22: Responding "HTTP/1.1 301 Moved Permanently"
-23: not cacheable because not 200 OK
-23: Responding "HTTP/1.1 301 Moved Permanently"
-20: Responding "HTTP/1.1 301 Moved Permanently"
-18: Received "HTTP/1.1 200 OK " from HTTP/1.1 200 OK
-18: Received "HTTP/1.1 200 OK " from HTTP/1.1 200 OK
-18: in cache, requires validation
+19: Responding "HTTP/1.1 200 OK"
+22: Responding "HTTP/1.1 200 OK"
+20: Responding "HTTP/1.1 200 OK"
+13: "CONNECT yt3.ggpht.com:443 HTTP/1.1" from 174.99.41.104 @ Wed Mar  1 01:49:47 2023
+13: Responding "HTTP/1.1 200 OK"
+18: "CONNECT tpc.googlesyndication.com:443 HTTP/1.1" from 174.99.41.104 @ Wed Mar  1 01:49:47 2023
+24: "CONNECT pagead2.googlesyndication.com:443 HTTP/1.1" from 174.99.41.104 @ Wed Mar  1 01:49:47 2023
+23: "CONNECT fonts.gstatic.com:443 HTTP/1.1" from 174.99.41.104 @ Wed Mar  1 01:49:47 2023
 18: Responding "HTTP/1.1 200 OK"
-25: "CONNECT www.google-analytics.com:443 HTTP/1.1" from 174.99.41.104 @ Wed Mar  1 01:35:27 2023
-25: Responding "HTTP/1.1 200 OK"
-27: "GET http://info.cern.ch/hypertext/WWW/Technical.html HTTP/1.1" from 174.99.41.104 @ Wed Mar  1 01:35:39 2023
-27: not in cache
-27: Requesting "GET http://info.cern.ch/hypertext/WWW/Technical.html HTTP/1.1" from http://info.cern.ch/hypertext/WWW/Technical.html 
-27: Received "HTTP/1.1 200 OK " from HTTP/1.1 200 OK
-27: Received "HTTP/1.1 200 OK " from HTTP/1.1 200 OK
-27: in cache, requires validation
-27: Responding "HTTP/1.1 200 OK"
-28: "GET http://info.cern.ch/hypertext/DataSources/ByAccess.html HTTP/1.1" from 174.99.41.104 @ Wed Mar  1 01:35:40 2023
-28: not in cache
-28: Requesting "GET http://info.cern.ch/hypertext/DataSources/ByAccess.html HTTP/1.1" from http://info.cern.ch/hypertext/DataSources/ByAccess.html 
-28: Received "HTTP/1.1 200 OK " from HTTP/1.1 200 OK
-28: Received "HTTP/1.1 200 OK " from HTTP/1.1 200 OK
-28: in cache, requires validation
-28: Responding "HTTP/1.1 200 OK"
-29: "GET http://www.httpwatch.com/httpgallery/methods/?AddX=123&AddY=12&B1=Add HTTP/1.1" from 174.99.41.104 @ Wed Mar  1 01:35:50 2023
-29: not in cache
-29: Requesting "GET http://www.httpwatch.com/httpgallery/methods/?AddX=123&AddY=12&B1=Add HTTP/1.1" from http://www.httpwatch.com/httpgallery/methods/?AddX=123&AddY=12&B1=Add 
-29: Received "HTTP/1.1 200 OK " from HTTP/1.1 200 OK
-29: Received "HTTP/1.1 200 OK " from HTTP/1.1 200 OK
-29: not cacheable because is no-store
-29: Responding "HTTP/1.1 200 OK"
-30: "GET http://www.httpwatch.com/httpgallery/methods/retry.png HTTP/1.1" from 174.99.41.104 @ Wed Mar  1 01:35:50 2023
+23: Responding "HTTP/1.1 200 OK"
+(no-id): NOTE: recv nothing
+23: Tunnel closed
+24: Responding "HTTP/1.1 200 OK"
+28: "POST http://ocsp.pki.goog/gts1c3 HTTP/1.1" from 174.99.41.104 @ Wed Mar  1 01:49:48 2023
+25: "POST http://ocsp.pki.goog/gts1c3 HTTP/1.1" from 174.99.41.104 @ Wed Mar  1 01:49:48 2023
+27: "POST http://ocsp.pki.goog/gts1c3 HTTP/1.1" from 174.99.41.104 @ Wed Mar  1 01:49:48 2023
+26: "POST http://ocsp.pki.goog/gts1c3 HTTP/1.1" from 174.99.41.104 @ Wed Mar  1 01:49:48 2023
+30: "GET http://www.httpwatch.com/httpgallery/methods/ HTTP/1.1" from 174.99.41.104 @ Wed Mar  1 01:49:53 2023
 30: not in cache
-30: Requesting "GET http://www.httpwatch.com/httpgallery/methods/retry.png HTTP/1.1" from http://www.httpwatch.com/httpgallery/methods/retry.png 
+30: Requesting "GET http://www.httpwatch.com/httpgallery/methods/ HTTP/1.1" from http://www.httpwatch.com/httpgallery/methods/ 
 30: Received "HTTP/1.1 200 OK " from HTTP/1.1 200 OK
 30: Received "HTTP/1.1 200 OK " from HTTP/1.1 200 OK
-30: in cache, requires validation
+30: not cacheable because is no-store
 30: Responding "HTTP/1.1 200 OK"
-37: "GET http://httpbin.org/forms/post HTTP/1.1" from 174.99.41.104 @ Wed Mar  1 01:35:56 2023
-37: not in cache
-37: Requesting "GET http://httpbin.org/forms/post HTTP/1.1" from http://httpbin.org/forms/post 
-37: Received "HTTP/1.1 200 OK " from HTTP/1.1 200 OK
-37: Received "HTTP/1.1 200 OK " from HTTP/1.1 200 OK
-37: in cache, requires validation
+35: "CONNECT www.httpwatch.com:443 HTTP/1.1" from 174.99.41.104 @ Wed Mar  1 01:49:53 2023
+35: Responding "HTTP/1.1 200 OK"
+37: "CONNECT www.google-analytics.com:443 HTTP/1.1" from 174.99.41.104 @ Wed Mar  1 01:49:54 2023
 37: Responding "HTTP/1.1 200 OK"
+31: "GET http://home.web.cern.ch/about HTTP/1.1" from 174.99.41.104 @ Wed Mar  1 01:49:56 2023
+31: not in cache
+31: Requesting "GET http://home.web.cern.ch/about HTTP/1.1" from http://home.web.cern.ch/about 
+31: Received "HTTP/1.1 302 Found " from HTTP/1.1 302 Found
+31: Received "HTTP/1.1 302 Found " from HTTP/1.1 302 Found
+31: not cacheable because not 200 OK
+31: Responding "HTTP/1.1 302 Found"
+38: "CONNECT home.web.cern.ch:443 HTTP/1.1" from 174.99.41.104 @ Wed Mar  1 01:49:57 2023
+38: Responding "HTTP/1.1 200 OK"
+39: "POST http://ocsp.sectigo.com/ HTTP/1.1" from 174.99.41.104 @ Wed Mar  1 01:49:57 2023
+43: "CONNECT cds.cern.ch:443 HTTP/1.1" from 174.99.41.104 @ Wed Mar  1 01:49:59 2023
+(no-id): NOTE: recv nothing
+38: Tunnel closed
+49: "CONNECT www.youtube-nocookie.com:443 HTTP/1.1" from 174.99.41.104 @ Wed Mar  1 01:49:59 2023
+49: Responding "HTTP/1.1 200 OK"
+40: "CONNECT home.web.cern.ch:443 HTTP/1.1" from 174.99.41.104 @ Wed Mar  1 01:50:00 2023
+43: Responding "HTTP/1.1 200 OK"
+40: Responding "HTTP/1.1 200 OK"
+(no-id): NOTE: recv nothing
+40: Tunnel closed
+53: "POST http://ocsp.sectigo.com/ HTTP/1.1" from 174.99.41.104 @ Wed Mar  1 01:50:00 2023
+57: "GET http://www.httpwatch.com/httpgallery/methods/?AddX=3&AddY=12&B1=Add HTTP/1.1" from 174.99.41.104 @ Wed Mar  1 01:50:03 2023
+57: not in cache
+57: Requesting "GET http://www.httpwatch.com/httpgallery/methods/?AddX=3&AddY=12&B1=Add HTTP/1.1" from http://www.httpwatch.com/httpgallery/methods/?AddX=3&AddY=12&B1=Add 
+57: Received "HTTP/1.1 200 OK " from HTTP/1.1 200 OK
+57: Received "HTTP/1.1 200 OK " from HTTP/1.1 200 OK
+57: not cacheable because is no-store
+57: Responding "HTTP/1.1 200 OK"
+(no-id): NOTE: recv nothing
+(no-id): NOTE: recv nothing
+(no-id): NOTE: recv nothing
+(no-id): NOTE: recv nothing
+(no-id): NOTE: recv nothing
+(no-id): NOTE: recv nothing
+(no-id): NOTE: recv nothing
+(no-id): NOTE: recv nothing
+(no-id): NOTE: recv nothing
+(no-id): NOTE: recv nothing
+(no-id): NOTE: recv nothing
+(no-id): NOTE: recv nothing
+(no-id): NOTE: recv nothing
+(no-id): NOTE: recv nothing
+(no-id): NOTE: recv nothing
+(no-id): NOTE: recv nothing
+(no-id): NOTE: recv nothing
+(no-id): NOTE: recv nothing
+(no-id): NOTE: recv nothing
+(no-id): NOTE: recv nothing
+(no-id): NOTE: recv nothing
+(no-id): NOTE: recv nothing
+43: Tunnel closed
+15: Tunnel closed
+13: Tunnel closed
+22: Tunnel closed
+4: Tunnel closed
+19: Tunnel closed
+6: Tunnel closed
+8: Tunnel closed
+16: Tunnel closed
+1: Tunnel closed
+12: Tunnel closed
+35: Tunnel closed
+14: Tunnel closed
+49: Tunnel closed
+18: Tunnel closed
+37: Tunnel closed
+2: Tunnel closed
+0: Tunnel closed
+24: Tunnel closed
+21: Tunnel closed
+20: Tunnel closed
+11: Tunnel closed
+63: "CONNECT firefox.dns.nextdns.io:443 HTTP/1.1" from 174.99.41.104 @ Wed Mar  1 01:50:05 2023
+63: Responding "HTTP/1.1 200 OK"
+64: "GET http://www.httpwatch.com/httpgallery/methods/?AddX=3&AddY=12&B1=Add HTTP/1.1" from 174.99.41.104 @ Wed Mar  1 01:50:06 2023
+64: not in cache
+64: Requesting "GET http://www.httpwatch.com/httpgallery/methods/?AddX=3&AddY=12&B1=Add HTTP/1.1" from http://www.httpwatch.com/httpgallery/methods/?AddX=3&AddY=12&B1=Add 
+64: Received "HTTP/1.1 200 OK " from HTTP/1.1 200 OK
+64: Received "HTTP/1.1 200 OK " from HTTP/1.1 200 OK
+64: not cacheable because is no-store
+64: Responding "HTTP/1.1 200 OK"
+65: "GET http://www.httpwatch.com/assets/images/logo2.png HTTP/1.1" from 174.99.41.104 @ Wed Mar  1 01:50:06 2023
+67: "GET http://www.httpwatch.com/assets/images/page-head-bg.gif HTTP/1.1" from 174.99.41.104 @ Wed Mar  1 01:50:06 2023
+71: "GET http://www.httpwatch.com/assets/images/httpwatch_32x32.png HTTP/1.1" from 174.99.41.104 @ Wed Mar  1 01:50:06 2023
+66: "GET http://www.httpwatch.com/assets/images/widget-li-bg@2x.png HTTP/1.1" from 174.99.41.104 @ Wed Mar  1 01:50:06 2023
+69: "GET http://www.httpwatch.com/httpgallery/methods/retry.png HTTP/1.1" from 174.99.41.104 @ Wed Mar  1 01:50:06 2023
+68: "CONNECT fonts.gstatic.com:443 HTTP/1.1" from 174.99.41.104 @ Wed Mar  1 01:50:06 2023
+70: "GET http://www.httpwatch.com/assets/images/logo1.png HTTP/1.1" from 174.99.41.104 @ Wed Mar  1 01:50:06 2023
+67: not in cache
+67: Requesting "GET http://www.httpwatch.com/assets/images/page-head-bg.gif HTTP/1.1" from http://www.httpwatch.com/assets/images/page-head-bg.gif 
+65: not in cache
+65: Requesting "GET http://www.httpwatch.com/assets/images/logo2.png HTTP/1.1" from http://www.httpwatch.com/assets/images/logo2.png 
+68: Responding "HTTP/1.1 200 OK"
+69: not in cache
+69: Requesting "GET http://www.httpwatch.com/httpgallery/methods/retry.png HTTP/1.1" from http://www.httpwatch.com/httpgallery/methods/retry.png 
+70: not in cache
+70: Requesting "GET http://www.httpwatch.com/assets/images/logo1.png HTTP/1.1" from http://www.httpwatch.com/assets/images/logo1.png 
+66: not in cache
+66: Requesting "GET http://www.httpwatch.com/assets/images/widget-li-bg@2x.png HTTP/1.1" from http://www.httpwatch.com/assets/images/widget-li-bg@2x.png 
+71: not in cache
+71: Requesting "GET http://www.httpwatch.com/assets/images/httpwatch_32x32.png HTTP/1.1" from http://www.httpwatch.com/assets/images/httpwatch_32x32.png 
+65: Received "HTTP/1.1 200 OK " from HTTP/1.1 200 OK
+65: Received "HTTP/1.1 200 OK " from HTTP/1.1 200 OK
+66: Received "HTTP/1.1 301 Moved Permanently " from HTTP/1.1 301 Moved Permanently
+67: Received "HTTP/1.1 200 OK " from HTTP/1.1 200 OK
+65: in cache, requires validation
+66: Received "HTTP/1.1 301 Moved Permanently " from HTTP/1.1 301 Moved Permanently
+66: not cacheable because not 200 OK
+65: Responding "HTTP/1.1 200 OK"
+66: Responding "HTTP/1.1 301 Moved Permanently"
+71: Received "HTTP/1.1 200 OK " from HTTP/1.1 200 OK
+67: Received "HTTP/1.1 200 OK " from HTTP/1.1 200 OK
+71: Received "HTTP/1.1 200 OK " from HTTP/1.1 200 OK
+67: in cache, requires validation
+67: Responding "HTTP/1.1 200 OK"
+69: Received "HTTP/1.1 200 OK " from HTTP/1.1 200 OK
+69: Received "HTTP/1.1 200 OK " from HTTP/1.1 200 OK
+72: "CONNECT www.httpwatch.com:443 HTTP/1.1" from 174.99.41.104 @ Wed Mar  1 01:50:06 2023
+69: in cache, requires validation
+70: Received "HTTP/1.1 200 OK " from HTTP/1.1 200 OK
+70: Received "HTTP/1.1 200 OK " from HTTP/1.1 200 OK
+69: Responding "HTTP/1.1 200 OK"
+70: in cache, requires validation
+71: in cache, requires validation
+71: Responding "HTTP/1.1 200 OK"
+72: Responding "HTTP/1.1 200 OK"
+70: Responding "HTTP/1.1 200 OK"
+73: "CONNECT www.google-analytics.com:443 HTTP/1.1" from 174.99.41.104 @ Wed Mar  1 01:50:07 2023
+73: Responding "HTTP/1.1 200 OK"
+75: "GET http://www.httpwatch.com/favicon.ico?v1 HTTP/1.1" from 174.99.41.104 @ Wed Mar  1 01:50:07 2023
+75: not in cache
+75: Requesting "GET http://www.httpwatch.com/favicon.ico?v1 HTTP/1.1" from http://www.httpwatch.com/favicon.ico?v1 
+75: Received "HTTP/1.1 301 Moved Permanently " from HTTP/1.1 301 Moved Permanently
+75: Received "HTTP/1.1 301 Moved Permanently " from HTTP/1.1 301 Moved Permanently
+75: not cacheable because not 200 OK
+75: Responding "HTTP/1.1 301 Moved Permanently"
+76: "CONNECT home.web.cern.ch:443 HTTP/1.1" from 174.99.41.104 @ Wed Mar  1 01:50:10 2023
+77: "CONNECT www.youtube-nocookie.com:443 HTTP/1.1" from 174.99.41.104 @ Wed Mar  1 01:50:10 2023
+76: Responding "HTTP/1.1 200 OK"
+77: Responding "HTTP/1.1 200 OK"
+78: "POST http://ocsp.sectigo.com/ HTTP/1.1" from 174.99.41.104 @ Wed Mar  1 01:50:10 2023
+(no-id): NOTE:  The connection between proxy and server is closed
+79: "CONNECT cds.cern.ch:443 HTTP/1.1" from 174.99.41.104 @ Wed Mar  1 01:50:12 2023
+(no-id): NOTE: recv nothing
+76: Tunnel closed
+80: "POST http://ocsp.sectigo.com/ HTTP/1.1" from 174.99.41.104 @ Wed Mar  1 01:50:12 2023
+79: Responding "HTTP/1.1 200 OK"
+88: "POST http://ocsp.sectigo.com/ HTTP/1.1" from 174.99.41.104 @ Wed Mar  1 01:50:13 2023
+93: "CONNECT jnn-pa.googleapis.com:443 HTTP/1.1" from 174.99.41.104 @ Wed Mar  1 01:50:13 2023
+93: Responding "HTTP/1.1 200 OK"
+(no-id): NOTE:  The connection between proxy and server is closed
+95: "POST http://ocsp.sectigo.com/ HTTP/1.1" from 174.99.41.104 @ Wed Mar  1 01:50:15 2023
+96: "GET http://info.cern.ch/ HTTP/1.1" from 174.99.41.104 @ Wed Mar  1 01:50:23 2023
+96: not in cache
+96: Requesting "GET http://info.cern.ch/ HTTP/1.1" from http://info.cern.ch/ 
+96: Received "HTTP/1.1 304 Not Modified " from HTTP/1.1 304 Not Modified
+(no-id): NOTE: get 304 not modified
+97: "GET http://info.cern.ch/ HTTP/1.1" from 174.99.41.104 @ Wed Mar  1 01:50:24 2023
+97: not in cache
+97: Requesting "GET http://info.cern.ch/ HTTP/1.1" from http://info.cern.ch/ 
+97: Received "HTTP/1.1 304 Not Modified " from HTTP/1.1 304 Not Modified
+(no-id): NOTE: get 304 not modified
+98: "GET http://info.cern.ch/ HTTP/1.1" from 174.99.41.104 @ Wed Mar  1 01:50:24 2023
+98: not in cache
+98: Requesting "GET http://info.cern.ch/ HTTP/1.1" from http://info.cern.ch/ 
+98: Received "HTTP/1.1 304 Not Modified " from HTTP/1.1 304 Not Modified
+(no-id): NOTE: get 304 not modified
+99: "GET http://info.cern.ch/ HTTP/1.1" from 174.99.41.104 @ Wed Mar  1 01:50:24 2023
+99: not in cache
+99: Requesting "GET http://info.cern.ch/ HTTP/1.1" from http://info.cern.ch/ 
+99: Received "HTTP/1.1 304 Not Modified " from HTTP/1.1 304 Not Modified
+(no-id): NOTE: get 304 not modified
+100: "GET http://info.cern.ch/ HTTP/1.1" from 174.99.41.104 @ Wed Mar  1 01:50:24 2023
+100: not in cache
+100: Requesting "GET http://info.cern.ch/ HTTP/1.1" from http://info.cern.ch/ 
+100: Received "HTTP/1.1 304 Not Modified " from HTTP/1.1 304 Not Modified
+(no-id): NOTE: get 304 not modified
+101: "GET http://info.cern.ch/ HTTP/1.1" from 174.99.41.104 @ Wed Mar  1 01:50:25 2023
+101: not in cache
+101: Requesting "GET http://info.cern.ch/ HTTP/1.1" from http://info.cern.ch/ 
+101: Received "HTTP/1.1 304 Not Modified " from HTTP/1.1 304 Not Modified
+(no-id): NOTE: get 304 not modified
+102: "GET http://info.cern.ch/ HTTP/1.1" from 174.99.41.104 @ Wed Mar  1 01:50:25 2023
+102: not in cache
+102: Requesting "GET http://info.cern.ch/ HTTP/1.1" from http://info.cern.ch/ 
+(no-id): NOTE:  The connection between proxy and server is closed
+102: Received "HTTP/1.1 304 Not Modified " from HTTP/1.1 304 Not Modified
+(no-id): NOTE: get 304 not modified
+103: "GET http://info.cern.ch/ HTTP/1.1" from 174.99.41.104 @ Wed Mar  1 01:50:25 2023
+104: "POST http://ocsp.sectigo.com/ HTTP/1.1" from 174.99.41.104 @ Wed Mar  1 01:50:25 2023
+103: not in cache
+103: Requesting "GET http://info.cern.ch/ HTTP/1.1" from http://info.cern.ch/ 
+103: Received "HTTP/1.1 304 Not Modified " from HTTP/1.1 304 Not Modified
+(no-id): NOTE: get 304 not modified
+105: "GET http://info.cern.ch/ HTTP/1.1" from 174.99.41.104 @ Wed Mar  1 01:50:26 2023
+105: not in cache
+105: Requesting "GET http://info.cern.ch/ HTTP/1.1" from http://info.cern.ch/ 
+105: Received "HTTP/1.1 304 Not Modified " from HTTP/1.1 304 Not Modified
+(no-id): NOTE: get 304 not modified
+106: "GET http://info.cern.ch/ HTTP/1.1" from 174.99.41.104 @ Wed Mar  1 01:50:26 2023
+106: not in cache
+106: Requesting "GET http://info.cern.ch/ HTTP/1.1" from http://info.cern.ch/ 
+106: Received "HTTP/1.1 304 Not Modified " from HTTP/1.1 304 Not Modified
+(no-id): NOTE: get 304 not modified
+(no-id): NOTE:  The connection between proxy and server is closed
+(no-id): NOTE:  The connection between proxy and server is closed
+107: "POST http://ocsp.sectigo.com/ HTTP/1.1" from 174.99.41.104 @ Wed Mar  1 01:50:28 2023
+(no-id): NOTE: recv nothing
+79: Tunnel closed
+(no-id): NOTE:  The connection between proxy and server is closed
+108: "GET http://info.cern.ch/hypertext/WWW/Bibliography.html HTTP/1.1" from 174.99.41.104 @ Wed Mar  1 01:50:33 2023
+108: not in cache
+108: Requesting "GET http://info.cern.ch/hypertext/WWW/Bibliography.html HTTP/1.1" from http://info.cern.ch/hypertext/WWW/Bibliography.html 
+108: Received "HTTP/1.1 200 OK " from HTTP/1.1 200 OK
+108: Received "HTTP/1.1 200 OK " from HTTP/1.1 200 OK
+108: in cache, requires validation
+108: Responding "HTTP/1.1 200 OK"
+109: "GET http://info.cern.ch/hypertext/WWW/LineMode/Defaults/line-mode-guide.txt HTTP/1.1" from 174.99.41.104 @ Wed Mar  1 01:50:36 2023
+109: not in cache
+109: Requesting "GET http://info.cern.ch/hypertext/WWW/LineMode/Defaults/line-mode-guide.txt HTTP/1.1" from http://info.cern.ch/hypertext/WWW/LineMode/Defaults/line-mode-guide.txt 
+109: Received "HTTP/1.1 404 Not Found " from HTTP/1.1 404 Not Found
+109: Received "HTTP/1.1 404 Not Found " from HTTP/1.1 404 Not Found
+109: not cacheable because not 200 OK
+109: Responding "HTTP/1.1 404 Not Found"
+(no-id): NOTE:  The connection between proxy and server is closed
+5: Received "HTTP/1.1 200 OK " from http://httpbin.org/post 
+5: Responding "HTTP/1.1 200 OK"
+110: "GET http://info.cern.ch/hypertext/WWW/People.html HTTP/1.1" from 174.99.41.104 @ Wed Mar  1 01:50:43 2023
+(no-id): NOTE:  The connection between proxy and server is closed
+110: not in cache
+110: Requesting "GET http://info.cern.ch/hypertext/WWW/People.html HTTP/1.1" from http://info.cern.ch/hypertext/WWW/People.html 
+110: Received "HTTP/1.1 200 OK " from HTTP/1.1 200 OK
+110: Received "HTTP/1.1 200 OK " from HTTP/1.1 200 OK
+110: in cache, requires validation
+110: Responding "HTTP/1.1 200 OK"

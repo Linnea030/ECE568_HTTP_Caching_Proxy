@@ -118,15 +118,6 @@ void logCache2(int id , std::string reason, int mode, std::ofstream & file) {
     }
 /////////
 
-void Cache::moveToHead(Node * node){
-    node->prev->next = node->next;
-    node->next->prev = node->prev;
-    node->prev = head;
-    node->next = head->next;
-    head->next->prev = node;
-    head->next = node;
-}
-
 void Cache::addNode(Node * node){
     node->prev = head;
     node->next = head->next;
@@ -142,6 +133,15 @@ void Cache::addNode(Node * node){
         map_cache.erase(node->uri);
         delete node;
     }
+}
+
+void Cache::moveToHead(Node * node){
+    node->prev->next = node->next;
+    node->next->prev = node->prev;
+    head->next->prev = node;
+    node->next = head->next;
+    head->next = node;
+    node->prev = head;
 }
 
 string Cache::search(string uri){
