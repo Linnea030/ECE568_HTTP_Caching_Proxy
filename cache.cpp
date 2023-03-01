@@ -1,4 +1,3 @@
-
 #include "cache.h"
 
 #define RESPONSE_MSG_MAX    65536

@@ -44,6 +44,8 @@ class PackRequest {
 
 class PackResponse {
     public:
+    std::string status_code; //Full code. eg. 200 OK
+    std::string code; //Status number only. eg. 200
     std::string response;
     std::string response_line;
     std::string response_header;
@@ -53,8 +55,7 @@ class PackResponse {
     std::string port;
     std::string URI;
     //std::string info;
-    std::string status_code; //Full code. eg. 200 OK
-    std::string code; //Status number only. eg. 200
+    int ip;
 
     PackResponse(std::vector<char> msg) {
         response.assign(msg.begin(), msg.end());

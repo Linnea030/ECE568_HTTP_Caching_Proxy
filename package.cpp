@@ -15,10 +15,13 @@ void PackRequest::parse_line() {
     size_t pos_mend = request_line.find(" ");
 	method = request_line.substr(0, pos_mend);
     //test!!!
-    std::cout<<"in parse_line get method: "<<method<<std::endl;
+    std::cout<<"in parse_line get method: "<<method;
     //get hostname:port in line
 	size_t pos_u = request_line.find(" ", pos_mend + 1);
-	URI = request_line.substr(pos_mend + 1, pos_u - pos_mend);
+    std::cout<<"pos_u"<<pos_u;
+    std::cout<<"request_line"<<pos_u;
+	URI = request_line.substr(pos_mend + 1, pos_u - pos_mend - 1);
+    std::cout<<"URI"<<pos_u;
 }
 
 void PackRequest::parse_header() {
@@ -34,16 +37,20 @@ void PackRequest::parse_header() {
 	request_header = request.substr(pos_line + strlen("\r\n"), pos_header);
     size_t pos_h = request.find("Host");
     size_t len_host = strlen("Host: ");
+    std::cout << len_host;
 	std::string h1 = request.substr(pos_h + len_host);
 	size_t end_line = h1.find("\r\n");
 	std::string hp = h1.substr(0, end_line);
+    std::cout << hp;
 	size_t pos_p = hp.find(":");
-	//std::cout << port_pos <<std::endl;
+    //get port and host
 	if(pos_p == std::string::npos){
+        std::cout <<"with"<< hp;
 		hostname = hp;
 		port="80";
 	} else{
         hostname = hp.substr(0, pos_p);
+        std::cout <<"with"<< hostname;
 		port = hp.substr(pos_p + 1);
 	}
 }
@@ -60,7 +67,7 @@ void PackRequest::parse_body() {
 	size_t pos_len_end = content_len.find("\r\n");
 	len_info = content_len.substr(0, pos_len_end);
 
-    int rest_len = request.size() - int(pos_header) - 8;
+    int rest_len = request.size() - int(pos_header) - 4;
     size_t end = request.find("\r\n", pos_len);
     //len_info = stoi(request.substr(pos_len + 8, end - pos_len - 6));
     content_len_remain = stoi(len_info) - rest_len - 4;
