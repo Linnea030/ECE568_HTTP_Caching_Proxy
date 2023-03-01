@@ -63,7 +63,8 @@ void PackRequest::parse_body() {
         content_len_remain = -1;
     }
 	std::string content_len;
-    content_len = request_header.substr(pos_len + 16);
+    size_t len_c = strlen("Content-Length: ");
+    content_len = request_header.substr(pos_len + len_c);
 	size_t pos_len_end = content_len.find("\r\n");
 	len_info = content_len.substr(0, pos_len_end);
 
