@@ -1,0 +1,127 @@
+1: "CONNECT contile-images.services.mozilla.com:443 HTTP/1.1" from 174.99.41.104 @ Wed Mar  1 02:23:16 2023
+0: "CONNECT incoming.telemetry.mozilla.org:443 HTTP/1.1" from 174.99.41.104 @ Wed Mar  1 02:23:16 2023
+0: Responding "HTTP/1.1 200 OK"
+1: Responding "HTTP/1.1 200 OK"
+2: "CONNECT www.youtube.com:443 HTTP/1.1" from 174.99.41.104 @ Wed Mar  1 02:23:16 2023
+2: Responding "HTTP/1.1 200 OK"
+3: "CONNECT incoming.telemetry.mozilla.org:443 HTTP/1.1" from 174.99.41.104 @ Wed Mar  1 02:23:17 2023
+3: Responding "HTTP/1.1 200 OK"
+4: "CONNECT i.ytimg.com:443 HTTP/1.1" from 174.99.41.104 @ Wed Mar  1 02:23:17 2023
+4: Responding "HTTP/1.1 200 OK"
+8: "CONNECT googleads.g.doubleclick.net:443 HTTP/1.1" from 174.99.41.104 @ Wed Mar  1 02:23:17 2023
+8: Responding "HTTP/1.1 200 OK"
+9: "CONNECT www.google.com:443 HTTP/1.1" from 174.99.41.104 @ Wed Mar  1 02:23:18 2023
+9: Responding "HTTP/1.1 200 OK"
+6: "CONNECT fonts.gstatic.com:443 HTTP/1.1" from 174.99.41.104 @ Wed Mar  1 02:23:18 2023
+6: Responding "HTTP/1.1 200 OK"
+10: "CONNECT yt3.ggpht.com:443 HTTP/1.1" from 174.99.41.104 @ Wed Mar  1 02:23:18 2023
+10: Responding "HTTP/1.1 200 OK"
+11: "CONNECT static.doubleclick.net:443 HTTP/1.1" from 174.99.41.104 @ Wed Mar  1 02:23:19 2023
+12: "CONNECT jnn-pa.googleapis.com:443 HTTP/1.1" from 174.99.41.104 @ Wed Mar  1 02:23:19 2023
+12: Responding "HTTP/1.1 200 OK"
+11: Responding "HTTP/1.1 200 OK"
+13: "CONNECT rr3---sn-hjoj-gq0l.googlevideo.com:443 HTTP/1.1" from 174.99.41.104 @ Wed Mar  1 02:23:22 2023
+13: Responding "HTTP/1.1 200 OK"
+15: "POST http://ocsp.pki.goog/gts1c3 HTTP/1.1" from 174.99.41.104 @ Wed Mar  1 02:23:23 2023
+16: "CONNECT rr3---sn-hjoj-gq0l.googlevideo.com:443 HTTP/1.1" from 174.99.41.104 @ Wed Mar  1 02:23:23 2023
+17: "CONNECT rr3---sn-hjoj-gq0l.googlevideo.com:443 HTTP/1.1" from 174.99.41.104 @ Wed Mar  1 02:23:23 2023
+17: Responding "HTTP/1.1 200 OK"
+16: Responding "HTTP/1.1 200 OK"
+20: "CONNECT rr2---sn-hjoj-gq0l.googlevideo.com:443 HTTP/1.1" from 174.99.41.104 @ Wed Mar  1 02:23:23 2023
+19: "CONNECT rr2---sn-hjoj-gq0l.googlevideo.com:443 HTTP/1.1" from 174.99.41.104 @ Wed Mar  1 02:23:23 2023
+20: Responding "HTTP/1.1 200 OK"
+19: Responding "HTTP/1.1 200 OK"
+21: "POST http://ocsp.pki.goog/gts1c3 HTTP/1.1" from 174.99.41.104 @ Wed Mar  1 02:23:23 2023
+22: "POST http://ocsp.pki.goog/gts1c3 HTTP/1.1" from 174.99.41.104 @ Wed Mar  1 02:23:23 2023
+24: "POST http://ocsp.pki.goog/gts1c3 HTTP/1.1" from 174.99.41.104 @ Wed Mar  1 02:23:23 2023
+23: "POST http://ocsp.pki.goog/gts1c3 HTTP/1.1" from 174.99.41.104 @ Wed Mar  1 02:23:23 2023
+18: "CONNECT tpc.googlesyndication.com:443 HTTP/1.1" from 174.99.41.104 @ Wed Mar  1 02:23:23 2023
+25: "CONNECT pagead2.googlesyndication.com:443 HTTP/1.1" from 174.99.41.104 @ Wed Mar  1 02:23:23 2023
+18: Responding "HTTP/1.1 200 OK"
+25: Responding "HTTP/1.1 200 OK"
+27: "CONNECT ade.googlesyndication.com:443 HTTP/1.1" from 174.99.41.104 @ Wed Mar  1 02:23:26 2023
+26: "CONNECT ad.doubleclick.net:443 HTTP/1.1" from 174.99.41.104 @ Wed Mar  1 02:23:26 2023
+26: Responding "HTTP/1.1 200 OK"
+27: Responding "HTTP/1.1 200 OK"
+29: "CONNECT firefox.dns.nextdns.io:443 HTTP/1.1" from 174.99.41.104 @ Wed Mar  1 02:23:28 2023
+29: Responding "HTTP/1.1 200 OK"
+30: "GET http://www.httpwatch.com/httpgallery/methods/ HTTP/1.1" from 174.99.41.104 @ Wed Mar  1 02:23:30 2023
+30: not in cache
+30: Requesting "GET http://www.httpwatch.com/httpgallery/methods/ HTTP/1.1" from http://www.httpwatch.com/httpgallery/methods/
+30: Received "HTTP/1.1 200 OK " from HTTP/1.1 200 OK
+30: Received "HTTP/1.1 200 OK " from HTTP/1.1 200 OK
+30: not cacheable because is no-store
+30: Responding "HTTP/1.1 200 OK"
+35: "CONNECT www.httpwatch.com:443 HTTP/1.1" from 174.99.41.104 @ Wed Mar  1 02:23:30 2023
+35: Responding "HTTP/1.1 200 OK"
+37: "CONNECT www.google-analytics.com:443 HTTP/1.1" from 174.99.41.104 @ Wed Mar  1 02:23:30 2023
+37: Responding "HTTP/1.1 200 OK"
+31: "GET http://www.httpwatch.com/httpgallery/methods/ HTTP/1.1" from 174.99.41.104 @ Wed Mar  1 02:23:33 2023
+31: not in cache
+31: Requesting "GET http://www.httpwatch.com/httpgallery/methods/ HTTP/1.1" from http://www.httpwatch.com/httpgallery/methods/
+31: Received "HTTP/1.1 200 OK " from HTTP/1.1 200 OK
+31: Received "HTTP/1.1 200 OK " from HTTP/1.1 200 OK
+31: not cacheable because is no-store
+31: Responding "HTTP/1.1 200 OK"
+33: "GET http://www.httpwatch.com/httpgallery/methods/retry.png HTTP/1.1" from 174.99.41.104 @ Wed Mar  1 02:23:33 2023
+33: not in cache
+33: Requesting "GET http://www.httpwatch.com/httpgallery/methods/retry.png HTTP/1.1" from http://www.httpwatch.com/httpgallery/methods/retry.png
+33: Received "HTTP/1.1 200 OK " from HTTP/1.1 200 OK
+33: Received "HTTP/1.1 200 OK " from HTTP/1.1 200 OK
+33: in cache, requires validation
+33: Responding "HTTP/1.1 200 OK"
+32: "GET http://www.httpwatch.com/httpgallery/methods/ HTTP/1.1" from 174.99.41.104 @ Wed Mar  1 02:23:35 2023
+32: not in cache
+32: Requesting "GET http://www.httpwatch.com/httpgallery/methods/ HTTP/1.1" from http://www.httpwatch.com/httpgallery/methods/
+32: Received "HTTP/1.1 200 OK " from HTTP/1.1 200 OK
+32: Received "HTTP/1.1 200 OK " from HTTP/1.1 200 OK
+32: not cacheable because is no-store
+32: Responding "HTTP/1.1 200 OK"
+38: "GET http://www.httpwatch.com/httpgallery/methods/retry.png HTTP/1.1" from 174.99.41.104 @ Wed Mar  1 02:23:35 2023
+38: not in cache
+38: Requesting "GET http://www.httpwatch.com/httpgallery/methods/retry.png HTTP/1.1" from http://www.httpwatch.com/httpgallery/methods/retry.png
+38: Received "HTTP/1.1 200 OK " from HTTP/1.1 200 OK
+38: Received "HTTP/1.1 200 OK " from HTTP/1.1 200 OK
+38: in cache, requires validation
+38: Responding "HTTP/1.1 200 OK"
+39: "GET http://www.httpwatch.com/httpgallery/methods/ HTTP/1.1" from 174.99.41.104 @ Wed Mar  1 02:23:39 2023
+39: not in cache
+39: Requesting "GET http://www.httpwatch.com/httpgallery/methods/ HTTP/1.1" from http://www.httpwatch.com/httpgallery/methods/
+39: Received "HTTP/1.1 200 OK " from HTTP/1.1 200 OK
+39: Received "HTTP/1.1 200 OK " from HTTP/1.1 200 OK
+39: not cacheable because is no-store
+39: Responding "HTTP/1.1 200 OK"
+40: "GET http://www.httpwatch.com/httpgallery/methods/retry.png HTTP/1.1" from 174.99.41.104 @ Wed Mar  1 02:23:39 2023
+40: not in cache
+40: Requesting "GET http://www.httpwatch.com/httpgallery/methods/retry.png HTTP/1.1" from http://www.httpwatch.com/httpgallery/methods/retry.png
+40: Received "HTTP/1.1 200 OK " from HTTP/1.1 200 OK
+40: Received "HTTP/1.1 200 OK " from HTTP/1.1 200 OK
+40: in cache, requires validation
+40: Responding "HTTP/1.1 200 OK"
+49: "GET http://httpbin.org/forms/post HTTP/1.1" from 174.99.41.104 @ Wed Mar  1 02:23:48 2023
+49: not in cache
+49: Requesting "GET http://httpbin.org/forms/post HTTP/1.1" from http://httpbin.org/forms/post
+49: Received "HTTP/1.1 200 OK " from HTTP/1.1 200 OK
+49: Received "HTTP/1.1 200 OK " from HTTP/1.1 200 OK
+49: in cache, requires validation
+49: Responding "HTTP/1.1 200 OK"
+50: "GET http://www.httpwatch.com/httpgallery/methods/?AddX=1&AddY=12&B1=Add HTTP/1.1" from 174.99.41.104 @ Wed Mar  1 02:23:54 2023
+50: not in cache
+50: Requesting "GET http://www.httpwatch.com/httpgallery/methods/?AddX=1&AddY=12&B1=Add HTTP/1.1" from http://www.httpwatch.com/httpgallery/methods/?AddX=1&AddY=12&B1=Add
+50: Received "HTTP/1.1 200 OK " from HTTP/1.1 200 OK
+50: Received "HTTP/1.1 200 OK " from HTTP/1.1 200 OK
+50: not cacheable because is no-store
+50: Responding "HTTP/1.1 200 OK"
+53: "GET http://www.httpwatch.com/httpgallery/methods/retry.png HTTP/1.1" from 174.99.41.104 @ Wed Mar  1 02:23:54 2023
+53: not in cache
+53: Requesting "GET http://www.httpwatch.com/httpgallery/methods/retry.png HTTP/1.1" from http://www.httpwatch.com/httpgallery/methods/retry.png
+53: Received "HTTP/1.1 200 OK " from HTTP/1.1 200 OK
+53: Received "HTTP/1.1 200 OK " from HTTP/1.1 200 OK
+53: in cache, requires validation
+53: Responding "HTTP/1.1 200 OK"
+58: "POST http://httpbin.org/post HTTP/1.1" from 174.99.41.104 @ Wed Mar  1 02:24:13 2023
+59: "CONNECT contile.services.mozilla.com:443 HTTP/1.1" from 174.99.41.104 @ Wed Mar  1 02:24:17 2023
+59: Responding "HTTP/1.1 200 OK"
+60: "POST http://r3.o.lencr.org/ HTTP/1.1" from 174.99.41.104 @ Wed Mar  1 02:24:18 2023
+58: Received "HTTP/1.1 200 OK " from http://httpbin.org/post
+58: Responding "HTTP/1.1 200 OK"
